@@ -1,80 +1,38 @@
-var webpack = require('webpack');
-var ExtractTextPlugin = require('extract-text-webpack-plugin');
-var nodeExternals = require('webpack-node-externals');
-
-var isProduction = process.env.NODE_ENV === 'production';
-var productionPluginDefine = isProduction ? [
-  new webpack.DefinePlugin({'process.env': {'NODE_ENV': JSON.stringify('production')}})
-] : [];
-var clientLoaders = isProduction ? productionPluginDefine.concat([
-  new webpack.optimize.DedupePlugin(),
-  new webpack.optimize.OccurrenceOrderPlugin(),
-  new webpack.optimize.UglifyJsPlugin({ compress: { warnings: false }, sourceMap: false })
-]) : [];
-
-var commonLoaders = [
-  {
-    test: /\.json$/,
-    loader: 'json-loader'
-  }
-];
-
 const path = require('path');
 
-module.exports = [
-  {
-    entry: './src/server.js',
-    output: {
-      path: path.resolve(__dirname, 'dist'),
-      filename: 'server.js',
-      libraryTarget: 'commonjs2',
-      publicPath: '/'
-    },
-    target: 'node',
-    node: {
-      console: false,
-      global: false,
-      process: false,
-      Buffer: false,
-      __filename: false,
-      __dirname: false
-    },
-    externals: nodeExternals(),
-    plugins: productionPluginDefine,
-    module: {
-      loaders: [
-        {
-          test: /\.js$/,
-          loader: 'babel-loader'
-        }
-      ].concat(commonLoaders)
-    }
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const HtmlWebpackPluginConfig = new HtmlWebpackPlugin({
+  template: './client/index.html',
+  filename: 'index.html',
+  inject: 'body'
+})
+
+module.exports = {
+  entry: './client/index.js',
+  output: {
+    path: path.resolve('dist'),
+    filename: 'index_bundle.js'
   },
-  {
-    entry: './src/app/browser.js',
-    output: {
-      path: path.resolve(__dirname, 'dist/assets'),
-      publicPath: '/',
-      filename: 'bundle.js'
-    },
-    plugins: clientLoaders.concat([
-      new ExtractTextPlugin({ filename: 'index.css', allChunks: true})
-    ]),
-    module: {
-      loaders: [
-        {
-          test: /\.js$/,
-          exclude: /node_modules/,
-          loader: 'babel-loader'
-        },
-        {
-          test: /\.scss$/,
-          loader: ExtractTextPlugin.extract('css!sass')
-        }
-      ]
-    },
-    resolve: {
-      extensions: ['.js', '.jsx']
-    }
-  }
-];
+  module: {
+    loaders: [
+      {
+        test: /\.js$/,
+        loader: 'babel-loader',
+        exclude: /node_modules/
+      },
+      {
+        test: /\.jsx$/,
+        loader: 'babel-loader',
+        exclude: /node_modules/
+      },
+      {
+        test: /\.scss$/,
+        loaders: [ 'style-loader', 'css-loader', 'sass-loader' ]
+      }
+    ]
+  },
+  output: {
+    filename: 'dist/bundle.js'
+  },
+  plugins: [HtmlWebpackPluginConfig]
+}
