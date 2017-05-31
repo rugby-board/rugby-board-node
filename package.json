@@ -1,0 +1,24 @@
+{
+  "name": "rugby-board-js",
+  "version": "1.0.0",
+  "author": "David Zhang",
+  "license": "MIT",
+  "scripts": {
+    "start": "cd dist && node server",
+    "build": "webpack"
+  },
+  "dependencies": {
+    "express": "^4.15.3",
+    "react": "^15.5.4",
+    "react-dom": "^15.5.4"
+  },
+  "devDependencies": {
+    "babel-core": "^6.24.1",
+    "babel-loader": "^7.0.0",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
+    "extract-text-webpack-plugin": "^2.1.0",
+    "webpack": "^2.6.1",
+    "webpack-node-externals": "^1.6.0"
+  }
+}
