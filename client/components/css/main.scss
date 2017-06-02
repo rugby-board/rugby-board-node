@@ -2,6 +2,11 @@ $min-breakpoint: 26rem;
 $page-breakpoint: 70rem;
 $font-breakpoint: 48rem;
 
+@import "header";
+@import "footer";
+@import "column";
+@import "news";
+
 html {
   font-size: 16px;
 }
@@ -12,7 +17,7 @@ html {
 }
 body {
   margin: 0;
-  font-family: "Helvetica Neue", Helvetica, Arial, "Hiragino Sans GB", "Microsoft Yahei", sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, Roboto, "Segoe UI", Helvetica, Arial, "Hiragino Sans GB", "Microsoft Yahei", sans-serif;
   font-size: 1rem;
   -webkit-font-smoothing: antialiased;
   color: #333;

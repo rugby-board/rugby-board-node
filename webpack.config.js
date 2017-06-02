@@ -34,5 +34,8 @@ module.exports = {
   output: {
     filename: 'dist/bundle.js'
   },
-  plugins: [HtmlWebpackPluginConfig]
+  plugins: [HtmlWebpackPluginConfig],
+  devServer: {
+    historyApiFallback: true,
+  }
 }
