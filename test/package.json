@@ -1,0 +1,6 @@
+{
+  "devDependencies": {
+    "mz": "^2.6.0",
+    "supertest-as-promised": "^4.0.2"
+  }
+}
