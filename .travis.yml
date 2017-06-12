@@ -2,3 +2,6 @@ language: node_js
 node_js: "7"
 cache: yarn
 script: "yarn test"
+notifications:
+  slack: navyblue-team:ioO5diAGc5WUQVDKc5BH1UbE
+  email: false
