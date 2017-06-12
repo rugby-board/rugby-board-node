@@ -4,13 +4,14 @@
   "author": "David Zhang",
   "license": "MIT",
   "scripts": {
-    "dev": "webpack-dev-server --host 127.0.0.1 --devtool eval --progress --colors --hot --content-base build",
+    "dev": "webpack-dev-server --host 127.0.0.1 --devtool eval --progress --colors --hot --content-base dist",
     "build": "webpack",
     "server": "node server",
     "test": "mocha test"
   },
   "dependencies": {
     "express": "^4.15.3",
+    "marked": "^0.3.6",
     "morgan": "^1.8.2",
     "node-fetch": "^1.7.1",
     "react": "^15.5.4",

@@ -28,7 +28,7 @@ module.exports = {
     ]
   },
   output: {
-    filename: 'build/bundle.js'
+    filename: 'dist/bundle.js'
   },
   plugins: [HtmlWebpackPluginConfig],
   devServer: {
