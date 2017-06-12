@@ -1,0 +1,43 @@
+$min-breakpoint: 26rem;
+$page-breakpoint: 70rem;
+$font-breakpoint: 48rem;
+
+@import "header";
+@import "footer";
+@import "column";
+@import "heading";
+@import "news";
+@import "article";
+
+html {
+  font-size: 16px;
+}
+@media (max-width: $font-breakpoint) {
+  html {
+    font-size: 12px;
+  }
+}
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, Roboto, "Segoe UI", Helvetica, Arial, "Hiragino Sans GB", "Microsoft Yahei", sans-serif;
+  font-size: 1rem;
+  -webkit-font-smoothing: antialiased;
+  color: #333;
+  background-color: #fbfbfb;
+  word-wrap: break-word;
+  text-align: center;
+}
+.container {
+  width: $page-breakpoint;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: left;
+  margin-bottom: 2rem;
+}
+@media (max-width: $page-breakpoint) {
+  .container {
+    width: 100%;
+    padding-left: 0;
+    min-width: $min-breakpoint;
+  }
+}
