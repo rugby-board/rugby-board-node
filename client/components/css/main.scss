@@ -5,7 +5,9 @@ $font-breakpoint: 48rem;
 @import "header";
 @import "footer";
 @import "column";
+@import "heading";
 @import "news";
+@import "article";
 
 html {
   font-size: 16px;

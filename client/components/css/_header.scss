@@ -1,9 +1,5 @@
-$page-breakpoint: 70rem;
-$font-breakpoint: 48rem;
-
 .menu {
   width: 100%;
-  padding: 1rem;
   margin: 0;
   background-color: #333;
   font-size: 1.4rem;
@@ -18,12 +14,14 @@ $font-breakpoint: 48rem;
 }
 .menu-name {
   font-size: 2.4rem;
-  margin-bottom: 1.4rem;
+  padding-top: 1rem;
+  margin: 0 0rem 1.4rem 1rem;
 }
 .menu-list {
   border-top: #fbfbfb solid 1px;
   font-size: 1.2rem;
-  padding-top: 1rem;
+  padding: 1rem 0 1rem 0;
+  margin-left: 1rem;
 
   .menu-item {
     a {
