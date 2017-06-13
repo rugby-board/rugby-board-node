@@ -24,8 +24,8 @@
     }
 
     .news-title {
-      font-size: 1.6rem;
-      font-weight: 300;
+      font-size: 1rem;
+      font-weight: bold;
 
       a {
         color: inherit;
@@ -35,7 +35,7 @@
     .news-content {
       margin-top: 1rem;
       margin-bottom: 1rem;
-      font-size: 1.2rem;
+      font-size: 1rem;
     }
     .news-footer {
       font-size: 1rem;
@@ -52,4 +52,10 @@
       }
     }
   }
+}
+
+.loading {
+  padding: .8rem;
+  text-align: center;
+  font-size: 1rem;
 }

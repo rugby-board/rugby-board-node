@@ -30,6 +30,8 @@ export default class Header extends React.Component {
         <div className="menu-list">
           <span className="menu-item"><Link to="/">首页</Link></span>
           <span className="menu-item"><Link to="/news">新闻</Link></span>
+          <span className="menu-item"><Link to="/results">比分</Link></span>
+          <span className="menu-item"><Link to="/wiki">赛事介绍</Link></span>
           <span className="menu-item"><Link to="/about">关于</Link></span>
         </div>
         <div className={this.state.isDropdown ? "menu-dropdown menu-on" : "menu-dropdown menu-off"}>
@@ -42,6 +44,8 @@ export default class Header extends React.Component {
           <div className="menu-dropdown-index">
             <div className="menu-item"><Link to="/">首页</Link></div>
             <div className="menu-item"><Link to="/news">新闻</Link></div>
+            <div className="menu-item"><Link to="/results">比分</Link></div>
+            <div className="menu-item"><Link to="/wiki">赛事介绍</Link></div>
             <div className="menu-item"><Link to="/about">关于</Link></div>
           </div>
         </div>

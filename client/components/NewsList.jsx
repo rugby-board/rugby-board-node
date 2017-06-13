@@ -1,19 +1,15 @@
 import React from 'react';
 import News from './News.jsx';
+import Loading from './Loading.jsx';
 import Pagination from './Pagination.jsx';
 
 export default class NewsList extends React.Component {
   loading() {
     return (
-      <div className="columns">
-        <div className="column">
-          <div className="news">
-            Loading...
-          </div>
-        </div>
-      </div>
+      <Loading text="加载中..." />
     );
   }
+
   render() {
     var newsList = this.loading();
     if (this.props.data != null) {
