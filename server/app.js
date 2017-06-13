@@ -31,7 +31,7 @@ app.get('/list', (req, res) => {
 
 // Always return the main index.html, so react-router render the route in the client
 app.get('/', (req, res) => {
-  res.sendFile(path.resolve(__dirname, '..', '', 'index.html'));
+  res.sendFile(path.resolve(__dirname, '..', 'dist', 'index.html'));
 });
 
 module.exports = app;

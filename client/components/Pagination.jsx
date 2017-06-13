@@ -3,12 +3,18 @@ import React from 'react';
 export default class Pagination extends React.Component {
   render() {
     return (
-      <div className="news-item">
-        <div className="news-title" id="pagination">
-          <span>当前页: {this.props.data.cur_page} | </span>
-          <span>总数: {this.props.data.total} | </span>
-          <a href="">上一页</a>
-          <a href="">下一页</a>
+      <div className="pagination-wrapper" id="pagination">
+        <div className="pagination-page">
+        { this.props.data.cur_page != 1 &&
+          <span className="pagination-item"><a href={"/#/news?page=" + (this.props.data.cur_page - 1)}>上一页</a> </span>
+        }
+        { this.props.data.total_page != this.props.data.cur_page &&
+          <span className="pagination-item"><a href={"/#/news?page=" + (this.props.data.cur_page + 1)}>下一页</a></span>
+        }
+        </div>
+        <div className="pagination-info">
+          <span className="pagination-item">总共: {this.props.data.total}</span>
+          <span className="pagination-item">当前页: {this.props.data.cur_page}</span>
         </div>
       </div>
     );

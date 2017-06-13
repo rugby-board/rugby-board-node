@@ -1,0 +1,27 @@
+.pagination-wrapper {
+  font-size: 1rem;
+  font-weight: bold;
+  padding: .8rem;
+  color: #fbfbfb;
+  background-color: #333;
+
+  a {
+    color: #fbfbfb;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  span {
+    padding-left: .4rem;
+    padding-right: .4rem;
+  }
+
+  .pagination-page {
+    float: right;
+  }
+  .pagination-info {
+  }
+}
