@@ -1,7 +1,15 @@
 footer {
   text-align: center;
-  font-size: 1.2rem;
+  font-size: 1rem;
   overflow: hidden;
-  margin-top: 2rem;
   margin-bottom: 1rem;
+
+  .footer-column {
+    padding: 0 .8rem 1.2rem .8rem;
+    border-right: 0;
+
+    div {
+      padding-bottom: .4rem;
+    }
+  }
 }
