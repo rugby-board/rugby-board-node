@@ -17,6 +17,13 @@ export default class News extends React.Component {
   }
 
   render() {
+    console.log(this.props.data.created_at);
+    const newsDate = new Date(this.props.data.created_at);
+    const today = new Date();
+    var dateString = newsDate.getFullYear() + '-' + newsDate.getMonth() + '-' + newsDate.getDate();
+    if (today.getDate() == newsDate.getDate() && today.getMonth() == newsDate.getMonth() && today.getFullYear() == newsDate.getFullYear()) {
+      dateString = newsDate.getHours() + ':' + newsDate.getMinutes();
+    }
     return (
       <div className="news-item">
         <div className="news-title" id={this.props.data.id}>
@@ -28,10 +35,10 @@ export default class News extends React.Component {
         </div>
         <div className="news-footer">
           <div className="news-time">
-            {this.props.data.created_at}
+            {dateString}
           </div>
           <div className="news-channel">
-            {this.props.data.channel}
+            {this.props.data.channel_text} | {this.props.data.event_text}
           </div>
         </div>
       </div>
