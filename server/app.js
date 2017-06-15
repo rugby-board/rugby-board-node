@@ -22,7 +22,20 @@ app.get('/news/:id', (req, res) => {
 });
 // Get News List
 app.get('/list', (req, res) => {
-  var newsList = fetch('http://www.rugbynews.space/api/v1/list').then(function (response){
+  const channel = req.query.channel || -1;
+  const event = req.query.event || -1;
+  var url = 'http://www.rugbynews.space/api/v1/list';
+  params = new Array();
+  if (channel != -1) {
+    params.push('channel=' + channel);
+  }
+  if (event != -1) {
+    params.push('event=' + event);
+  }
+  if (channel != -1 || event != -1) {
+    url += ('?' + params.join('&'));
+  }
+  var newsList = fetch(url).then(function (response){
     return response.json();
   }).then(function (json){
     res.send(json);

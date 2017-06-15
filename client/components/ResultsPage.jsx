@@ -3,13 +3,13 @@ import React from 'react';
 import Heading from './Heading.jsx';
 import NewsList from './NewsList.jsx';
 
-export default class NewsPage extends React.Component {
+export default class ResultsPage extends React.Component {
   constructor(props) {
     super(props);
 
-    const newsHeading = {
+    const resultsHeading = {
       id: 'news',
-      title: '新闻',
+      title: '比分',
       more_text: '',
       more_link: ''
     };
@@ -17,13 +17,13 @@ export default class NewsPage extends React.Component {
     this.state = {
       data: null,
       page: null,
-      newsHeading: newsHeading
+      resultsHeading: resultsHeading
     };
   }
 
   componentDidMount() {
     var self = this;
-    fetch('/list?channel=0').then(function (response) {
+    fetch('/list?channel=1').then(function (response) {
       return response.json();
     }).then(function (json) {
       self.setState({
@@ -37,7 +37,7 @@ export default class NewsPage extends React.Component {
     return (
       <div className="columns">
         <div className="column">
-          <Heading data={this.state.newsHeading} />
+          <Heading data={this.state.resultsHeading} />
           <div>
             <NewsList data={this.state.data} page={this.state.page} />
           </div>
