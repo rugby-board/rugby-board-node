@@ -15,9 +15,11 @@ import Footer from './components/Footer.jsx';
 // pages
 import HomePage from './components/HomePage.jsx';
 import NewsPage from './components/NewsPage.jsx';
+import NewsItemPage from './components/NewsItemPage.jsx';
 import ResultsPage from './components/ResultsPage.jsx';
 import WikiPage from './components/WikiPage.jsx';
 import AboutPage from './components/AboutPage.jsx';
+import NotFound from './components/NotFound.jsx';
 
 require('./components/css/main.scss');
 
@@ -25,11 +27,12 @@ const Main = () => (
   <main>
     <Switch>
       <Route exact path="/" component={HomePage} />
+      <Route path="/news/:id" component={NewsItemPage} />
       <Route path="/news" component={NewsPage} />
-      <Route path="/news/:id" component={NewsPage} />
       <Route path="/results" component={ResultsPage} />
       <Route path="/wiki" component={WikiPage} />
       <Route path="/about" component={AboutPage} />
+      <Route path='*' component={NotFound} />
     </Switch>
   </main>
 );
