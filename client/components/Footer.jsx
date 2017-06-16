@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 export default class Footer extends React.Component {
   render() {
@@ -12,8 +13,9 @@ export default class Footer extends React.Component {
           </div>
           <div className="column column-1-4 footer-column">
             <h3>资讯板块</h3>
-            <div>新闻</div>
-            <div>赛事比分</div>
+            <div><Link to="/news">新闻</Link></div>
+            <div><Link to="/results">比分</Link></div>
+            <div><Link to="/wiki">赛事介绍</Link></div>
           </div>
           <div className="column column-1-4 footer-column">
             <h3>精彩赛事</h3>
