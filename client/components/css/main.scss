@@ -41,3 +41,10 @@ body {
     min-width: $min-breakpoint;
   }
 }
+a {
+  text-decoration: none;
+  color: #333;
+  &:hover {
+    text-decoration: underline;
+  }
+}

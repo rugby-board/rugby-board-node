@@ -2,13 +2,18 @@ footer {
   text-align: center;
   font-size: 1rem;
   overflow: hidden;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  background: #fff;
 
   .footer-column {
     padding: 0 .8rem 1.2rem .8rem;
     border-right: 0;
+    border-right: 1px solid #bbb;
+    width: 100%;
 
-    div {
-      padding-bottom: .4rem;
+    &:last-child {
+      border-right: 0;
     }
   }
 }
