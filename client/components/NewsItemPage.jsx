@@ -2,6 +2,7 @@ import React from 'react';
 
 import Heading from './Heading.jsx';
 import Loading from './Loading.jsx';
+import Share from './Share.jsx';
 import News from './News.jsx';
 
 export default class NewsItemPage extends React.Component {
@@ -37,6 +38,7 @@ export default class NewsItemPage extends React.Component {
       newsItem = (
         <div className="news">
           <News key={this.state.id} data={this.state.data} />
+          <Share />
         </div>
       );
     }
