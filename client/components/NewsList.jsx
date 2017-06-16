@@ -20,7 +20,7 @@ export default class NewsList extends React.Component {
 
     var pagination = "";
     if (this.props.page != null) {
-      pagination = <Pagination data={this.props.page} />;
+      pagination = <Pagination prefix={this.props.prefix} data={this.props.page} />;
     }
 
     return (

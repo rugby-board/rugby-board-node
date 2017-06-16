@@ -24,8 +24,13 @@ app.get('/news/:id', (req, res) => {
 app.get('/list', (req, res) => {
   const channel = req.query.channel || -1;
   const event = req.query.event || -1;
+  var page = req.query.page || 1;
+  if (page < 1) {
+    page = 1;
+  }
   var url = 'http://www.rugbynews.space/api/v1/list';
   params = new Array();
+  params.push('p=' + page);
   if (channel != -1) {
     params.push('channel=' + channel);
   }

@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 export default class Pagination extends React.Component {
   render() {
@@ -6,10 +7,10 @@ export default class Pagination extends React.Component {
       <div className="pagination-wrapper" id="pagination">
         <div className="pagination-page">
         { this.props.data.cur_page != 1 &&
-          <span className="pagination-item"><a href={"/#/news?page=" + (this.props.data.cur_page - 1)}>上一页</a> </span>
+          <span className="pagination-item"><Link to={"/" + this.props.prefix + "?page=" + (this.props.data.cur_page - 1)}>上一页</Link> </span>
         }
         { this.props.data.total_page != this.props.data.cur_page &&
-          <span className="pagination-item"><a href={"/#/news?page=" + (this.props.data.cur_page + 1)}>下一页</a></span>
+          <span className="pagination-item"><Link to={"/" + this.props.prefix + "?page=" + (this.props.data.cur_page + 1)}>下一页</Link></span>
         }
         </div>
         <div className="pagination-info">

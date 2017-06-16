@@ -17,20 +17,22 @@ export default class NewsPage extends React.Component {
     this.state = {
       data: null,
       page: null,
-      newsHeading: newsHeading
+      newsHeading: newsHeading,
+      queryString: props.location.search
     };
   }
 
-  componentDidMount() {
-    var self = this;
-    fetch('/list?channel=0').then(function (response) {
-      return response.json();
-    }).then(function (json) {
-      self.setState({
-        data: json.news,
-        page: json.page
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.location.search != this.props.location.search) {
+      this.setState({
+        queryString: nextProps.location.search
       });
-    });
+      this.fetchData(nextProps.location.search);
+    }
+  }
+
+  componentWillMount() {
+    this.fetchData(this.state.queryString);
   }
 
   render() {
@@ -39,10 +41,28 @@ export default class NewsPage extends React.Component {
         <div className="column">
           <Heading data={this.state.newsHeading} />
           <div>
-            <NewsList data={this.state.data} page={this.state.page} />
+            <NewsList data={this.state.data} prefix="news" page={this.state.page} />
           </div>
         </div>
       </div>
     );
+  }
+
+  fetchData(queries) {
+    var self = this;
+    const queryString = require('query-string');
+    const parsedHash = queryString.parse(queries);
+    var url = '/list?channel=0';
+    if (parsedHash.page != null) {
+      url += ('&page=' + parsedHash.page);
+    }
+    fetch(url).then(function (response) {
+      return response.json();
+    }).then(function (json) {
+      self.setState({
+        data: json.news,
+        page: json.page
+      });
+    });
   }
 }
