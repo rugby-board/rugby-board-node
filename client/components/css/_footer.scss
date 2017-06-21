@@ -2,19 +2,24 @@ footer {
   text-align: center;
   font-size: 1rem;
   overflow: hidden;
-  padding-top: 2rem;
-  padding-bottom: 2rem;
+  padding-top: 1.2rem;
+  padding-bottom: 1.2rem;
   background-color: #333;
   border-top: #aaa solid 1px;
 
   .footer-column {
-    padding: 0 1.6rem 1.2rem 1.6rem;
+    padding: 0 1.6rem .4rem 1.6rem;
     border-right: 0;
     border-right: 1px solid #bbb;
     width: 100%;
     background-color: #333;
     color: #efefef;
+    line-height: 1.4;
 
+    h3 {
+      line-height: 1.2;
+      margin-top: .4rem;
+    }
     a {
       color: #efefef;
     }

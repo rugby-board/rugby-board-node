@@ -51,3 +51,18 @@ a {
 img {
   max-width: 100%;
 }
+table {
+  border-spacing: 0;
+  th {
+    background-color: #facb5b;
+    padding: .2rem .4rem .2rem .4rem;
+  }
+  tr {
+    &:hover {
+      background-color: #facb5b;
+    }
+  }
+}
+main {
+  width: 100%;
+}

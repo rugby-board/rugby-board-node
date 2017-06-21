@@ -25,21 +25,27 @@ export default class News extends React.Component {
     if (today.getDate() == newsDate.getDate() && today.getMonth() == newsDate.getMonth() && today.getFullYear() == newsDate.getFullYear()) {
       dateString = newsDate.getHours() + ':' + newsDate.getMinutes();
     }
+    var contentClass = 'news-content';
+    if (this.props.data.channel == 1) {
+      contentClass += ' news-result';
+    }
     return (
-      <div className="news-item">
-        <div className="news-title" id={this.props.data.id}>
-          <Link to={newsLink}>
-            {this.props.data.title}
-          </Link>
-        </div>
-        <div className="news-content" dangerouslySetInnerHTML={this.markdown(this.props.data.content)}>
-        </div>
-        <div className="news-footer">
-          <div className="news-time">
-            {dateString}
+      <div className="news-wrap">
+        <div className="news-item">
+          <div className="news-title" id={this.props.data.id}>
+            <Link to={newsLink}>
+              {this.props.data.title}
+            </Link>
           </div>
-          <div className="news-channel">
-            {this.props.data.channel_text} | {this.props.data.event_text}
+          <div className={contentClass} dangerouslySetInnerHTML={this.markdown(this.props.data.content)}>
+          </div>
+          <div className="news-footer">
+            <div className="news-time">
+              {dateString}
+            </div>
+            <div className="news-channel">
+              {this.props.data.channel_text} | {this.props.data.event_text}
+            </div>
           </div>
         </div>
       </div>
