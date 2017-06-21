@@ -58,3 +58,9 @@ typings/
 .env
 
 /dist/bundle.js
+/dist/*.eot
+/dist/*.svg
+/dist/*.woff
+/dist/*.woff2
+/dist/*.ttf
+

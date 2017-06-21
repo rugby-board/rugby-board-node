@@ -24,3 +24,14 @@ footer {
     }
   }
 }
+
+@media (max-width: $page-breakpoint) {
+  footer {
+    padding-top: 0;
+    padding-bottom: 0;
+
+    .footer-column {
+      padding: .2rem .8rem .8rem .8rem;
+    }
+  }
+}

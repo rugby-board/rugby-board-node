@@ -8,6 +8,8 @@ import {
   HashRouter
 } from 'react-router-dom';
 
+require('font-awesome/css/font-awesome.css');
+
 // components
 import Header from './components/Header.jsx';
 import Footer from './components/Footer.jsx';
