@@ -17,8 +17,7 @@ export default class ResultsPage extends React.Component {
     this.state = {
       data: null,
       page: null,
-      resultsHeading: resultsHeading,
-      queryString: props.location.search
+      resultsHeading: resultsHeading
     };
   }
 

@@ -18,7 +18,8 @@ export default class NewsPage extends React.Component {
       data: null,
       page: null,
       newsHeading: newsHeading,
-      queryString: props.location.search
+      queryString: props.location.search,
+      name: props.match.params.name
     };
   }
 

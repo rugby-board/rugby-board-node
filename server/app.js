@@ -6,6 +6,15 @@ const fetch = require('node-fetch');
 
 const app = express();
 
+// webpack-dev-middleware
+var webpack = require('webpack');
+var webpackConfig = require('../webpack.config.js');
+var compiler = webpack(webpackConfig);
+
+app.use(require("webpack-dev-middleware")(compiler, {
+  noInfo: true, publicPath: webpackConfig.output.publicPath
+}));
+
 // Setup logger
 app.use(morgan(':remote-addr - :remote-user [:date[clf]] ":method :url HTTP/:http-version" :status :res[content-length] :response-time ms'));
 
@@ -20,6 +29,7 @@ app.get('/news/:id', (req, res) => {
     res.send(json);
   });
 });
+
 // Get News List
 app.get('/list', (req, res) => {
   const channel = req.query.channel || -1;
