@@ -18,13 +18,10 @@ export default class News extends React.Component {
   }
 
   render() {
-    const newsDate = new Date(this.props.data.created_at);
-    const today = new Date();
+    var moment = require('moment');
+    const dateString = moment(this.props.data.created_at).format('HH:mm YYYY-MM-DD');
+
     const newsLink = "/news/" + this.props.data.id;
-    var dateString = newsDate.getFullYear() + '-' + newsDate.getMonth() + '-' + newsDate.getDate();
-    if (today.getDate() == newsDate.getDate() && today.getMonth() == newsDate.getMonth() && today.getFullYear() == newsDate.getFullYear()) {
-      dateString = newsDate.getHours() + ':' + newsDate.getMinutes();
-    }
     var contentClass = 'news-content';
     if (this.props.data.channel == 1) {
       contentClass += ' news-result';
