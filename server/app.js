@@ -7,13 +7,20 @@ const fetch = require('node-fetch');
 const app = express();
 
 // webpack-dev-middleware
-if (!process.env.NO_DEV) {
+if (process.env.NO_DEV != 1) {
   var webpack = require('webpack');
   var webpackConfig = require('../webpack.config.js');
   var compiler = webpack(webpackConfig);
-
-  app.use(require("webpack-dev-middleware")(compiler, {
-    noInfo: true, publicPath: webpackConfig.output.publicPath
+  var middleware = require("webpack-dev-middleware");
+  var webpackHotMiddleware = require("webpack-hot-middleware");
+  app.use(middleware(compiler, {
+    noInfo: true,
+    publicPath: webpackConfig.output.publicPath
+  }));
+  app.use(webpackHotMiddleware(compiler, {
+    log: console.log,
+    path: '/__webpack_hmr',
+    heartbeat: 10 * 1000
   }));
 }
 
@@ -25,7 +32,7 @@ app.use(express.static(path.resolve(__dirname, '..', 'dist')));
 
 // Get News Item
 app.get('/news/:id', (req, res) => {
-  var newsItem = fetch('http://www.rugbynews.space/api/v1/news/' + req.params.id).then(function (response){
+  var newsItem = fetch('https://rugby-board.herokuapp.com/api/v1/news/' + req.params.id).then(function (response){
     return response.json();
   }).then(function (json){
     res.send(json);
@@ -40,7 +47,7 @@ app.get('/list', (req, res) => {
   if (page < 1) {
     page = 1;
   }
-  var url = 'http://www.rugbynews.space/api/v1/list';
+  var url = 'https://rugby-board.herokuapp.com/api/v1/list';
   params = new Array();
   params.push('p=' + page);
   if (channel != -1) {

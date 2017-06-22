@@ -6,13 +6,18 @@ const HtmlWebpackPluginConfig = new HtmlWebpackPlugin({
   template: './client/index.html',
   filename: 'index.html',
   inject: 'body'
-})
+});
+
+const devEntry = [
+  'webpack-hot-middleware/client',
+  './client/index.js'
+];
+const prodEntry = ['./client/index.js'];
+
+const entry = process.env.NO_DEV == 1 ? prodEntry : devEntry;
 
 module.exports = {
-  entry: [
-    'webpack-hot-middleware/client?path=/__webpack_hmr&timeout=20000',
-    './client/index.js'
-  ],
+  entry: entry,
   module: {
     loaders: [
       {
@@ -61,9 +66,8 @@ module.exports = {
   },
   plugins: [
     HtmlWebpackPluginConfig,
-    // new webpack.optimize.OccurenceOrderPlugin(),
     new webpack.HotModuleReplacementPlugin(),
-    new webpack.NoErrorsPlugin()
+    new webpack.NoEmitOnErrorsPlugin()
   ],
   devServer: {
     historyApiFallback: true,
