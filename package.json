@@ -7,7 +7,8 @@
     "dev": "webpack-dev-server --host 127.0.0.1 --devtool eval --progress --colors --hot --content-base dist",
     "build": "webpack",
     "server": "node server",
-    "test": "mocha test"
+    "test": "mocha test",
+    "heroku-postbuild": "webpack -p --config ./webpack.prod.config.js --progress"
   },
   "dependencies": {
     "express": "^4.15.3",

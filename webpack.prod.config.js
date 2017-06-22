@@ -9,10 +9,7 @@ const HtmlWebpackPluginConfig = new HtmlWebpackPlugin({
 });
 
 module.exports = {
-  entry: [
-    'webpack-hot-middleware/client',
-    './client/index.js'
-  ],
+  entry: ['./client/index.js'],
   module: {
     loaders: [
       {
@@ -60,9 +57,7 @@ module.exports = {
     filename: 'bundle.js'
   },
   plugins: [
-    HtmlWebpackPluginConfig,
-    new webpack.HotModuleReplacementPlugin(),
-    new webpack.NoEmitOnErrorsPlugin()
+    HtmlWebpackPluginConfig
   ],
   devServer: {
     historyApiFallback: true,

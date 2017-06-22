@@ -57,9 +57,9 @@ typings/
 # dotenv environment variables file
 .env
 
-# /dist/bundle.js
-# /dist/*.eot
-# /dist/*.svg
-# /dist/*.woff
-# /dist/*.woff2
-# /dist/*.ttf
+/dist/bundle.js
+/dist/*.eot
+/dist/*.svg
+/dist/*.woff
+/dist/*.woff2
+/dist/*.ttf
