@@ -19,15 +19,19 @@ export default class Footer extends React.Component {
           </div>
           <div className="footer-column">
             <h3>精彩赛事</h3>
-            <div>超级橄榄球</div>
-            <div>英超联赛</div>
-            <div>TOP14</div>
-            <div>PRO12</div>
-            <div>橄榄球世界杯</div>
+            <div className="menu-item"><Link to="/event/super-rugby">SuperRugby</Link></div>
+            <div className="menu-item"><Link to="/event/premiership">Premiership</Link></div>
+            <div className="menu-item"><Link to="/event/top14">Top 14</Link></div>
+            <div className="menu-item"><Link to="/event/pro12">PRO 12</Link></div>
+            <div className="menu-item"><Link to="/event/international-tests">国家测试赛</Link></div>
+            <div className="menu-item"><Link to="/event/rugby-championship">冠军赛</Link></div>
+            <div className="menu-item"><Link to="/event/six-nations">六国赛</Link></div>
+            <div className="menu-item"><Link to="/event/rugby-world-cup">世界杯</Link></div>
           </div>
           <div className="footer-column">
             <h3>社交网络</h3>
-            <div>Twitter</div>
+            <div className="menu-item"><Link to="/rss">邮件订阅</Link></div>
+            <div><a href="https://twitter.com/RugbyNewsBoard">Twitter @RugbyNewsBoard</a></div>
           </div>
         </div>
       </footer>
