@@ -20,12 +20,22 @@ export default class Header extends React.Component {
   }
 
   render() {
-    const icon = this.state.isDropdown ? 'fa fa-close' : 'fa fa-navicon';
+    const isDropdown = this.state.isDropdown;
     return (
       <header className="menu">
         <div className="menu-navicon">
           <button onClick={this.handleDropdown}>
-            <i className={icon}></i>
+            {isDropdown ? (
+              <span className="fa-stack fa-lg">
+                <i className="fa fa-square-o fa-stack-2x"></i>
+                <i className="fa fa-close fa-stack-1x"></i>
+              </span>
+            ) : (
+              <span className="fa-stack fa-lg">
+                <i className="fa fa-square-o fa-stack-2x"></i>
+                <i className="fa fa-navicon fa-stack-1x"></i>
+              </span>
+            )}
           </button>
         </div>
         <div className="menu-name">
