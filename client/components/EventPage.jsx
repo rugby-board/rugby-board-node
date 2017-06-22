@@ -15,7 +15,8 @@ export default class EventPage extends React.Component {
       'premiership': 5,
       'top14': 6,
       'pro12': 7,
-      'rugby-world-cup': 9
+      'rugby-world-cup': 9,
+      'british-and-irish-lions': 10
     };
     
     this.eventChineseName = {
@@ -26,7 +27,8 @@ export default class EventPage extends React.Component {
       5: '英超 Premiership',
       6: '法国 TOP14',
       7: 'PRO12',
-      9: '橄榄球世界杯'
+      9: '橄榄球世界杯',
+      10: '不列颠和爱尔兰狮子'
     };
 
     const eventHeading = {

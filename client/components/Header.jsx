@@ -35,6 +35,7 @@ export default class Header extends React.Component {
           <div className="menu-item"><Link to="/">首页</Link></div>
           <div className="menu-item"><Link to="/news">新闻</Link></div>
           <div className="menu-item"><Link to="/results">比分</Link></div>
+          <div className="menu-item"><Link to="/event/british-and-irish-lions">狮子队</Link></div>
           <div className="menu-item"><Link to="/event/super-rugby">SuperRugby</Link></div>
           <div className="menu-item"><Link to="/event/premiership">Premiership</Link></div>
           <div className="menu-item"><Link to="/event/top14">Top 14</Link></div>
@@ -49,6 +50,7 @@ export default class Header extends React.Component {
         </div>
         <div className={this.state.isDropdown ? "menu-dropdown menu-on" : "menu-dropdown menu-off"}>
           <div className="menu-dropdown-list">
+            <div className="menu-item"><Link to="/event/british-and-irish-lions">狮子队</Link></div>
             <div className="menu-item"><Link to="/event/super-rugby">SuperRugby</Link></div>
             <div className="menu-item"><Link to="/event/premiership">Premiership</Link></div>
             <div className="menu-item"><Link to="/event/top14">Top 14</Link></div>
