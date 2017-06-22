@@ -31,8 +31,8 @@ export default class Footer extends React.Component {
           </div>
           <div className="footer-column">
             <h3>社交网络</h3>
-            <div className="menu-item"><Link to="/rss">邮件订阅</Link></div>
-            <div><a href="https://twitter.com/RugbyNewsBoard">Twitter @RugbyNewsBoard</a></div>
+            <div className="menu-item"><a href="https://rugby-board.herokuapp.com/news/feed" target="_blank">邮件订阅</a></div>
+            <div><a href="https://twitter.com/RugbyNewsBoard" target="_blank">Twitter @RugbyNewsBoard</a></div>
           </div>
         </div>
       </footer>
