@@ -15,7 +15,7 @@ export default class HighlightNews extends React.Component {
     var newsList = this.loading();
     if (this.props.data != null) {
       newsList = this.props.data.map((news) =>
-        <div className="news-item">
+        <div className="news-item" key={news.id}>
           <div className="news-title" id={news.id}>
             <Link to={"/news/" + news.id}>{news.title}</Link>
           </div>

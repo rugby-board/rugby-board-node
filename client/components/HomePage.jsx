@@ -54,7 +54,6 @@ export default class HomePage extends React.Component {
     fetch(url).then(function (response) {
       return response.json();
     }).then(function (json) {
-      console.log(json);
       self.setState({
         highlight: json.highlight,
         news: json.news,
