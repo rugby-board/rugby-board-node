@@ -30,6 +30,15 @@ app.use(morgan(':remote-addr - :remote-user [:date[clf]] ":method :url HTTP/:htt
 // Serve static assets
 app.use(express.static(path.resolve(__dirname, '..', 'dist')));
 
+// Get Index
+app.get('/index', (req, res) => {
+  var newsItem = fetch('https://rugby-board.herokuapp.com/api/v1/index').then(function (response){
+    return response.json();
+  }).then(function (json){
+    res.send(json);
+  });
+});
+
 // Get News Item
 app.get('/news/:id', (req, res) => {
   var newsItem = fetch('https://rugby-board.herokuapp.com/api/v1/news/' + req.params.id).then(function (response){

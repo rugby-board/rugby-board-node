@@ -1,6 +1,8 @@
 import React from 'react';
 
 import Heading from './Heading.jsx';
+import NewsList from './NewsList.jsx';
+import HighlightNews from './HighlightNews.jsx';
 
 export default class HomePage extends React.Component {
   constructor(props) {
@@ -34,15 +36,47 @@ export default class HomePage extends React.Component {
     };
   }
 
+  componentWillReceiveProps(nextProps) {
+    this.setState({
+      queryString: nextProps.location.search
+    });
+      
+    this.fetchData(nextProps.location.search);
+  }
+
+  componentWillMount() {
+    this.fetchData(this.state.queryString);
+  }
+
+  fetchData(queries) {
+    var self = this;
+    var url = '/index';
+    fetch(url).then(function (response) {
+      return response.json();
+    }).then(function (json) {
+      console.log(json);
+      self.setState({
+        highlight: json.highlight,
+        news: json.news,
+        results: json.results
+      });
+    });
+  }
+
   render() {
     return (
       <div className="columns">
         <div className="column column-2-3">
-          <Heading data={this.state.newsHeading} />
+          <div>
+            <Heading data={this.state.newsHeading} />
+            <HighlightNews data={this.state.highlight} />
+            <NewsList data={this.state.news} />
+          </div>
         </div>
         <div className="column column-1-3">
           <div>
             <Heading data={this.state.resultsHeading} />
+            <NewsList data={this.state.results} />
           </div>
           <div>
             <Heading data={this.state.eventHeading} />

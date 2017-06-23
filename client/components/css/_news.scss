@@ -60,12 +60,25 @@
 }
 
 .news-headline {
-  font-size: 1.4rem;
+  font-size: 1rem;
   line-height: 2rem;
   background-color: #eee;
-  a {
+  padding-bottom: .4rem;
+
+  .news-item {
+    .news-title {
+
+      &:before {
+        content: "top";
+        background-color: #e95260;
+        font-size: 1.2rem;
+        padding: .2rem .4rem .2rem .4rem;
+        margin-right: .4rem;
+      }
+    }
   }
 }
+
 .news-result {
   table {
     width: 100%;

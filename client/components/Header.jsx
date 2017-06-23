@@ -26,15 +26,9 @@ export default class Header extends React.Component {
         <div className="menu-navicon">
           <button onClick={this.handleDropdown}>
             {isDropdown ? (
-              <span className="fa-stack fa-lg">
-                <i className="fa fa-square-o fa-stack-2x"></i>
-                <i className="fa fa-close fa-stack-1x"></i>
-              </span>
+              <i className="fa fa-close fa-lg fa-inverse"></i>
             ) : (
-              <span className="fa-stack fa-lg">
-                <i className="fa fa-square-o fa-stack-2x"></i>
-                <i className="fa fa-navicon fa-stack-1x"></i>
-              </span>
+              <i className="fa fa-navicon fa-lg fa-inverse"></i>
             )}
           </button>
         </div>
