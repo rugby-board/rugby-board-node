@@ -3,6 +3,7 @@ import React from 'react';
 import Heading from './Heading.jsx';
 import NewsList from './NewsList.jsx';
 import HighlightNews from './HighlightNews.jsx';
+import WikiList from './WikiList.jsx';
 
 export default class HomePage extends React.Component {
   constructor(props) {
@@ -79,25 +80,7 @@ export default class HomePage extends React.Component {
           </div>
           <div>
             <Heading data={this.state.eventHeading} />
-            <div className="news">
-              <div className="news-wrap">
-                <div className="news-item">
-                  <h3>国家队赛事</h3>
-                  <ul>
-                    <li>南半球冠军赛 The Rugby Championship</li>
-                    <li>欧洲六国赛 Six Nations</li>
-                    <li>橄榄球世界杯 Rugby World Cup</li>
-                  </ul>
-                  <h3>俱乐部赛事</h3>
-                  <ul>
-                    <li>超级橄榄球 Super Rugby</li>
-                    <li>PRO12（凯尔特联赛）</li>
-                    <li>英格兰超级联赛 Premiership</li>
-                    <li>法国 TOP14 联赛</li>
-                  </ul>
-                </div>
-              </div>
-            </div>
+            <WikiList />
           </div>
         </div>
       </div>
