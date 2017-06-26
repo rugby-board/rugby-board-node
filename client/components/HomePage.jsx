@@ -13,21 +13,21 @@ export default class HomePage extends React.Component {
       id: 'latest-news',
       title: '新闻',
       more_text: '更多',
-      more_link: '#news'
+      more_link: '/news'
     };
 
     const resultsHeading = {
       id: 'latest-results',
       title: '比分',
       more_text: '更多',
-      more_link: '#results'
+      more_link: '/results'
     };
 
     const eventHeading = {
       id: 'event-intro',
       title: '赛事介绍',
       more_text: '更多',
-      more_link: '#wiki'
+      more_link: '/wiki'
     };
 
     this.state = {

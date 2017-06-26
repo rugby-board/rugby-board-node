@@ -16,8 +16,8 @@ export default class RugbyWorldCup extends React.Component {
               <p>
                 往届赛事
               </p>
-              <p>
-                <table className="wiki">
+              <table className="wiki">
+                <tbody>
                   <tr>
                     <th>年份</th>
                     <th>主办国</th>
@@ -99,8 +99,8 @@ export default class RugbyWorldCup extends React.Component {
                     <td>阿根廷</td>
                     <td>20</td>
                   </tr>
-                </table>
-              </p>
+                </tbody>
+              </table>
             </div>
             <div className="news-footer">
               <span className="news-channel">

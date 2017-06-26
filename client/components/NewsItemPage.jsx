@@ -1,6 +1,5 @@
 import React from 'react';
 
-import Heading from './Heading.jsx';
 import Loading from './Loading.jsx';
 import Share from './Share.jsx';
 import News from './News.jsx';

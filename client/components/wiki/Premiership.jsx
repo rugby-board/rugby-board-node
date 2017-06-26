@@ -29,8 +29,9 @@ export default class Premiership extends React.Component {
               </p>
               <p>
                 历史战绩排行：
-
-                <table>
+              </p>
+              <table>
+                <tbody>
                   <tr>
                     <th>队名</th>
                     <th>夺冠次数</th>
@@ -81,8 +82,8 @@ export default class Premiership extends React.Component {
                     <td>1</td>
                     <td>2016–17</td>
                   </tr>
-                </table>
-              </p>
+                </tbody>
+              </table>
             </div>
             <div className="news-footer">
               <span className="news-channel">

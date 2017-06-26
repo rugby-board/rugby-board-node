@@ -8,7 +8,10 @@ import {
   HashRouter
 } from 'react-router-dom';
 
+import createHistory from 'history/createBrowserHistory';
+
 require('font-awesome/css/font-awesome.css');
+require('./components/css/main.scss');
 
 // components
 import Header from './components/Header.jsx';
@@ -25,7 +28,8 @@ import WikiContentPage from './components/WikiContentPage.jsx';
 import AboutPage from './components/AboutPage.jsx';
 import NotFound from './components/NotFound.jsx';
 
-require('./components/css/main.scss');
+var ReactGA = require('react-ga');
+ReactGA.initialize('UA-92008867-1');
 
 const Main = () => (
   <main>
@@ -42,6 +46,12 @@ const Main = () => (
     </Switch>
   </main>
 );
+
+const history = createHistory();
+history.listen((location) => {
+  ReactGA.set({ page: location.pathname + location.hash });
+  ReactGA.pageview(location.pathname + location.hash);
+});
 
 const App = () => (
   <div className="container">
