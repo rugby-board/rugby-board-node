@@ -31,29 +31,47 @@ export default class EventPage extends React.Component {
       10: '不列颠和爱尔兰狮子'
     };
 
-    const eventHeading = {
-      id: 'event',
-      title: '赛事 / ' + this.eventChineseName[this.eventDict[props.match.params.name]],
-      more_text: '',
-      more_link: ''
+    this.eventWithWiki = {
+      'six-nations': 'six-nations',
+      'rugby-championship': 'rugby-championship',
+      'super-rugby': 'super-rugby',
+      'premiership': 'premiership-rugby',
+      'top14': 'top14-rugby',
+      'pro12': 'pro12-rugby',
+      'rugby-world-cup': 'rugby-world-cup',
+      'british-and-irish-lions': 'british-and-irish-lions'
     };
 
     this.state = {
       data: null,
       page: null,
-      eventHeading: eventHeading,
+      eventHeading: this.getEventHeading(props.match.params.name),
       queryString: props.location.search,
       name: props.match.params.name
     };
+  }
+
+  getEventHeading(eventName) {
+    var eventHeading = {
+      id: 'event',
+      title: '赛事 / ' + this.eventChineseName[this.eventDict[eventName]],
+      more_text: '',
+      more_link: ''
+    };
+
+    if (this.eventWithWiki.hasOwnProperty(eventName)) {
+      eventHeading.more_text = '赛事介绍';
+      eventHeading.more_link = '/wiki/' + this.eventWithWiki[eventName];
+    }
+
+    return eventHeading;
   }
 
   componentWillReceiveProps(nextProps) {
     this.setState({
       queryString: nextProps.location.search,
       name: nextProps.match.params.name,
-      eventHeading: {
-        title: '赛事 / ' + this.eventChineseName[this.eventDict[nextProps.match.params.name]]
-      }
+      eventHeading: this.getEventHeading(nextProps.match.params.name)
     });
       
     this.fetchData(nextProps.location.search, nextProps.match.params.name);
