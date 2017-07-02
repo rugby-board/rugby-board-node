@@ -109,6 +109,6 @@
   padding: 1rem;
   border-bottom: 1px solid #aaa;
 }
-.active-link {
-  font-weight: bold;
+a.active-link {
+    text-decoration: underline;
 }
