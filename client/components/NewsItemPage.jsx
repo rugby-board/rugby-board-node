@@ -37,7 +37,7 @@ export default class NewsItemPage extends React.Component {
       newsItem = (
         <div className="news">
           <News key={this.state.id} data={this.state.data} />
-          <Share />
+          <Share data={this.state.data} />
         </div>
       );
     }
