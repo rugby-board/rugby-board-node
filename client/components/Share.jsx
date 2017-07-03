@@ -28,9 +28,10 @@ export default class Share extends React.Component {
         <a
           href="#"
           onClick={this.handleClick}
-          className="tb">
+          className="tb"
+        >
           分享到 Twitter
-        />
+        </a>
       </div>
     );
   }
