@@ -1,7 +1,8 @@
 import React from 'react';
+import * as queryString from 'query-string';
 
-import Heading from './Heading.jsx';
-import NewsList from './NewsList.jsx';
+import Heading from './Heading';
+import NewsList from './NewsList';
 
 export default class ResultsPage extends React.Component {
   constructor(props) {
@@ -11,27 +12,44 @@ export default class ResultsPage extends React.Component {
       id: 'news',
       title: '比分',
       more_text: '',
-      more_link: ''
+      more_link: '',
     };
 
     this.state = {
       data: null,
       page: null,
-      resultsHeading: resultsHeading
+      resultsHeading,
     };
   }
 
+  componentWillMount() {
+    this.fetchData(this.state.queryString);
+  }
+
   componentWillReceiveProps(nextProps) {
-    if (nextProps.location.search != this.props.location.search) {
+    if (nextProps.location.search !== this.props.location.search) {
       this.setState({
-        queryString: nextProps.location.search
+        queryString: nextProps.location.search,
       });
       this.fetchData(nextProps.location.search);
     }
   }
 
-  componentWillMount() {
-    this.fetchData(this.state.queryString);
+  fetchData(queries) {
+    let self = this;
+    const parsedHash = queryString.parse(queries);
+    let url = '/list?channel=1';
+    if (parsedHash.page != null) {
+      url += ('&page=' + parsedHash.page);
+    }
+    fetch(url)
+      .then((response) => { return response.json(); })
+      .then((json) => {
+        self.setState({
+          data: json.news,
+          page: json.page,
+        });
+      });
   }
 
   render() {
@@ -46,22 +64,10 @@ export default class ResultsPage extends React.Component {
       </div>
     );
   }
-
-  fetchData(queries) {
-    var self = this;
-    const queryString = require('query-string');
-    const parsedHash = queryString.parse(queries);
-    var url = '/list?channel=1';
-    if (parsedHash.page != null) {
-      url += ('&page=' + parsedHash.page);
-    }
-    fetch(url).then(function (response) {
-      return response.json();
-    }).then(function (json) {
-      self.setState({
-        data: json.news,
-        page: json.page
-      });
-    });
-  }
 }
+
+ResultsPage.propTypes = {
+  location: React.PropTypes.shape({
+    search: React.PropTypes.string.isRequired,
+  }).isRequired,
+};

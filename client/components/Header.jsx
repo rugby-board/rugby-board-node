@@ -7,7 +7,7 @@ export default class Header extends React.Component {
 
     this.state = {
       isDropdown: false,
-      buttonText: '#'
+      buttonText: '#',
     };
 
     this.handleDropdown = this.handleDropdown.bind(this);
@@ -26,9 +26,9 @@ export default class Header extends React.Component {
         <div className="menu-navicon">
           <button onClick={this.handleDropdown}>
             {isDropdown ? (
-              <i className="fa fa-close fa-lg fa-inverse"></i>
+              <i className="fa fa-close fa-lg fa-inverse" />
             ) : (
-              <i className="fa fa-navicon fa-lg fa-inverse"></i>
+              <i className="fa fa-navicon fa-lg fa-inverse" />
             )}
           </button>
         </div>
@@ -49,10 +49,14 @@ export default class Header extends React.Component {
           <div className="menu-item"><Link to="/event/six-nations">六国赛</Link></div>
           <div className="menu-item"><Link to="/event/rugby-world-cup">世界杯</Link></div>
           <div className="menu-item"><Link to="/wiki">赛事介绍</Link></div>
-          <div className="menu-item"><a href="https://rugby-board.herokuapp.com/news/feed" target="_blank">邮件订阅</a></div>
+          <div className="menu-item">
+            <a href="https://rugby-board.herokuapp.com/news/feed" target="_blank" rel="noopener noreferrer">
+              邮件订阅
+            </a>
+          </div>
           <div className="menu-item"><Link to="/about">关于</Link></div>
         </div>
-        <div className={this.state.isDropdown ? "menu-dropdown menu-on" : "menu-dropdown menu-off"}>
+        <div className={this.state.isDropdown ? 'menu-dropdown menu-on' : 'menu-dropdown menu-off'}>
           <div className="menu-dropdown-list">
             <div className="menu-item"><Link to="/event/british-and-irish-lions">狮子队</Link></div>
             <div className="menu-item"><Link to="/event/super-rugby">SuperRugby</Link></div>
@@ -69,7 +73,11 @@ export default class Header extends React.Component {
             <div className="menu-item"><Link to="/news">新闻</Link></div>
             <div className="menu-item"><Link to="/results">比分</Link></div>
             <div className="menu-item"><Link to="/wiki">赛事介绍</Link></div>
-            <div className="menu-item"><a href="https://rugby-board.herokuapp.com/news/feed" target="_blank">邮件订阅</a></div>
+            <div className="menu-item">
+              <a href="https://rugby-board.herokuapp.com/news/feed" target="_blank" rel="noopener noreferrer">
+                邮件订阅
+              </a>
+            </div>
             <div className="menu-item"><Link to="/about">关于</Link></div>
           </div>
         </div>

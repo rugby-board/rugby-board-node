@@ -9,7 +9,7 @@ const HtmlWebpackPluginConfig = new HtmlWebpackPlugin({
 });
 
 module.exports = {
-  entry: ['./client/index.js'],
+  entry: ['./client/index.jsx'],
   module: {
     loaders: [
       {
@@ -55,6 +55,9 @@ module.exports = {
         loader: "file-loader"
       }
     ]
+  },
+  resolve: {
+    extensions: ['.js', '.jsx']
   },
   output: {
     path: path.resolve(__dirname, 'dist'),

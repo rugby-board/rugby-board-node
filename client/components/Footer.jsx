@@ -19,7 +19,9 @@ export default class Footer extends React.Component {
           </div>
           <div className="footer-column">
             <h3>精彩赛事</h3>
-            <div className="menu-item"><Link to="/event/british-and-irish-lions">不列颠和爱尔兰狮子</Link></div>
+            <div className="menu-item">
+              <Link to="/event/british-and-irish-lions">不列颠和爱尔兰狮子</Link>
+            </div>
             <div className="menu-item"><Link to="/event/super-rugby">SuperRugby</Link></div>
             <div className="menu-item"><Link to="/event/premiership">Premiership</Link></div>
             <div className="menu-item"><Link to="/event/top14">Top 14</Link></div>
@@ -31,8 +33,16 @@ export default class Footer extends React.Component {
           </div>
           <div className="footer-column">
             <h3>社交网络</h3>
-            <div className="menu-item"><a href="https://rugby-board.herokuapp.com/news/feed" target="_blank">邮件订阅</a></div>
-            <div><a href="https://twitter.com/RugbyNewsBoard" target="_blank">Twitter @RugbyNewsBoard</a></div>
+            <div className="menu-item">
+              <a href="https://rugby-board.herokuapp.com/news/feed" target="_blank" rel="noopener noreferrer">
+                邮件订阅
+              </a>
+            </div>
+            <div>
+              <a href="https://twitter.com/RugbyNewsBoard" target="_blank" rel="noopener noreferrer">
+                Twitter @RugbyNewsBoard
+              </a>
+            </div>
           </div>
         </div>
       </footer>

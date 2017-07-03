@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 export default class Loading extends React.Component {
   render() {
@@ -13,3 +14,7 @@ export default class Loading extends React.Component {
     );
   }
 }
+
+Loading.propTypes = {
+  text: PropTypes.string.isRequired,
+};

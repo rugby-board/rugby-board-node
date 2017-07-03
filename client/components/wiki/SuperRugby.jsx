@@ -1,7 +1,7 @@
 import React from 'react';
 
 export default class SuperRugby extends React.Component {
-  render () {
+  render() {
     return (
       <div className="news">
         <div className="news-wrap" id="six-nations">

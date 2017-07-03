@@ -1,24 +1,26 @@
 import React from 'react';
-import News from './News.jsx';
-import Loading from './Loading.jsx';
-import Pagination from './Pagination.jsx';
+
+import News from './News';
+import Loading from './Loading';
+import Pagination from './Pagination';
 
 export default class NewsList extends React.Component {
-  loading() {
+  static loading() {
     return (
       <Loading text="加载中..." />
     );
   }
 
   render() {
-    var newsList = this.loading();
+    let newsList = NewsList.loading();
+    let pagination = '';
+
     if (this.props.data != null) {
       newsList = this.props.data.map((news) =>
-        <News key={news.id} data={news} />
+        <News key={news.id} data={news} />,
       );
     }
 
-    var pagination = "";
     if (this.props.page != null) {
       pagination = <Pagination prefix={this.props.prefix} data={this.props.page} />;
     }
@@ -37,3 +39,27 @@ export default class NewsList extends React.Component {
     );
   }
 }
+
+NewsList.propTypes = {
+  prefix: React.PropTypes.string,
+  page: React.PropTypes.shape({
+    cur_page: React.PropTypes.number,
+    total_page: React.PropTypes.number,
+    total: React.PropTypes.number,
+  }),
+  data: React.PropTypes.arrayOf(
+    React.PropTypes.shape({
+      id: React.PropTypes.number.isRequired,
+    }),
+  ),
+};
+
+NewsList.defaultProps = {
+  prefix: '',
+  page: {
+    cur_page: null,
+    total_page: null,
+    total: null,
+  },
+  data: [],
+};

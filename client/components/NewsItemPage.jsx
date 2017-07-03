@@ -1,38 +1,38 @@
 import React from 'react';
 
-import Loading from './Loading.jsx';
-import Share from './Share.jsx';
-import News from './News.jsx';
+import Loading from './Loading';
+import Share from './Share';
+import News from './News';
 
 export default class NewsItemPage extends React.Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      data: null,
-      id: props.match.params.id
-    };
-  }
-
-  loading() {
+  static loading() {
     return (
       <Loading text="加载中..." />
     );
   }
 
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      data: null,
+      id: props.match.params.id,
+    };
+  }
+
   componentDidMount() {
-    var self = this;
-    fetch(this.props.match.url).then(function (response) {
-      return response.json();
-    }).then(function (json) {
-      self.setState({
-        data: json.news
+    let self = this;
+    fetch(this.props.match.url)
+      .then((response) => { return response.json(); })
+      .then((json) => {
+        self.setState({
+          data: json.news,
+        });
       });
-    });
   }
 
   render() {
-    var newsItem = this.loading();
+    let newsItem = NewsItemPage.loading();
     if (this.state.data != null) {
       newsItem = (
         <div className="news">
@@ -51,3 +51,12 @@ export default class NewsItemPage extends React.Component {
     );
   }
 }
+
+NewsItemPage.propTypes = {
+  match: React.PropTypes.shape({
+    url: React.PropTypes.string.isRequired,
+    params: React.PropTypes.shape({
+      id: React.PropTypes.string.isRequired,
+    }).isRequired,
+  }).isRequired,
+};

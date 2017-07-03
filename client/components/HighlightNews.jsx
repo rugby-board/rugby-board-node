@@ -1,26 +1,25 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-import News from './News.jsx';
-import Loading from './Loading.jsx';
+import Loading from './Loading';
 
 export default class HighlightNews extends React.Component {
-  loading() {
+  static loading() {
     return (
       <Loading text="加载中..." />
     );
   }
 
   render() {
-    var newsList = this.loading();
-    if (this.props.data != null) {
-      newsList = this.props.data.map((news) =>
+    let newsList = HighlightNews.loading();
+    if (this.props.data !== null) {
+      newsList = this.props.data.map((news) => (
         <div className="news-item" key={news.id}>
           <div className="news-title" id={news.id}>
-            <Link to={"/news/" + news.id}>{news.title}</Link>
+            <Link to={`/news/${news.id}`}>{news.title}</Link>
           </div>
         </div>
-      );
+      ));
     }
 
     return (
@@ -36,3 +35,16 @@ export default class HighlightNews extends React.Component {
     );
   }
 }
+
+HighlightNews.propTypes = {
+  data: React.PropTypes.arrayOf(
+    React.PropTypes.shape({
+      id: React.PropTypes.number.isRequired,
+      title: React.PropTypes.string.isRequired,
+    }),
+  ),
+};
+
+HighlightNews.defaultProps = {
+  data: [],
+};

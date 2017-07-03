@@ -9,7 +9,7 @@ export default class Share extends React.Component {
   }
 
   handleClick(event) {
-  	event.preventDefault();
+    event.preventDefault();
 
     const shareUrl = 'https://twitter.com/intent/tweet?url='
       + encodeURIComponent(window.location.href)
@@ -23,14 +23,22 @@ export default class Share extends React.Component {
   render() {
     return (
       <div className="share">
-        <Link to="/">返回</Link> 
+        <Link to="/">返回</Link>
         &nbsp;
-        <a href="#"
+        <a
+          href="#share"
           onClick={this.handleClick}
-          className="tb">
+          className="tb"
+        >
           分享到 Twitter
         </a>
       </div>
     );
   }
 }
+
+Share.propTypes = {
+  data: React.PropTypes.shape({
+    title: React.PropTypes.string.isRequired,
+  }).isRequired,
+};

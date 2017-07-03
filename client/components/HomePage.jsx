@@ -1,9 +1,9 @@
 import React from 'react';
 
-import Heading from './Heading.jsx';
-import NewsList from './NewsList.jsx';
-import HighlightNews from './HighlightNews.jsx';
-import WikiList from './WikiList.jsx';
+import Heading from './Heading';
+import NewsList from './NewsList';
+import HighlightNews from './HighlightNews';
+import WikiList from './WikiList';
 
 export default class HomePage extends React.Component {
   constructor(props) {
@@ -13,54 +13,54 @@ export default class HomePage extends React.Component {
       id: 'latest-news',
       title: '新闻',
       more_text: '更多',
-      more_link: '/news'
+      more_link: '/news',
     };
 
     const resultsHeading = {
       id: 'latest-results',
       title: '比分',
       more_text: '更多',
-      more_link: '/results'
+      more_link: '/results',
     };
 
     const eventHeading = {
       id: 'event-intro',
       title: '赛事介绍',
       more_text: '更多',
-      more_link: '/wiki'
+      more_link: '/wiki',
     };
 
     this.state = {
-      newsHeading: newsHeading,
-      resultsHeading: resultsHeading,
-      eventHeading: eventHeading
+      newsHeading,
+      resultsHeading,
+      eventHeading,
     };
-  }
-
-  componentWillReceiveProps(nextProps) {
-    this.setState({
-      queryString: nextProps.location.search
-    });
-      
-    this.fetchData(nextProps.location.search);
   }
 
   componentWillMount() {
     this.fetchData(this.state.queryString);
   }
 
-  fetchData(queries) {
-    var self = this;
-    var url = '/index';
-    fetch(url).then(function (response) {
-      return response.json();
-    }).then(function (json) {
-      self.setState({
-        highlight: json.highlight,
-        news: json.news,
-        results: json.results
-      });
+  componentWillReceiveProps(nextProps) {
+    this.setState({
+      queryString: nextProps.location.search,
     });
+
+    this.fetchData(nextProps.location.search);
+  }
+
+  fetchData() {
+    let self = this;
+    const url = '/index';
+    fetch(url)
+      .then((response) => { return response.json(); })
+      .then((json) => {
+        self.setState({
+          highlight: json.highlight,
+          news: json.news,
+          results: json.results,
+        });
+      });
   }
 
   render() {
@@ -87,3 +87,9 @@ export default class HomePage extends React.Component {
     );
   }
 }
+
+HomePage.propTypes = {
+  location: React.PropTypes.shape({
+    search: React.PropTypes.string.isRequired,
+  }).isRequired,
+};

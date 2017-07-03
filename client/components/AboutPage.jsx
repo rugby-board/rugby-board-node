@@ -1,6 +1,8 @@
 import React from 'react';
 
-import Heading from './Heading.jsx';
+import Heading from './Heading';
+
+import * as unsplashImage from '../../public/quino-al-155743.jpg';
 
 export default class AboutPage extends React.Component {
   constructor(props) {
@@ -10,16 +12,13 @@ export default class AboutPage extends React.Component {
       id: 'about',
       title: '关于',
       more_text: '',
-      more_link: ''
+      more_link: '',
     };
 
-    this.state = {
-      aboutHeading: aboutHeading,
-    };
+    this.state = { aboutHeading };
   }
 
   render() {
-    var unsplashImage = require('../../public/quino-al-155743.jpg');
     return (
       <div>
         <Heading data={this.state.aboutHeading} />
@@ -38,7 +37,7 @@ export default class AboutPage extends React.Component {
                   联系请发邮件: crispgm at gmail.com
                 </p>
                 <p>
-                  <img src={unsplashImage} />
+                  <img src={unsplashImage.default} alt="Rugby Sports" />
                 </p>
               </div>
             </div>
@@ -47,8 +46,12 @@ export default class AboutPage extends React.Component {
             <div className="article">
               <div className="article-content">
                 <h3>为什么会有 Rugby News Board?</h3>
-                <p>英式橄榄球在国内人气真是少，既没有足球、乒乓球一样的群众基础，也没有 NBA、NFL 一样的商业推广，还因为世界比赛、奥运会没啥前途也不被总菊支持。我曾是一个在澳大利亚的留学生，前往澳大利亚之前先了解一些当地的文化，其中有一块就是橄榄球。在澳大利亚，Rugby Union、Rugby League 和 Australian Football 三种“橄榄球”都很受欢迎。</p>
-                <p>曾经达阵中国可能是国内最好的 Rugby Union 资讯网站和论坛，但人气也非常惨淡，后来情况不了了之了，就在微博偶尔出现一下。于是，想看点橄榄球资讯只能自己去国外网站看。所以，我萌发了一个想法就是做一个简单的橄榄球资讯网站。这就是 Rugby News Board 的起因。</p>
+                <p>
+                  英式橄榄球在国内人气真是少，既没有足球、乒乓球一样的群众基础，也没有 NBA、NFL 一样的商业推广，还因为世界比赛、奥运会没啥前途也不被总菊支持。我曾是一个在澳大利亚的留学生，前往澳大利亚之前先了解一些当地的文化，其中有一块就是橄榄球。在澳大利亚，Rugby Union、Rugby League 和 Australian Football 三种“橄榄球”都很受欢迎。
+                </p>
+                <p>
+                  曾经达阵中国可能是国内最好的 Rugby Union 资讯网站和论坛，但人气也非常惨淡，后来情况不了了之了，就在微博偶尔出现一下。于是，想看点橄榄球资讯只能自己去国外网站看。所以，我萌发了一个想法就是做一个简单的橄榄球资讯网站。这就是 Rugby News Board 的起因。
+                </p>
 
                 <h3>Rugby News Board 宗旨</h3>
                 <ul>

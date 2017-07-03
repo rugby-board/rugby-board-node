@@ -1,7 +1,8 @@
 import React from 'react';
+import * as queryString from 'query-string';
 
-import Heading from './Heading.jsx';
-import NewsList from './NewsList.jsx';
+import Heading from './Heading';
+import NewsList from './NewsList';
 
 export default class EventPage extends React.Component {
   constructor(props) {
@@ -12,13 +13,13 @@ export default class EventPage extends React.Component {
       'six-nations': 2,
       'rugby-championship': 3,
       'super-rugby': 4,
-      'premiership': 5,
-      'top14': 6,
-      'pro12': 7,
+      premiership: 5,
+      top14: 6,
+      pro12: 7,
       'rugby-world-cup': 9,
-      'british-and-irish-lions': 10
+      'british-and-irish-lions': 10,
     };
-    
+
     this.eventChineseName = {
       1: '国际测试赛',
       2: '六国赛',
@@ -28,18 +29,18 @@ export default class EventPage extends React.Component {
       6: '法国 TOP14',
       7: 'PRO12',
       9: '橄榄球世界杯',
-      10: '不列颠和爱尔兰狮子'
+      10: '不列颠和爱尔兰狮子',
     };
 
     this.eventWithWiki = {
       'six-nations': 'six-nations',
       'rugby-championship': 'rugby-championship',
       'super-rugby': 'super-rugby',
-      'premiership': 'premiership-rugby',
-      'top14': 'top14-rugby',
-      'pro12': 'pro12-rugby',
+      premiership: 'premiership-rugby',
+      top14: 'top14-rugby',
+      pro12: 'pro12-rugby',
       'rugby-world-cup': 'rugby-world-cup',
-      'british-and-irish-lions': 'british-and-irish-lions'
+      'british-and-irish-lions': 'british-and-irish-lions',
     };
 
     this.state = {
@@ -47,19 +48,33 @@ export default class EventPage extends React.Component {
       page: null,
       eventHeading: this.getEventHeading(props.match.params.name),
       queryString: props.location.search,
-      name: props.match.params.name
+      name: props.match.params.name,
     };
   }
 
+  componentWillMount() {
+    this.fetchData(this.state.queryString, this.state.name);
+  }
+
+  componentWillReceiveProps(nextProps) {
+    this.setState({
+      queryString: nextProps.location.search,
+      name: nextProps.match.params.name,
+      eventHeading: this.getEventHeading(nextProps.match.params.name),
+    });
+
+    this.fetchData(nextProps.location.search, nextProps.match.params.name);
+  }
+
   getEventHeading(eventName) {
-    var eventHeading = {
+    let eventHeading = {
       id: 'event',
       title: '赛事 / ' + this.eventChineseName[this.eventDict[eventName]],
       more_text: '',
-      more_link: ''
+      more_link: '',
     };
 
-    if (this.eventWithWiki.hasOwnProperty(eventName)) {
+    if (Object.prototype.hasOwnProperty.call(this.eventWithWiki, eventName)) {
       eventHeading.more_text = '赛事介绍';
       eventHeading.more_link = '/wiki/' + this.eventWithWiki[eventName];
     }
@@ -67,18 +82,29 @@ export default class EventPage extends React.Component {
     return eventHeading;
   }
 
-  componentWillReceiveProps(nextProps) {
-    this.setState({
-      queryString: nextProps.location.search,
-      name: nextProps.match.params.name,
-      eventHeading: this.getEventHeading(nextProps.match.params.name)
-    });
-      
-    this.fetchData(nextProps.location.search, nextProps.match.params.name);
-  }
 
-  componentWillMount() {
-    this.fetchData(this.state.queryString, this.state.name);
+  fetchData(queries, eventName) {
+    let self = this;
+    const parsedHash = queryString.parse(queries);
+    let event = -1;
+    if (Object.prototype.hasOwnProperty.call(this.eventDict, eventName)) {
+      event = this.eventDict[eventName];
+    }
+    if (event === -1) {
+      return;
+    }
+    let url = '/list?event=' + event;
+    if (parsedHash.page != null) {
+      url += ('&page=' + parsedHash.page);
+    }
+    fetch(url).then((response) => {
+      return response.json();
+    }).then((json) => {
+      self.setState({
+        data: json.news,
+        page: json.page,
+      });
+    });
   }
 
   render() {
@@ -94,29 +120,15 @@ export default class EventPage extends React.Component {
       </div>
     );
   }
-
-  fetchData(queries, eventName) {
-    var self = this;
-    const queryString = require('query-string');
-    const parsedHash = queryString.parse(queries);
-    var event = -1;
-    if (this.eventDict.hasOwnProperty(eventName)) {
-      event = this.eventDict[eventName];
-    }
-    if (event == -1) {
-      return;
-    }
-    var url = '/list?event=' + event;
-    if (parsedHash.page != null) {
-      url += ('&page=' + parsedHash.page);
-    }
-    fetch(url).then(function (response) {
-      return response.json();
-    }).then(function (json) {
-      self.setState({
-        data: json.news,
-        page: json.page
-      });
-    });
-  }
 }
+
+EventPage.propTypes = {
+  match: React.PropTypes.shape({
+    params: React.PropTypes.shape({
+      name: React.PropTypes.string.isRequired,
+    }).isRequired,
+  }).isRequired,
+  location: React.PropTypes.shape({
+    search: React.PropTypes.string.isRequired,
+  }).isRequired,
+};

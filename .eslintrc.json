@@ -1,0 +1,17 @@
+{
+  "extends": "airbnb",
+  "env": {
+    "browser": true
+  },
+  "plugins": [
+    "react"
+  ],
+  "rules": {
+    "react/prefer-stateless-function": ["off", { "ignorePureComponents": true }],
+    "max-len": ["off"],
+    "prefer-template": ["off"],
+    "arrow-body-style": ["off", "as-needed"],
+    "arrow-parens": ["off"],
+    "prefer-const": ["warn"]
+  }
+}
