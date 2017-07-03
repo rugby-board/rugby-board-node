@@ -32,7 +32,7 @@ Pagination.propTypes = {
     cur_page: React.PropTypes.number,
     total_page: React.PropTypes.number,
     total: React.PropTypes.number,
-  }).isRequired,
+  }),
 };
 
 Pagination.defaultProps = {

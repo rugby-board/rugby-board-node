@@ -56,10 +56,6 @@ NewsList.propTypes = {
 
 NewsList.defaultProps = {
   prefix: '',
-  page: {
-    cur_page: null,
-    total_page: null,
-    total: null,
-  },
+  page: null,
   data: [],
 };
