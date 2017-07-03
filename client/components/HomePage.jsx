@@ -1,9 +1,15 @@
 import React from 'react';
 
+<<<<<<< 2c7ea13176d5b303687f2541da58a2ab4caaee30
 import Heading from './Heading.jsx';
 import NewsList from './NewsList.jsx';
 import HighlightNews from './HighlightNews.jsx';
 import WikiList from './WikiList.jsx';
+=======
+import Heading from './Heading';
+import NewsList from './NewsList';
+import HighlightNews from './HighlightNews';
+>>>>>>> Fix eslint errors
 
 export default class HomePage extends React.Component {
   constructor(props) {
@@ -13,33 +19,33 @@ export default class HomePage extends React.Component {
       id: 'latest-news',
       title: '新闻',
       more_text: '更多',
-      more_link: '/news'
+      more_link: '/news',
     };
 
     const resultsHeading = {
       id: 'latest-results',
       title: '比分',
       more_text: '更多',
-      more_link: '/results'
+      more_link: '/results',
     };
 
     const eventHeading = {
       id: 'event-intro',
       title: '赛事介绍',
       more_text: '更多',
-      more_link: '/wiki'
+      more_link: '/wiki',
     };
 
     this.state = {
       newsHeading: newsHeading,
       resultsHeading: resultsHeading,
-      eventHeading: eventHeading
+      eventHeading: eventHeading,
     };
   }
 
   componentWillReceiveProps(nextProps) {
     this.setState({
-      queryString: nextProps.location.search
+      queryString: nextProps.location.search,
     });
       
     this.fetchData(nextProps.location.search);
@@ -50,15 +56,15 @@ export default class HomePage extends React.Component {
   }
 
   fetchData(queries) {
-    var self = this;
-    var url = '/index';
+    let self = this;
+    let url = '/index';
     fetch(url).then(function (response) {
       return response.json();
     }).then(function (json) {
       self.setState({
         highlight: json.highlight,
         news: json.news,
-        results: json.results
+        results: json.results,
       });
     });
   }

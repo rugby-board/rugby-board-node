@@ -1,8 +1,8 @@
 import React from 'react';
 
-import Loading from './Loading.jsx';
-import Share from './Share.jsx';
-import News from './News.jsx';
+import Loading from './Loading';
+import Share from './Share';
+import News from './News';
 
 export default class NewsItemPage extends React.Component {
   constructor(props) {
@@ -10,7 +10,7 @@ export default class NewsItemPage extends React.Component {
 
     this.state = {
       data: null,
-      id: props.match.params.id
+      id: props.match.params.id,
     };
   }
 
@@ -21,7 +21,7 @@ export default class NewsItemPage extends React.Component {
   }
 
   componentDidMount() {
-    var self = this;
+    let self = this;
     fetch(this.props.match.url).then(function (response) {
       return response.json();
     }).then(function (json) {
@@ -32,7 +32,7 @@ export default class NewsItemPage extends React.Component {
   }
 
   render() {
-    var newsItem = this.loading();
+    let newsItem = this.loading();
     if (this.state.data != null) {
       newsItem = (
         <div className="news">

@@ -1,8 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-import News from './News.jsx';
-import Loading from './Loading.jsx';
+import News from './News';
+import Loading from './Loading';
 
 export default class HighlightNews extends React.Component {
   loading() {

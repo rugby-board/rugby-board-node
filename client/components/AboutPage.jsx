@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Heading from './Heading.jsx';
+import Heading from './Heading';
 
 export default class AboutPage extends React.Component {
   constructor(props) {
@@ -10,12 +10,10 @@ export default class AboutPage extends React.Component {
       id: 'about',
       title: '关于',
       more_text: '',
-      more_link: ''
+      more_link: '',
     };
 
-    this.state = {
-      aboutHeading: aboutHeading,
-    };
+    this.state = { aboutHeading };
   }
 
   render() {

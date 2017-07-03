@@ -1,32 +1,29 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import {
-  Router,
   Route,
   Switch,
-  BrowseRouter,
-  HashRouter
+  HashRouter,
 } from 'react-router-dom';
-
 import createHistory from 'history/createBrowserHistory';
 
-require('font-awesome/css/font-awesome.css');
-require('./components/css/main.scss');
+// stylesheets
+import 'font-awesome/css/font-awesome.css';
+import './components/css/main.scss';
 
 // components
-import Header from './components/Header.jsx';
-import Footer from './components/Footer.jsx';
+import Header from './components/Header';
+import Footer from './components/Footer';
+import NotFound from './components/NotFound';
 
 // pages
-import HomePage from './components/HomePage.jsx';
-import NewsPage from './components/NewsPage.jsx';
-import NewsItemPage from './components/NewsItemPage.jsx';
-import ResultsPage from './components/ResultsPage.jsx';
-import EventPage from './components/EventPage.jsx';
-import WikiPage from './components/WikiPage.jsx';
-import WikiContentPage from './components/WikiContentPage.jsx';
-import AboutPage from './components/AboutPage.jsx';
-import NotFound from './components/NotFound.jsx';
+import HomePage from './components/HomePage';
+import NewsPage from './components/NewsPage';
+import NewsItemPage from './components/NewsItemPage';
+import ResultsPage from './components/ResultsPage';
+import EventPage from './components/EventPage';
+import WikiPage from './components/WikiPage';
+import AboutPage from './components/AboutPage';
 
 var ReactGA = require('react-ga');
 ReactGA.initialize('UA-92008867-1');
@@ -42,7 +39,7 @@ const Main = () => (
       <Route path="/wiki/:name" component={WikiContentPage} />
       <Route path="/wiki" component={WikiPage} />
       <Route path="/about" component={AboutPage} />
-      <Route path='*' component={NotFound} />
+      <Route path="*" component={NotFound} />
     </Switch>
   </main>
 );
@@ -61,6 +58,7 @@ const App = () => (
   </div>
 );
 
+/* global document */
 ReactDOM.render((
   <HashRouter>
     <App />

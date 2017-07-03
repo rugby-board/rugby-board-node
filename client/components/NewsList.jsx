@@ -1,7 +1,8 @@
 import React from 'react';
-import News from './News.jsx';
-import Loading from './Loading.jsx';
-import Pagination from './Pagination.jsx';
+
+import News from './News';
+import Loading from './Loading';
+import Pagination from './Pagination';
 
 export default class NewsList extends React.Component {
   loading() {
@@ -11,14 +12,15 @@ export default class NewsList extends React.Component {
   }
 
   render() {
-    var newsList = this.loading();
+    let newsList = this.loading();
+    let pagination = '';
+
     if (this.props.data != null) {
       newsList = this.props.data.map((news) =>
         <News key={news.id} data={news} />
       );
     }
 
-    var pagination = "";
     if (this.props.page != null) {
       pagination = <Pagination prefix={this.props.prefix} data={this.props.page} />;
     }

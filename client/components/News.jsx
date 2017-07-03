@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 export default class News extends React.Component {
   markdown(content) {
-    var marked = require('marked');
+    const marked = require('marked');
     marked.setOptions({
       renderer: new marked.Renderer(),
       gfm: true,
@@ -12,18 +12,18 @@ export default class News extends React.Component {
       pedantic: false,
       sanitize: false,
       smartLists: true,
-      smartypants: false
+      smartypants: false,
     });
-    return {__html: marked(content)};
+    return { __html: marked(content) };
   }
 
   render() {
-    var moment = require('moment');
+    const moment = require('moment');
     const dateString = moment(this.props.data.created_at).format('HH:mm YYYY-MM-DD');
 
-    const newsLink = "/news/" + this.props.data.id;
-    var contentClass = 'news-content';
-    if (this.props.data.channel == 1) {
+    const newsLink = '/news/' + this.props.data.id;
+    let contentClass = 'news-content';
+    if (this.props.data.channel === 1) {
       contentClass += ' news-result';
     }
     return (
@@ -34,8 +34,9 @@ export default class News extends React.Component {
               {this.props.data.title}
             </Link>
           </div>
-          <div className={contentClass} dangerouslySetInnerHTML={this.markdown(this.props.data.content)}>
-          </div>
+          <div
+            className={contentClass}
+            dangerouslySetInnerHTML={this.markdown(this.props.data.content)} />
           <div className="news-footer">
             <div className="news-time">
               {dateString}

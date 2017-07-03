@@ -1,7 +1,7 @@
 import React from 'react';
 
-import Heading from './Heading.jsx';
-import WikiList from './WikiList.jsx';
+import WikiList from './WikiList';
+import Heading from './Heading';
 
 export default class WikiPage extends React.Component {
   constructor(props) {
@@ -11,11 +11,11 @@ export default class WikiPage extends React.Component {
       id: 'wiki',
       title: '赛事介绍',
       more_text: '',
-      more_link: ''
+      more_link: '',
     };
 
     this.state = {
-      wikiHeading: wikiHeading
+      wikiHeading: wikiHeading,
     };
   }
 

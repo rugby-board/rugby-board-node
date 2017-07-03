@@ -23,7 +23,7 @@ export default class Share extends React.Component {
   render() {
     return (
       <div className="share">
-        <Link to="/">返回</Link> 
+        <Link to="/">返回</Link>
         &nbsp;
         <a href="#"
           onClick={this.handleClick}

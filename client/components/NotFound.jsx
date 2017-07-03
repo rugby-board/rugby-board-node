@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Heading from './Heading.jsx';
+import Heading from './Heading';
 
 export default class NotFound extends React.Component {
   constructor(props) {
@@ -10,7 +10,7 @@ export default class NotFound extends React.Component {
       id: '404',
       title: '错误404',
       more_text: '',
-      more_link: ''
+      more_link: '',
     };
 
     this.state = {

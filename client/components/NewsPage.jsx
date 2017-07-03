@@ -1,7 +1,7 @@
 import React from 'react';
 
-import Heading from './Heading.jsx';
-import NewsList from './NewsList.jsx';
+import Heading from './Heading';
+import NewsList from './NewsList';
 
 export default class NewsPage extends React.Component {
   constructor(props) {
@@ -11,7 +11,7 @@ export default class NewsPage extends React.Component {
       id: 'news',
       title: '新闻',
       more_text: '',
-      more_link: ''
+      more_link: '',
     };
 
     this.state = {
@@ -19,8 +19,12 @@ export default class NewsPage extends React.Component {
       page: null,
       newsHeading: newsHeading,
       queryString: props.location.search,
-      name: props.match.params.name
+      name: props.match.params.name,
     };
+  }
+
+  componentWillMount() {
+    this.fetchData(this.state.queryString);
   }
 
   componentWillReceiveProps(nextProps) {
@@ -32,8 +36,22 @@ export default class NewsPage extends React.Component {
     }
   }
 
-  componentWillMount() {
-    this.fetchData(this.state.queryString);
+  fetchData(queries) {
+    var self = this;
+    const queryString = require('query-string');
+    const parsedHash = queryString.parse(queries);
+    let url = '/list?channel=0';
+    if (parsedHash.page !== null) {
+      url += ('&page=' + parsedHash.page);
+    }
+    fetch(url).then((response) => {
+      return response.json();
+    }).then((json) => {
+      self.setState({
+        data: json.news,
+        page: json.page,
+      });
+    });
   }
 
   render() {
@@ -47,23 +65,5 @@ export default class NewsPage extends React.Component {
         </div>
       </div>
     );
-  }
-
-  fetchData(queries) {
-    var self = this;
-    const queryString = require('query-string');
-    const parsedHash = queryString.parse(queries);
-    var url = '/list?channel=0';
-    if (parsedHash.page != null) {
-      url += ('&page=' + parsedHash.page);
-    }
-    fetch(url).then(function (response) {
-      return response.json();
-    }).then(function (json) {
-      self.setState({
-        data: json.news,
-        page: json.page
-      });
-    });
   }
 }

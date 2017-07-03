@@ -8,6 +8,7 @@
     "build": "webpack",
     "server": "node server",
     "test": "mocha test",
+    "lint": "eslint client --ext .js --ext .jsx",
     "heroku-postbuild": "webpack -p --config ./webpack.prod.config.js --progress"
   },
   "dependencies": {
@@ -31,6 +32,11 @@
     "babel-preset-react": "^6.24.1",
     "chai": "^4.0.2",
     "css-loader": "^0.28.4",
+    "eslint": "^3.19.0",
+    "eslint-config-airbnb": "latest",
+    "eslint-plugin-import": "^2.2.0",
+    "eslint-plugin-jsx-a11y": "^5.0.1",
+    "eslint-plugin-react": "^7.0.1",
     "extract-text-webpack-plugin": "^2.1.0",
     "file-loader": "^0.11.2",
     "html-webpack-plugin": "^2.28.0",
