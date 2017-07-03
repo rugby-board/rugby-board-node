@@ -63,7 +63,7 @@ export default class EventPage extends React.Component {
       id: 'event',
       title: '赛事 / ' + this.eventChineseName[this.eventDict[eventName]],
       more_text: '',
-      more_link: ''
+      more_link: '',
     };
 
     if (this.eventWithWiki.hasOwnProperty(eventName)) {
@@ -82,9 +82,7 @@ export default class EventPage extends React.Component {
     this.setState({
       queryString: nextProps.location.search,
       name: nextProps.match.params.name,
-      eventHeading: {
-        title: '赛事 / ' + this.eventChineseName[this.eventDict[nextProps.match.params.name]],
-      },
+      eventHeading: this.getEventHeading(nextProps.match.params.name),
     });
       
     this.fetchData(nextProps.location.search, nextProps.match.params.name);
@@ -110,7 +108,7 @@ export default class EventPage extends React.Component {
     }).then(function (json) {
       self.setState({
         data: json.news,
-        page: json.page
+        page: json.page,
       });
     });
   }

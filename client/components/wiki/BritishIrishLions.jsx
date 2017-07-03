@@ -1,7 +1,7 @@
 import React from 'react';
 
 export default class BritishIrishLions extends React.Component {
-  render () {
+  render() {
     return (
       <div className="news">
         <div className="news-wrap" id="six-nations">
@@ -73,8 +73,6 @@ export default class BritishIrishLions extends React.Component {
                   </tr>
                 </tbody>
               </table>
-              <p>
-              </p>
             </div>
             <div className="news-footer">
               <span className="news-channel">

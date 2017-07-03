@@ -1,16 +1,16 @@
 import React from 'react';
 
-import Heading from './Heading.jsx';
-import WikiList from './WikiList.jsx';
+import Heading from './Heading';
+import WikiList from './WikiList';
 
-import RugbyWorldCup from './wiki/RugbyWorldCup.jsx'
-import SixNations from './wiki/SixNations.jsx'
-import RugbyChampionship from './wiki/RugbyChampionship.jsx'
-import SuperRugby from './wiki/SuperRugby.jsx'
-import Pro12 from './wiki/Pro12.jsx'
-import Top14 from './wiki/Top14.jsx'
-import Premiership from './wiki/Premiership.jsx'
-import BritishIrishLions from './wiki/BritishIrishLions.jsx'
+import RugbyWorldCup from './wiki/RugbyWorldCup';
+import SixNations from './wiki/SixNations';
+import RugbyChampionship from './wiki/RugbyChampionship';
+import SuperRugby from './wiki/SuperRugby';
+import Pro12 from './wiki/Pro12';
+import Top14 from './wiki/Top14';
+import Premiership from './wiki/Premiership';
+import BritishIrishLions from './wiki/BritishIrishLions';
 
 export default class WikiContentPage extends React.Component {
   constructor(props) {
@@ -24,35 +24,35 @@ export default class WikiContentPage extends React.Component {
       'top14-rugby': '法国 TOP14',
       'pro12-rugby': 'PRO12',
       'rugby-world-cup': '橄榄球世界杯',
-      'british-and-irish-lions': '不列颠和爱尔兰狮子'
+      'british-and-irish-lions': '不列颠和爱尔兰狮子',
     };
 
     const wikiHeading = {
       id: 'wiki',
       title: '赛事介绍 / ' + this.eventDict[props.match.params.name],
       more_text: '',
-      more_link: ''
+      more_link: '',
     };
 
     this.state = {
-      wikiHeading: wikiHeading,
-      name: props.match.params.name
+      wikiHeading,
+      name: props.match.params.name,
     };
+  }
+
+  componentWillMount() {
+    this.fetchData(this.state.name);
   }
 
   componentWillReceiveProps(nextProps) {
     this.setState({
       name: nextProps.match.params.name,
       wikiHeading: {
-        title: '赛事介绍 / ' + this.eventDict[nextProps.match.params.name]
-      }
+        title: '赛事介绍 / ' + this.eventDict[nextProps.match.params.name],
+      },
     });
-      
-    this.fetchData(nextProps.match.params.name);
-  }
 
-  componentWillMount() {
-    this.fetchData(this.state.name);
+    this.fetchData(nextProps.match.params.name);
   }
 
   fetchData(eventName) {
@@ -60,7 +60,7 @@ export default class WikiContentPage extends React.Component {
       return false;
     }
 
-    var data;
+    let data;
     switch (eventName) {
       case 'rugby-world-cup':
         data = (
@@ -106,7 +106,7 @@ export default class WikiContentPage extends React.Component {
         break;
     }
     this.setState({
-      data: data
+      data: data,
     });
   }
 

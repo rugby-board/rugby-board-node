@@ -1,7 +1,7 @@
 import React from 'react';
 
 export default class Premiership extends React.Component {
-  render () {
+  render() {
     return (
       <div className="news">
         <div className="news-wrap" id="six-nations">
@@ -21,8 +21,6 @@ export default class Premiership extends React.Component {
               </p>
               <p>
                 常规赛排名前6的球队可以参加下赛季欧洲冠军杯的比赛，第七名将参加附加赛。未能进军欧洲冠军杯的球队，将会自动获得参加欧洲挑战杯的资格。
-              </p>
-              <p>
               </p>
               <p>
                 英超橄榄球联赛2017-2018赛季工资帽是700万英镑，青年队是80万英镑。

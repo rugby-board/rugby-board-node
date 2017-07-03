@@ -1,7 +1,7 @@
 import React from 'react';
 
 export default class SixNations extends React.Component {
-  render () {
+  render() {
     return (
       <div className="news">
         <div className="news-wrap" id="six-nations">
@@ -28,7 +28,7 @@ export default class SixNations extends React.Component {
                 <li>意大利：0次</li>
               </ul>
               <p>
-                与政治上划分不同的是，参加橄榄球比赛的爱尔兰是由爱尔兰共和国和北爱尔兰联合组队参加，因此在主场时会播放爱尔兰国歌《士兵之歌》 "Amhrán na bhFiann"和队歌《爱尔兰的召唤》"Ireland's Call"。
+                与政治上划分不同的是，参加橄榄球比赛的爱尔兰是由爱尔兰共和国和北爱尔兰联合组队参加，因此在主场时会播放爱尔兰国歌《士兵之歌》 &quot;Amhrán na bhFiann&quot;和队歌《爱尔兰的召唤》&quot;Ireland&#39;s Call&quot;。
               </p>
             </div>
             <div className="news-footer">

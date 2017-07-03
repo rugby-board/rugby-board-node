@@ -22,10 +22,12 @@ import NewsPage from './components/NewsPage';
 import NewsItemPage from './components/NewsItemPage';
 import ResultsPage from './components/ResultsPage';
 import EventPage from './components/EventPage';
+import WikiContentPage from './components/WikiContentPage';
 import WikiPage from './components/WikiPage';
 import AboutPage from './components/AboutPage';
 
-var ReactGA = require('react-ga');
+let ReactGA = require('react-ga');
+
 ReactGA.initialize('UA-92008867-1');
 
 const Main = () => (

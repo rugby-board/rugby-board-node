@@ -1,15 +1,9 @@
 import React from 'react';
 
-<<<<<<< 2c7ea13176d5b303687f2541da58a2ab4caaee30
-import Heading from './Heading.jsx';
-import NewsList from './NewsList.jsx';
-import HighlightNews from './HighlightNews.jsx';
-import WikiList from './WikiList.jsx';
-=======
 import Heading from './Heading';
 import NewsList from './NewsList';
 import HighlightNews from './HighlightNews';
->>>>>>> Fix eslint errors
+import WikiList from './WikiList';
 
 export default class HomePage extends React.Component {
   constructor(props) {

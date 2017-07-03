@@ -1,7 +1,7 @@
 import React from 'react';
 
 export default class Pro12 extends React.Component {
-  render () {
+  render() {
     return (
       <div className="news">
         <div className="news-wrap" id="six-nations">
@@ -109,7 +109,6 @@ export default class Pro12 extends React.Component {
                   <td>0</td>
                 </tr>
               </table>
-              
               <p>
                 PRO12 联赛球队实力相差比较明显，其中爱尔兰最强。爱尔兰传统三强（伦斯特、芒斯特、阿斯特）一直成绩不俗，2016年原先较弱的康诺特也一举夺冠，爱尔兰球队总共获得了总共15届联赛中9次冠军。并且，伦斯特还多次获得原来的欧冠前身喜力杯的冠军。
               </p>
