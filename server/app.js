@@ -8,11 +8,11 @@ const app = express();
 
 // webpack-dev-middleware
 if (process.env.NO_DEV !== 1) {
-  let webpack = require('webpack');
-  let webpackConfig = require('../webpack.config.js');
-  let compiler = webpack(webpackConfig);
-  let middleware = require("webpack-dev-middleware");
-  let webpackHotMiddleware = require("webpack-hot-middleware");
+  const webpack = require('webpack');
+  const webpackConfig = require('../webpack.config.js');
+  const compiler = webpack(webpackConfig);
+  const middleware = require("webpack-dev-middleware");
+  const webpackHotMiddleware = require("webpack-hot-middleware");
   app.use(middleware(compiler, {
     noInfo: true,
     publicPath: webpackConfig.output.publicPath,
@@ -57,7 +57,7 @@ app.get('/list', (req, res) => {
     page = 1;
   }
   let url = 'https://rugby-board.herokuapp.com/api/v1/list';
-  let params = new Array();
+  const params = new Array();
   params.push('p=' + page);
   if (channel !== -1) {
     params.push('channel=' + channel);
