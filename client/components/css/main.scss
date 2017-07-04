@@ -2,64 +2,87 @@ $min-breakpoint: 26rem;
 $page-breakpoint: 70rem;
 $font-breakpoint: 48rem;
 
-@import "header";
-@import "footer";
-@import "column";
-@import "heading";
-@import "news";
-@import "article";
-@import "pagination";
+$bg-color: #fbfbfb;
+$news-bg-color: #fff;
+$news-highlight-bg-color: #eee;
+$news-highlight-font-color: #e95260;
+$heading-bg-color: #6ec3b4;
+
+$table-border-color: #facb5b;
+$border-color: #aaa;
+
+$menu-link-color: #efefef;
+$main-font-color: #333;
+$light-font-color: #bbb;
+
+@import 'header';
+@import 'footer';
+@import 'column';
+@import 'heading';
+@import 'news';
+@import 'article';
+@import 'pagination';
 
 html {
   font-size: 16px;
 }
+
 @media (max-width: $font-breakpoint) {
   html {
     font-size: 12px;
   }
 }
+
 body {
-  margin: 0;
+  background-color: $bg-color;
+  color: $main-font-color;
   font-family: -apple-system, BlinkMacSystemFont, Roboto, "Segoe UI", Helvetica, Arial, "Hiragino Sans GB", "Microsoft Yahei", sans-serif;
   font-size: 1rem;
   -webkit-font-smoothing: antialiased;
-  color: #333;
-  background-color: #fbfbfb;
-  word-wrap: break-word;
+  margin: 0;
   text-align: center;
+  word-wrap: break-word;
 }
+
 .container {
-  width: $page-breakpoint;
   margin-left: auto;
   margin-right: auto;
   text-align: left;
+  width: $page-breakpoint;
 }
+
 @media (max-width: $page-breakpoint) {
   .container {
-    width: 100%;
-    padding-left: 0;
     min-width: $min-breakpoint;
+    padding-left: 0;
+    width: 100%;
   }
 }
+
 a {
+  color: $main-font-color;
   text-decoration: none;
-  color: #333;
+
   &:hover {
     text-decoration: underline;
   }
 }
+
 img {
   max-width: 100%;
 }
+
 table {
   border-spacing: 0;
+
   th {
-    background-color: #facb5b;
-    padding: .2rem .4rem .2rem .4rem;
+    background-color: $table-border-color;
+    padding: .2rem .4rem;
   }
+
   tr {
     &:hover {
-      background-color: #facb5b;
+      background-color: $table-border-color;
     }
   }
 }

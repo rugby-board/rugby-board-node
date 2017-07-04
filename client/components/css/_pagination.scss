@@ -1,12 +1,12 @@
 .pagination-wrapper {
+  background-color: $main-font-color;
+  color: $bg-color;
   font-size: 1rem;
   font-weight: bold;
   padding: .8rem;
-  color: #fbfbfb;
-  background-color: #333;
 
   a {
-    color: #fbfbfb;
+    color: $bg-color;
     text-decoration: none;
 
     &:hover {
@@ -22,6 +22,8 @@
   .pagination-page {
     float: right;
   }
+
   .pagination-info {
+    color: inherit;
   }
 }

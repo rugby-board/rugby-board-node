@@ -1,27 +1,27 @@
 footer {
-  text-align: center;
+  background-color: $main-font-color;
+  border-top: solid 1px $border-color;
   font-size: 1rem;
   overflow: hidden;
-  padding-top: 1.2rem;
   padding-bottom: 1.2rem;
-  background-color: #333;
-  border-top: #aaa solid 1px;
+  padding-top: 1.2rem;
+  text-align: center;
 
   .footer-column {
-    padding: 0 1.6rem .4rem 1.6rem;
-    border-right: 0;
-    border-right: 1px solid #bbb;
-    width: 100%;
-    background-color: #333;
-    color: #efefef;
+    background-color: $main-font-color;
+    border-right: 1px solid $light-font-color;
+    color: $menu-link-color;
     line-height: 1.4;
+    padding: 0 1.6rem .4rem 1.6rem;
+    width: 100%;
 
     h3 {
       line-height: 1.2;
       margin-top: .4rem;
     }
+
     a {
-      color: #efefef;
+      color: $menu-link-color;
     }
 
     &:last-child {
@@ -32,9 +32,9 @@ footer {
 
 @media (max-width: $page-breakpoint) {
   footer {
-    padding-top: 0;
-    padding-bottom: 0;
     display: none;
+    padding-bottom: 0;
+    padding-top: 0;
 
     .footer-column {
       padding: .2rem .8rem .8rem .8rem;

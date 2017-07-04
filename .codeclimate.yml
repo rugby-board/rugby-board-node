@@ -1,0 +1,17 @@
+engines:
+  duplication:
+    enabled: true
+    config:
+      languages:
+      - javascript
+  eslint:
+    enabled: true
+  fixme:
+    enabled: true
+  scss-lint:
+    enabled: true
+exclude_paths: [
+  "test",
+  "dist",
+  "node_modules"
+]

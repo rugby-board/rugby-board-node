@@ -7,20 +7,20 @@ const fetch = require('node-fetch');
 const app = express();
 
 // webpack-dev-middleware
-if (process.env.NO_DEV != 1) {
-  var webpack = require('webpack');
-  var webpackConfig = require('../webpack.config.js');
-  var compiler = webpack(webpackConfig);
-  var middleware = require("webpack-dev-middleware");
-  var webpackHotMiddleware = require("webpack-hot-middleware");
+if (process.env.NO_DEV !== 1) {
+  const webpack = require('webpack');
+  const webpackConfig = require('../webpack.config.js');
+  const compiler = webpack(webpackConfig);
+  const middleware = require("webpack-dev-middleware");
+  const webpackHotMiddleware = require("webpack-hot-middleware");
   app.use(middleware(compiler, {
     noInfo: true,
-    publicPath: webpackConfig.output.publicPath
+    publicPath: webpackConfig.output.publicPath,
   }));
   app.use(webpackHotMiddleware(compiler, {
     log: console.log,
     path: '/__webpack_hmr',
-    heartbeat: 10 * 1000
+    heartbeat: 10 * 1000,
   }));
 }
 
@@ -32,7 +32,7 @@ app.use(express.static(path.resolve(__dirname, '..', 'dist')));
 
 // Get Index
 app.get('/index', (req, res) => {
-  var newsItem = fetch('https://rugby-board.herokuapp.com/api/v1/index').then(function (response){
+  fetch('https://rugby-board.herokuapp.com/api/v1/index').then(function (response){
     return response.json();
   }).then(function (json){
     res.send(json);
@@ -41,7 +41,7 @@ app.get('/index', (req, res) => {
 
 // Get News Item
 app.get('/news/:id', (req, res) => {
-  var newsItem = fetch('https://rugby-board.herokuapp.com/api/v1/news/' + req.params.id).then(function (response){
+  fetch('https://rugby-board.herokuapp.com/api/v1/news/' + req.params.id).then(function (response){
     return response.json();
   }).then(function (json){
     res.send(json);
@@ -52,23 +52,23 @@ app.get('/news/:id', (req, res) => {
 app.get('/list', (req, res) => {
   const channel = req.query.channel || -1;
   const event = req.query.event || -1;
-  var page = req.query.page || 1;
+  let page = req.query.page || 1;
   if (page < 1) {
     page = 1;
   }
-  var url = 'https://rugby-board.herokuapp.com/api/v1/list';
-  params = new Array();
+  let url = 'https://rugby-board.herokuapp.com/api/v1/list';
+  const params = new Array();
   params.push('p=' + page);
-  if (channel != -1) {
+  if (channel !== -1) {
     params.push('channel=' + channel);
   }
-  if (event != -1) {
+  if (event !== -1) {
     params.push('event=' + event);
   }
-  if (channel != -1 || event != -1) {
+  if (channel !== -1 || event !== -1) {
     url += ('?' + params.join('&'));
   }
-  var newsList = fetch(url).then(function (response){
+  fetch(url).then(function (response){
     return response.json();
   }).then(function (json){
     res.send(json);
