@@ -2,6 +2,19 @@ $min-breakpoint: 26rem;
 $page-breakpoint: 70rem;
 $font-breakpoint: 48rem;
 
+$bg-color: #fbfbfb;
+$news-bg-color: #fff;
+$news-highlight-bg-color: #eee;
+$news-highlight-font-color: #e95260;
+$heading-bg-color: #6ec3b4;
+
+$table-border-color: #facb5b;
+$border-color: #aaa;
+
+$menu-link-color: #efefef;
+$main-font-color: #333;
+$light-font-color: #bbb;
+
 @import 'header';
 @import 'footer';
 @import 'column';
@@ -21,8 +34,8 @@ html {
 }
 
 body {
-  background-color: #fbfbfb;
-  color: #333;
+  background-color: $bg-color;
+  color: $main-font-color;
   font-family: -apple-system, BlinkMacSystemFont, Roboto, "Segoe UI", Helvetica, Arial, "Hiragino Sans GB", "Microsoft Yahei", sans-serif;
   font-size: 1rem;
   -webkit-font-smoothing: antialiased;
@@ -47,7 +60,7 @@ body {
 }
 
 a {
-  color: #333;
+  color: $main-font-color;
   text-decoration: none;
 
   &:hover {
@@ -63,13 +76,13 @@ table {
   border-spacing: 0;
 
   th {
-    background-color: #facb5b;
+    background-color: $table-border-color;
     padding: .2rem .4rem;
   }
 
   tr {
     &:hover {
-      background-color: #facb5b;
+      background-color: $table-border-color;
     }
   }
 }

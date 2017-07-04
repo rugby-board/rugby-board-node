@@ -1,13 +1,13 @@
 engines:
   duplication:
-    enabled: false
+    enabled: true
     config:
       languages:
       - javascript
   eslint:
-    enabled: false
+    enabled: true
   fixme:
-    enabled: false
+    enabled: true
   scss-lint:
     enabled: true
 exclude_paths: [

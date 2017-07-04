@@ -1,0 +1,3 @@
+linters:
+  Shorthand:
+    enabled: false

@@ -1,32 +1,17 @@
-$page-breakpoint: 70rem;
-
 .columns {
+  background-color: $news-bg-color;
   display: flex;
-  text-align: left;
-  background-color: #fff;
-  width: 100%;
   margin: 0;
   padding: 0;
+  text-align: left;
+  width: 100%;
 
   .column {
-    border-right: 1px solid #bbb;
+    border-right: 1px solid $border-color;
     width: 100%;
 
     &:last-child {
       border-right: 0;
-    }
-
-    .column-title {
-      background-color: #6ec3b4;
-      font-size: 1.2rem;
-      padding: 1rem;
-      font-weight: bold;
-    }
-
-    .column-corner {
-      float: right;
-      font-size: 1.2rem;
-      padding: 1rem;
     }
   }
 
@@ -44,25 +29,24 @@ $page-breakpoint: 70rem;
 }
 
 @media (max-width: $page-breakpoint) {
-
-.columns {
-  display: block;
-  width: 100%;
-
-  .column {
-  	width: 100%;
-  	.column-1-2 {
-  	  width: 100%;
-  	}
-  }
-
-  .column-1-3 {
+  .columns {
+    display: block;
     width: 100%;
-  }
 
-  .column-2-3 {
-    width: 100%;
-  }
-}
+    .column {
+      width: 100%;
 
+      .column-1-2 {
+        width: 100%;
+      }
+    }
+
+    .column-1-3 {
+      width: 100%;
+    }
+
+    .column-2-3 {
+      width: 100%;
+    }
+  }
 }
