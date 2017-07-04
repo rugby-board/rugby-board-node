@@ -10,3 +10,7 @@ engines:
     enabled: true
   scss-lint:
     enabled: true
+exclude_paths: [
+  "test",
+  "dist"
+]
