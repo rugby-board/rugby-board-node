@@ -50,7 +50,7 @@ export default class HomePage extends React.Component {
   }
 
   fetchData() {
-    let self = this;
+    const self = this;
     const url = '/index';
     fetch(url)
       .then((response) => { return response.json(); })

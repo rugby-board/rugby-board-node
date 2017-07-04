@@ -21,7 +21,7 @@ export default class NewsItemPage extends React.Component {
   }
 
   componentDidMount() {
-    let self = this;
+    const self = this;
     fetch(this.props.match.url)
       .then((response) => { return response.json(); })
       .then((json) => {

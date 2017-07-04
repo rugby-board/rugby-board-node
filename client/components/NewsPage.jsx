@@ -38,7 +38,7 @@ export default class NewsPage extends React.Component {
   }
 
   fetchData(queries) {
-    let self = this;
+    const self = this;
     const parsedHash = queryString.parse(queries);
     let url = '/list?channel=0';
     if (parsedHash.page !== null) {

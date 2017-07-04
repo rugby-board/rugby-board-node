@@ -26,7 +26,7 @@ import WikiContentPage from './components/WikiContentPage';
 import WikiPage from './components/WikiPage';
 import AboutPage from './components/AboutPage';
 
-let ReactGA = require('react-ga');
+const ReactGA = require('react-ga');
 
 ReactGA.initialize('UA-92008867-1');
 

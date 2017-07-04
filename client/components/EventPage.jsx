@@ -67,7 +67,7 @@ export default class EventPage extends React.Component {
   }
 
   getEventHeading(eventName) {
-    let eventHeading = {
+    const eventHeading = {
       id: 'event',
       title: '赛事 / ' + this.eventChineseName[this.eventDict[eventName]],
       more_text: '',
@@ -84,7 +84,7 @@ export default class EventPage extends React.Component {
 
 
   fetchData(queries, eventName) {
-    let self = this;
+    const self = this;
     const parsedHash = queryString.parse(queries);
     let event = -1;
     if (Object.prototype.hasOwnProperty.call(this.eventDict, eventName)) {

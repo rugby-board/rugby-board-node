@@ -36,7 +36,7 @@ export default class ResultsPage extends React.Component {
   }
 
   fetchData(queries) {
-    let self = this;
+    const self = this;
     const parsedHash = queryString.parse(queries);
     let url = '/list?channel=1';
     if (parsedHash.page != null) {
