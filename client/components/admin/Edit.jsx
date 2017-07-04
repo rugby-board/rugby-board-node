@@ -22,11 +22,11 @@ export default class Edit extends React.Component {
   }
 
   handleGet() {
-    let self = this;
+    const self = this;
     const url = '/news/' + this.state.newsId;
-    fetch(url).then(function (response) {
+    fetch(url).then((response) => {
       return response.json();
-    }).then(function (json) {
+    }).then((json) => {
       self.setState({
         news: json.news,
       });

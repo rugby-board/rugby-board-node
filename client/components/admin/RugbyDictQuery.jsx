@@ -14,11 +14,11 @@ export default class AdminPage extends React.Component {
   }
 
   handleTranslate() {
-    let self = this;
+    const self = this;
     const url = '/translate/' + this.state.translationInput;
-    fetch(url).then(function (response) {
+    fetch(url).then((response) => {
       return response.json();
-    }).then(function (json) {
+    }).then((json) => {
       self.setState({
         translationResult: json.result.join(' '),
       });

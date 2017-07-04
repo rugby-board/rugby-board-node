@@ -77,7 +77,7 @@ export default class Editor extends React.Component {
             <option value="12">Currie Cup</option>
             <option value="13">Top League</option>
             <option value="14">Rugby Sevens</option>
-            <option value="15">Women's Rugby</option>
+            <option value="15">Women&#39;s Rugby</option>
             <option value="16">Barbarians</option>
             <option value="17">Anglo Welsh Cup</option>
             <option value="18">Mitre 10 Cup</option>
@@ -88,3 +88,15 @@ export default class Editor extends React.Component {
     );
   }
 }
+
+Editor.propTypes = {
+  data: React.PropTypes.shape({
+    id: React.PropTypes.number.isRequired,
+    title: React.PropTypes.string.isRequired,
+    content: React.PropTypes.string.isRequired,
+    channel: React.PropTypes.number.isRequired,
+    created_at: React.PropTypes.string.isRequired,
+    channel_text: React.PropTypes.string.isRequired,
+    event_text: React.PropTypes.string.isRequired,
+  }).isRequired,
+};

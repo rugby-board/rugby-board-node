@@ -14,15 +14,16 @@ export default class AdminPage extends React.Component {
   }
 
   handleFormat() {
-    this.setState({ errorMessage: 'Formatting' });
     const input = this.state.inputResult;
-    const lines = input.split("\n");
-    let formatted = '| 主队 | 比分 | 客队 |\n|----|----|----|\n';
+    const lines = input.split('\n');
     const teams = [];
-    for (let i = 0; i < lines.length; i++) {
+    let formatted = '| 主队 | 比分 | 客队 |\n|----|----|----|\n';
+
+    this.setState({ errorMessage: 'Formatting' });
+    for (let i = 0; i < lines.length; i += 1) {
       const line = lines[i];
-      const results = line.split("\t");
-      for (let j = 0; j < results.length; j++) {
+      const results = line.split('\t');
+      for (let j = 0; j < results.length; j += 1) {
         if (j === 0) {
           continue;
         }
@@ -34,7 +35,7 @@ export default class AdminPage extends React.Component {
         }
         formatted += results[j] + ' | ';
       }
-      formatted += "\n";
+      formatted += '\n';
     }
     this.setState({ inputResult: formatted });
 
@@ -42,14 +43,14 @@ export default class AdminPage extends React.Component {
     const queryTeams = teams.join(' | ');
     let pos = 0;
 
-    var self = this;
+    const self = this;
     const url = '/translate/' + queryTeams;
     self.setState({ errorMessage: 'Processing' });
-    fetch(url).then(function (response) {
+    fetch(url).then((response) => {
       return response.json();
-    }).then(function (json) {
+    }).then((json) => {
       const translations = json.result;
-      for (let i = 0; i < translations.length; i++) {
+      for (let i = 0; i < translations.length; i += 1) {
         const chineseWord = translations[i];
         const englishWord = teams[i];
         pos = formatted.indexOf(englishWord, pos);
