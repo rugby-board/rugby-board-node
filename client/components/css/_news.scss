@@ -64,10 +64,15 @@
 .news-headline {
   background-color: $news-highlight-bg-color;
   font-size: 1rem;
-  line-height: 2rem;
   padding-bottom: .4rem;
 
+  &:last-of-type {
+    padding-bottom: 0;
+  }
+
   .news-title {
+    line-height: 1.8rem;
+
     &::before {
       background-color: $news-highlight-font-color;
       content: 'top';
