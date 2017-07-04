@@ -2,16 +2,17 @@ const path = require('path');
 const webpack = require('webpack');
 
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+
 const HtmlWebpackPluginConfig = new HtmlWebpackPlugin({
   template: './client/index.html',
   filename: 'index.html',
-  inject: 'body'
+  inject: 'body',
 });
 
 module.exports = {
   entry: [
     'webpack-hot-middleware/client',
-    './client/index.jsx'
+    './client/index.jsx',
   ],
   module: {
     loaders: [
@@ -27,7 +28,7 @@ module.exports = {
       },
       {
         test: /\.scss$/,
-        loaders: [ 'style-loader', 'css-loader', 'sass-loader' ],
+        loaders: ['style-loader', 'css-loader', 'sass-loader'],
       },
       {
         test: /\.css$/,
@@ -35,27 +36,27 @@ module.exports = {
       },
       {
         test: /\.woff(\?v=\d+\.\d+\.\d+)?$/,
-        loader: "url-loader?limit=10000&mimetype=application/font-woff",
+        loader: 'url-loader?limit=10000&mimetype=application/font-woff',
       },
       {
         test: /\.woff2(\?v=\d+\.\d+\.\d+)?$/,
-        loader: "url-loader?limit=10000&mimetype=application/font-woff",
+        loader: 'url-loader?limit=10000&mimetype=application/font-woff',
       },
       {
         test: /\.ttf(\?v=\d+\.\d+\.\d+)?$/,
-        loader: "url-loader?limit=10000&mimetype=application/octet-stream",
+        loader: 'url-loader?limit=10000&mimetype=application/octet-stream',
       },
       {
         test: /\.eot(\?v=\d+\.\d+\.\d+)?$/,
-        loader: "file-loader",
+        loader: 'file-loader',
       },
       {
         test: /\.svg(\?v=\d+\.\d+\.\d+)?$/,
-        loader: "url-loader?limit=10000&mimetype=image/svg+xml",
+        loader: 'url-loader?limit=10000&mimetype=image/svg+xml',
       },
       {
         test: /\.(jpe?g|gif|png)$/,
-        loader: "file-loader",
+        loader: 'file-loader',
       }
     ]
   },
@@ -74,4 +75,4 @@ module.exports = {
   devServer: {
     historyApiFallback: true,
   }
-}
+};
