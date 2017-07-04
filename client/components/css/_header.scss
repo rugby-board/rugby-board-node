@@ -16,7 +16,8 @@
 }
 
 .menu-name {
-  font-size: 2.4rem;
+  font-family: 'Crimson Text', Georgia, serif;
+  font-size: 2rem;
   margin: 0 0 1.4rem 1rem;
   padding-top: 1rem;
 }
@@ -24,9 +25,9 @@
 .menu-list {
   border-top: $bg-color solid 1px;
   display: flex;
-  font-size: 1.2rem;
-  margin-left: 1rem;
-  padding: 1rem 0 1rem 0;
+  font-size: 1rem;
+  margin: 0 .8rem;
+  padding: .8rem .2rem;
 }
 
 .menu-item {
@@ -36,6 +37,10 @@
     &:hover {
       text-decoration: underline;
     }
+
+    &.menu-active {
+      color: $heading-bg-color;
+    }
   }
 }
 
@@ -44,7 +49,7 @@
 }
 
 .menu-on {
-  display: block;
+  display: flex;
 }
 
 .menu-off {
@@ -85,35 +90,49 @@
 
   .menu-dropdown {
     background-color: $main-font-color;
-    padding-bottom: 1rem;
-    padding-left: 1rem;
+    justify-content: space-between;
     position: absolute;
-    top: 4rem;
+    top: 3.6rem;
     width: 100%;
     z-index: 20;
   }
 
   .menu-dropdown-index {
     border-right: 1px solid $border-color;
+    margin: .4rem 0 1rem 1rem;
     width: 25%;
 
     .menu-item {
-      font-size: 1.2rem;
-      margin-top: 1rem;
+      margin-bottom: .8rem;
+
+      a {
+        font-size: 1.2rem;
+      }
+
+      &:last-of-type {
+        margin-bottom: 0;
+      }
     }
   }
 
   .menu-dropdown-list {
+    align-content: flex-start;
     display: flex;
     flex-wrap: wrap;
-    float: right;
+    margin: .4rem 0 1rem 1rem;
     width: 75%;
 
     .menu-item {
-      font-size: 1.2rem;
-      margin-left: .8rem;
-      margin-top: .8rem;
-      width: 40%;
+      margin-bottom: .8rem;
+      width: 8rem;
+
+      a {
+        font-size: 1.2rem;
+      }
+
+      &:last-of-type {
+        margin-bottom: 0;
+      }
     }
   }
 }
