@@ -7,6 +7,9 @@ engines:
     enabled: true
   scss-lint:
     enabled: true
+ratings:
+  paths:
+  - "client/**.jsx"
 exclude_paths: [
   "test",
   "dist",
