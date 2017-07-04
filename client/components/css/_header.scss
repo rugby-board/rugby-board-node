@@ -7,16 +7,19 @@
   a {
     color: white;
     text-decoration: none;
+
     &:hover {
       text-decoration: none;
     }
   }
 }
+
 .menu-name {
   font-size: 2.4rem;
   padding-top: 1rem;
   margin: 0 0rem 1.4rem 1rem;
 }
+
 .menu-list {
   border-top: #fbfbfb solid 1px;
   font-size: 1.2rem;
@@ -33,12 +36,15 @@
     }
   }
 }
+
 .menu-navicon {
   display: none;
 }
+
 .menu-on {
   display: block;
 }
+
 .menu-off {
   display: none;
 }
@@ -48,6 +54,7 @@
 .menu {
   padding-left: 0;
 }
+
 .menu-navicon {
   display: block;
   float: right;
@@ -65,13 +72,16 @@
     height: 2.1rem;
   }
 }
+
 .menu-name {
   margin-bottom: 0;
   padding-bottom: 1rem;
 }
+
 .menu-list {
   display: none;
 }
+
 .menu-dropdown {
   position: absolute;
   top: 4rem;
@@ -90,6 +100,7 @@
       font-size: 1.2rem;
     }
   }
+
   .menu-dropdown-list {
     width: 75%;
     float: right;

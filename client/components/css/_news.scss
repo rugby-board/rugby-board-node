@@ -49,6 +49,7 @@
         .news-channel {
           font-size: 1rem;
         }
+
         .news-time {
           float: right;
           font-size: 1rem;
@@ -67,7 +68,6 @@
 
   .news-item {
     .news-title {
-
       &:before {
         content: "top";
         background-color: #e95260;
@@ -83,15 +83,19 @@
   table {
     width: 100%;
   }
+
   th:first-child, td:first-child {
     width: 35%;
   }
+
   th:nth-child(2) {
     text-align: center;
   }
+
   td:nth-child(2) {
     text-align: center;
   }
+
   th:last-child, td:last-child {
     width: 35%;
     text-align: right;
@@ -103,12 +107,14 @@
   text-align: center;
   font-size: 1rem;
 }
+
 .share {
   color: #00aced;
   font-weight: bold;
   padding: 1rem;
   border-bottom: 1px solid #aaa;
 }
+
 a.active-link {
     text-decoration: underline;
 }
