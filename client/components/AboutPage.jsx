@@ -29,7 +29,18 @@ export default class AboutPage extends React.Component {
                   Copyright &copy; <a href="https://crispgm.com">David Zhang</a>.
                 </p>
                 <p>
-                  <a href="/news/feed">使用 RSS 订阅</a>
+                  <a href="http://eepurl.com/cU4oZH" target="_blank" rel="noopener noreferrer">
+                    邮件订阅
+                  </a>
+                  &nbsp;|&nbsp;
+                  <a
+                    onClick={this.handleDropdown}
+                    href="https://rugby-board.herokuapp.com/news/feed"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    RSS 订阅
+                  </a>
                 </p>
                 <p>
                   联系请发邮件: crispgm at gmail.com

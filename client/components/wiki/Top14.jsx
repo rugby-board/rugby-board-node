@@ -11,7 +11,7 @@ export default class Top14 extends React.Component {
             </div>
             <div className="news-content">
               <p>
-                TODO
+                Coming soon.
               </p>
             </div>
             <div className="news-footer">

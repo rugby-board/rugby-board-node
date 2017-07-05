@@ -77,7 +77,7 @@ export default class Header extends React.Component {
             <NavLink activeClassName="menu-active" to="/wiki">赛事介绍</NavLink>
           </div>
           <div className="menu-item">
-            <a href="https://rugby-board.herokuapp.com/news/feed" target="_blank" rel="noopener noreferrer">
+            <a href="http://eepurl.com/cU4oZH" target="_blank" rel="noopener noreferrer">
               邮件订阅
             </a>
           </div>
@@ -99,7 +99,7 @@ export default class Header extends React.Component {
             <div className="menu-item">
               <a
                 onClick={this.handleDropdown}
-                href="https://rugby-board.herokuapp.com/news/feed"
+                href="http://eepurl.com/cU4oZH"
                 target="_blank"
                 rel="noopener noreferrer"
               >
