@@ -1,5 +1,4 @@
-import { h, render, Component } from 'preact';
-import * as queryString from 'query-string';
+import { h, Component } from 'preact';
 
 import Heading from '../components/Heading';
 import NewsList from '../components/NewsList';

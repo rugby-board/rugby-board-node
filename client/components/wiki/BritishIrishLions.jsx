@@ -1,4 +1,4 @@
-import { h, render, Component } from 'preact';
+import { h, Component } from 'preact';
 
 export default class BritishIrishLions extends Component {
   render() {

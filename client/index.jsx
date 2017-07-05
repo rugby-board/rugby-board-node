@@ -20,8 +20,8 @@ import WikiPage from './pages/WikiPage';
 import AboutPage from './pages/AboutPage';
 import NotFound from './pages/NotFound';
 
-//const ReactGA = require('react-ga');
-//ReactGA.initialize('UA-92008867-1');
+// const ReactGA = require('react-ga');
+// ReactGA.initialize('UA-92008867-1');
 
 const Main = () => (
   <Router history={createHistory()}>
@@ -51,7 +51,4 @@ const App = () => (
 );
 
 // render to body
-render(
-  <App />,
-  document.body
-);
+render(<App />, document.body);

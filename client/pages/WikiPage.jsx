@@ -1,4 +1,4 @@
-import { h, render, Component } from 'preact';
+import { h, Component } from 'preact';
 
 import WikiList from '../components/WikiList';
 import Heading from '../components/Heading';

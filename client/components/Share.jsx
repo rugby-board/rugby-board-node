@@ -1,4 +1,4 @@
-import { h, render, Component } from 'preact';
+import { h, Component } from 'preact';
 import { Link } from 'preact-router/match';
 
 export default class Share extends Component {

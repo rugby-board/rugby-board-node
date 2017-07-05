@@ -1,5 +1,4 @@
-import { h, render, Component } from 'preact';
-import { Link } from 'preact-router/match';
+import { h, Component } from 'preact';
 
 import Heading from '../components/Heading';
 

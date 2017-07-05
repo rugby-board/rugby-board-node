@@ -1,4 +1,4 @@
-import { h, render, Component } from 'preact';
+import { h, Component } from 'preact';
 
 import Heading from '../components/Heading';
 import NewsList from '../components/NewsList';

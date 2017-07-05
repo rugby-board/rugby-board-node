@@ -1,4 +1,4 @@
-import { h, render, Component } from 'preact';
+import { h, Component } from 'preact';
 
 import Loading from '../components/Loading';
 import Share from '../components/Share';
