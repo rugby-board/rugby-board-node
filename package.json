@@ -20,7 +20,6 @@
     "node-fetch": "^1.7.1",
     "preact": "^8.1.0",
     "preact-router": "^2.5.2",
-    "prop-types": "^15.5.10",
     "query-string": "^4.3.4"
   },
   "devDependencies": {
