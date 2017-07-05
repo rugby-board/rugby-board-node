@@ -8,7 +8,6 @@ import {
 import createHistory from 'history/createBrowserHistory';
 
 // stylesheets
-import 'font-awesome/css/font-awesome.css';
 import './components/css/main.scss';
 
 // components

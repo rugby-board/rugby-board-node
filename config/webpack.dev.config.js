@@ -1,4 +1,5 @@
 const path = require('path');
+const webpack = require('webpack');
 
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
@@ -9,7 +10,10 @@ const HtmlWebpackPluginConfig = new HtmlWebpackPlugin({
 });
 
 module.exports = {
-  entry: ['./client/index.jsx'],
+  entry: [
+    'webpack-hot-middleware/client',
+    './client/index.jsx',
+  ],
   module: {
     loaders: [
       {
@@ -53,20 +57,22 @@ module.exports = {
       {
         test: /\.(jpe?g|gif|png)$/,
         loader: 'file-loader',
-      }
-    ]
+      },
+    ],
   },
   resolve: {
     extensions: ['.js', '.jsx'],
   },
   output: {
-    path: path.resolve(__dirname, 'dist'),
+    path: path.resolve(__dirname, '..', 'dist'),
     filename: 'bundle.js',
   },
   plugins: [
-    HtmlWebpackPluginConfig
+    HtmlWebpackPluginConfig,
+    new webpack.HotModuleReplacementPlugin(),
+    new webpack.NoEmitOnErrorsPlugin(),
   ],
   devServer: {
     historyApiFallback: true,
-  }
+  },
 };

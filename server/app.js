@@ -7,9 +7,9 @@ const fetch = require('node-fetch');
 const app = express();
 
 // webpack-dev-middleware
-if (process.env.NO_DEV !== 1) {
+if (process.env.NODE_ENV !== 'production') {
   const webpack = require('webpack');
-  const webpackConfig = require('../webpack.config.js');
+  const webpackConfig = require('../config/webpack.dev.config.js');
   const compiler = webpack(webpackConfig);
   const middleware = require('webpack-dev-middleware');
   const webpackHotMiddleware = require('webpack-hot-middleware');
@@ -27,8 +27,10 @@ if (process.env.NO_DEV !== 1) {
 // Setup logger
 app.use(morgan(':remote-addr - :remote-user [:date[clf]] ":method :url HTTP/:http-version" :status :res[content-length] :response-time ms'));
 
-// Serve static assets
+// Serve index
 app.use(express.static(path.resolve(__dirname, '..', 'dist')));
+// Serve static assets
+app.use('/public', express.static(path.resolve(__dirname, '.', 'public')));
 
 // Get Index
 app.get('/index', (req, res) => {

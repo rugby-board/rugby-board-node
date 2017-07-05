@@ -2,8 +2,6 @@ import React from 'react';
 
 import Heading from './Heading';
 
-import * as unsplashImage from '../../public/quino-al-155743.jpg';
-
 export default class AboutPage extends React.Component {
   constructor(props) {
     super(props);
@@ -37,7 +35,7 @@ export default class AboutPage extends React.Component {
                   联系请发邮件: crispgm at gmail.com
                 </p>
                 <p>
-                  <img src={unsplashImage.default} alt="Rugby Sports" />
+                  <img src="/public/quino-al-155743.jpg" alt="Rugby Sports" />
                 </p>
               </div>
             </div>
