@@ -1,10 +1,10 @@
-import React from 'react';
+import { h, render, Component } from 'preact';
 import * as queryString from 'query-string';
 
-import Heading from './Heading';
-import NewsList from './NewsList';
+import Heading from '../components/Heading';
+import NewsList from '../components/NewsList';
 
-export default class EventPage extends React.Component {
+export default class EventPage extends Component {
   constructor(props) {
     super(props);
 
@@ -46,9 +46,9 @@ export default class EventPage extends React.Component {
     this.state = {
       data: null,
       page: null,
-      eventHeading: this.getEventHeading(props.match.params.name),
-      queryString: props.location.search,
-      name: props.match.params.name,
+      eventHeading: this.getEventHeading(props.name),
+      queryString: '',
+      name: props.name,
     };
   }
 
@@ -58,12 +58,12 @@ export default class EventPage extends React.Component {
 
   componentWillReceiveProps(nextProps) {
     this.setState({
-      queryString: nextProps.location.search,
-      name: nextProps.match.params.name,
-      eventHeading: this.getEventHeading(nextProps.match.params.name),
+      queryString: '',
+      name: nextProps.name,
+      eventHeading: this.getEventHeading(nextProps.name),
     });
 
-    this.fetchData(nextProps.location.search, nextProps.match.params.name);
+    this.fetchData('', nextProps.name);
   }
 
   getEventHeading(eventName) {
@@ -93,7 +93,7 @@ export default class EventPage extends React.Component {
     if (event === -1) {
       return;
     }
-    let url = '/list?event=' + event;
+    let url = '/api/list?event=' + event;
     if (parsedHash.page != null) {
       url += ('&page=' + parsedHash.page);
     }
@@ -108,7 +108,7 @@ export default class EventPage extends React.Component {
   }
 
   render() {
-    const prefix = 'event/' + this.state.name;
+    const prefix = this.state.name;
     return (
       <div className="columns">
         <div className="column">
@@ -121,14 +121,3 @@ export default class EventPage extends React.Component {
     );
   }
 }
-
-EventPage.propTypes = {
-  match: React.PropTypes.shape({
-    params: React.PropTypes.shape({
-      name: React.PropTypes.string.isRequired,
-    }).isRequired,
-  }).isRequired,
-  location: React.PropTypes.shape({
-    search: React.PropTypes.string.isRequired,
-  }).isRequired,
-};

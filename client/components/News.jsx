@@ -1,10 +1,10 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import { h, render, Component } from 'preact';
+import { Link } from 'preact-router/match';
 
 import marked from 'marked';
 import moment from 'moment';
 
-export default class News extends React.Component {
+export default class News extends Component {
   static markdown(content) {
     marked.setOptions({
       renderer: new marked.Renderer(),
@@ -31,7 +31,7 @@ export default class News extends React.Component {
       <div className="news-wrap">
         <div className="news-item">
           <div className="news-title" id={this.props.data.id}>
-            <Link to={newsLink}>
+            <Link href={newsLink}>
               {this.props.data.title}
             </Link>
           </div>
@@ -52,15 +52,3 @@ export default class News extends React.Component {
     );
   }
 }
-
-News.propTypes = {
-  data: React.PropTypes.shape({
-    id: React.PropTypes.number.isRequired,
-    title: React.PropTypes.string.isRequired,
-    content: React.PropTypes.string.isRequired,
-    channel: React.PropTypes.number.isRequired,
-    created_at: React.PropTypes.string.isRequired,
-    channel_text: React.PropTypes.string.isRequired,
-    event_text: React.PropTypes.string.isRequired,
-  }).isRequired,
-};

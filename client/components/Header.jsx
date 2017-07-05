@@ -1,7 +1,7 @@
-import React from 'react';
-import { Link, NavLink } from 'react-router-dom';
+import { h, render, Component } from 'preact';
+import { Link } from 'preact-router/match';
 
-export default class Header extends React.Component {
+export default class Header extends Component {
   constructor(props) {
     super(props);
 
@@ -40,41 +40,44 @@ export default class Header extends React.Component {
           </button>
         </div>
         <div className="menu-name">
-          <Link onClick={this.handleIndexDropdown} to="/">Rugby News Board</Link>
+          <Link onClick={this.handleIndexDropdown} href="/">Rugby News Board</Link>
         </div>
         <div className="menu-list">
           <div className="menu-item">
-            <NavLink activeClassName="menu-active" to="/news">新闻</NavLink>
+            <Link activeClassName="menu-active" href="/">首页</Link>
           </div>
           <div className="menu-item">
-            <NavLink activeClassName="menu-active" to="/results">比分</NavLink>
+            <Link activeClassName="menu-active" href="/news">新闻</Link>
           </div>
           <div className="menu-item">
-            <NavLink activeClassName="menu-active" to="/event/british-and-irish-lions">狮子队</NavLink>
+            <Link activeClassName="menu-active" href="/results">比分</Link>
           </div>
           <div className="menu-item">
-            <NavLink activeClassName="menu-active" to="/event/super-rugby">SuperRugby</NavLink>
+            <Link activeClassName="menu-active" href="/event/british-and-irish-lions">狮子队</Link>
           </div>
           <div className="menu-item">
-            <NavLink activeClassName="menu-active" to="/event/premiership">Premiership</NavLink>
+            <Link activeClassName="menu-active" href="/event/super-rugby">SuperRugby</Link>
           </div>
           <div className="menu-item">
-            <NavLink activeClassName="menu-active" to="/event/top14">Top14</NavLink>
+            <Link activeClassName="menu-active" href="/event/premiership">Premiership</Link>
           </div>
           <div className="menu-item">
-            <NavLink activeClassName="menu-active" to="/event/pro12">PRO12</NavLink>
+            <Link activeClassName="menu-active" href="/event/top14">Top14</Link>
           </div>
           <div className="menu-item">
-            <NavLink activeClassName="menu-active" to="/event/international-tests">国家测试赛</NavLink>
+            <Link activeClassName="menu-active" href="/event/pro12">PRO12</Link>
           </div>
           <div className="menu-item">
-            <NavLink activeClassName="menu-active" to="/event/rugby-championship">冠军赛</NavLink></div>
+            <Link activeClassName="menu-active" href="/event/international-tests">国家测试赛</Link>
+          </div>
           <div className="menu-item">
-            <NavLink activeClassName="menu-active" to="/event/six-nations">六国赛</NavLink></div>
+            <Link activeClassName="menu-active" href="/event/rugby-championship">冠军赛</Link></div>
           <div className="menu-item">
-            <NavLink activeClassName="menu-active" to="/event/rugby-world-cup">世界杯</NavLink></div>
+            <Link activeClassName="menu-active" href="/event/six-nations">六国赛</Link></div>
           <div className="menu-item">
-            <NavLink activeClassName="menu-active" to="/wiki">赛事介绍</NavLink>
+            <Link activeClassName="menu-active" href="/event/rugby-world-cup">世界杯</Link></div>
+          <div className="menu-item">
+            <Link activeClassName="menu-active" href="/wiki">赛事介绍</Link>
           </div>
           <div className="menu-item">
             <a href="http://eepurl.com/cU4oZH" target="_blank" rel="noopener noreferrer">
@@ -82,19 +85,19 @@ export default class Header extends React.Component {
             </a>
           </div>
           <div className="menu-item">
-            <NavLink activeClassName="menu-active" to="/about">关于</NavLink>
+            <Link activeClassName="menu-active" href="/about">关于</Link>
           </div>
         </div>
         <div className={this.state.isDropdown ? 'menu-dropdown menu-on' : 'menu-dropdown menu-off'}>
           <div className="menu-dropdown-index">
             <div className="menu-item">
-              <Link onClick={this.handleDropdown} to="/news">新闻</Link>
+              <Link onClick={this.handleDropdown} href="/news">新闻</Link>
             </div>
             <div className="menu-item">
-              <Link onClick={this.handleDropdown} to="/results">比分</Link>
+              <Link onClick={this.handleDropdown} href="/results">比分</Link>
             </div>
             <div className="menu-item">
-              <Link onClick={this.handleDropdown} to="/wiki">赛事介绍</Link>
+              <Link onClick={this.handleDropdown} href="/wiki">赛事介绍</Link>
             </div>
             <div className="menu-item">
               <a
@@ -107,35 +110,35 @@ export default class Header extends React.Component {
               </a>
             </div>
             <div className="menu-item">
-              <Link onClick={this.handleDropdown} to="/about">关于</Link>
+              <Link onClick={this.handleDropdown} href="/about">关于</Link>
             </div>
           </div>
           <div className="menu-dropdown-list">
             <div className="menu-item">
-              <Link onClick={this.handleDropdown} to="/event/british-and-irish-lions">狮子队</Link>
+              <Link onClick={this.handleDropdown} href="/event/british-and-irish-lions">狮子队</Link>
             </div>
             <div className="menu-item">
-              <Link onClick={this.handleDropdown} to="/event/super-rugby">SuperRugby</Link>
+              <Link onClick={this.handleDropdown} href="/event/super-rugby">SuperRugby</Link>
             </div>
             <div className="menu-item">
-              <Link onClick={this.handleDropdown} to="/event/premiership">Premiership</Link>
+              <Link onClick={this.handleDropdown} href="/event/premiership">Premiership</Link>
             </div>
             <div className="menu-item">
-              <Link onClick={this.handleDropdown} to="/event/top14">Top14</Link></div>
+              <Link onClick={this.handleDropdown} href="/event/top14">Top14</Link></div>
             <div className="menu-item">
-              <Link onClick={this.handleDropdown} to="/event/pro12">PRO12</Link>
+              <Link onClick={this.handleDropdown} href="/event/pro12">PRO12</Link>
             </div>
             <div className="menu-item">
-              <Link onClick={this.handleDropdown} to="/event/international-tests">国家测试赛</Link>
+              <Link onClick={this.handleDropdown} href="/event/international-tests">国家测试赛</Link>
             </div>
             <div className="menu-item">
-              <Link onClick={this.handleDropdown} to="/event/rugby-championship">冠军赛</Link>
+              <Link onClick={this.handleDropdown} href="/event/rugby-championship">冠军赛</Link>
             </div>
             <div className="menu-item">
-              <Link onClick={this.handleDropdown} to="/event/six-nations">六国赛</Link>
+              <Link onClick={this.handleDropdown} href="/event/six-nations">六国赛</Link>
             </div>
             <div className="menu-item">
-              <Link onClick={this.handleDropdown} to="/event/rugby-world-cup">世界杯</Link>
+              <Link onClick={this.handleDropdown} href="/event/rugby-world-cup">世界杯</Link>
             </div>
           </div>
         </div>

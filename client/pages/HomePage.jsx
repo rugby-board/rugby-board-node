@@ -1,11 +1,11 @@
-import React from 'react';
+import { h, render, Component } from 'preact';
 
-import Heading from './Heading';
-import NewsList from './NewsList';
-import HighlightNews from './HighlightNews';
-import WikiList from './WikiList';
+import Heading from '../components/Heading';
+import NewsList from '../components/NewsList';
+import HighlightNews from '../components/HighlightNews';
+import WikiList from '../components/WikiList';
 
-export default class HomePage extends React.Component {
+export default class HomePage extends Component {
   constructor(props) {
     super(props);
 
@@ -38,20 +38,12 @@ export default class HomePage extends React.Component {
   }
 
   componentWillMount() {
-    this.fetchData(this.state.queryString);
-  }
-
-  componentWillReceiveProps(nextProps) {
-    this.setState({
-      queryString: nextProps.location.search,
-    });
-
-    this.fetchData(nextProps.location.search);
+    this.fetchData();
   }
 
   fetchData() {
     const self = this;
-    const url = '/index';
+    const url = '/api/index';
     fetch(url)
       .then((response) => { return response.json(); })
       .then((json) => {
@@ -87,9 +79,3 @@ export default class HomePage extends React.Component {
     );
   }
 }
-
-HomePage.propTypes = {
-  location: React.PropTypes.shape({
-    search: React.PropTypes.string.isRequired,
-  }).isRequired,
-};

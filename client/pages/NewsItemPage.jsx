@@ -1,10 +1,10 @@
-import React from 'react';
+import { h, render, Component } from 'preact';
 
-import Loading from './Loading';
-import Share from './Share';
-import News from './News';
+import Loading from '../components/Loading';
+import Share from '../components/Share';
+import News from '../components/News';
 
-export default class NewsItemPage extends React.Component {
+export default class NewsItemPage extends Component {
   static loading() {
     return (
       <Loading text="加载中..." />
@@ -16,13 +16,14 @@ export default class NewsItemPage extends React.Component {
 
     this.state = {
       data: null,
-      id: props.match.params.id,
+      id: props.id,
     };
   }
 
   componentDidMount() {
     const self = this;
-    fetch(this.props.match.url)
+    const url = '/api/news/' + this.state.id;
+    fetch(url)
       .then((response) => { return response.json(); })
       .then((json) => {
         self.setState({
@@ -51,12 +52,3 @@ export default class NewsItemPage extends React.Component {
     );
   }
 }
-
-NewsItemPage.propTypes = {
-  match: React.PropTypes.shape({
-    url: React.PropTypes.string.isRequired,
-    params: React.PropTypes.shape({
-      id: React.PropTypes.string.isRequired,
-    }).isRequired,
-  }).isRequired,
-};

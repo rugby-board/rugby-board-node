@@ -1,6 +1,6 @@
-import React from 'react';
+import { h, render, Component } from 'preact';
 
-export default class Top14 extends React.Component {
+export default class Top14 extends Component {
   render() {
     return (
       <div className="news">

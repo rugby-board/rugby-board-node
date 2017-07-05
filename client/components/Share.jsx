@@ -1,7 +1,7 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import { h, render, Component } from 'preact';
+import { Link } from 'preact-router/match';
 
-export default class Share extends React.Component {
+export default class Share extends Component {
   constructor(props) {
     super(props);
 
@@ -23,7 +23,7 @@ export default class Share extends React.Component {
   render() {
     return (
       <div className="share">
-        <Link to="/">返回</Link>
+        <Link href="/">返回</Link>
         &nbsp;
         <a
           href="#share"
@@ -36,9 +36,3 @@ export default class Share extends React.Component {
     );
   }
 }
-
-Share.propTypes = {
-  data: React.PropTypes.shape({
-    title: React.PropTypes.string.isRequired,
-  }).isRequired,
-};

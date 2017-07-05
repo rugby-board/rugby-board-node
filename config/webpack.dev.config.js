@@ -58,6 +58,11 @@ module.exports = {
         test: /\.(jpe?g|gif|png)$/,
         loader: 'file-loader',
       },
+      {
+        test: /\.js$/,
+        loader: 'source-map-loader',
+        enforce: "pre"
+      },
     ],
   },
   resolve: {

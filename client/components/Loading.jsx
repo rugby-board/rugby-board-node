@@ -1,7 +1,6 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import { h, render, Component } from 'preact';
 
-export default class Loading extends React.Component {
+export default class Loading extends Component {
   render() {
     return (
       <div className="columns">
@@ -14,7 +13,3 @@ export default class Loading extends React.Component {
     );
   }
 }
-
-Loading.propTypes = {
-  text: PropTypes.string.isRequired,
-};

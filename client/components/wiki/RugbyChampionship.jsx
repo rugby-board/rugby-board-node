@@ -1,6 +1,6 @@
-import React from 'react';
+import { h, render, Component } from 'preact';
 
-export default class RugbyChampionship extends React.Component {
+export default class RugbyChampionship extends Component {
   render() {
     return (
       <div className="news">

@@ -1,10 +1,10 @@
-import React from 'react';
+import { h, render, Component } from 'preact';
 import * as queryString from 'query-string';
 
-import Heading from './Heading';
-import NewsList from './NewsList';
+import Heading from '../components/Heading';
+import NewsList from '../components/NewsList';
 
-export default class ResultsPage extends React.Component {
+export default class ResultsPage extends Component {
   constructor(props) {
     super(props);
 
@@ -38,7 +38,7 @@ export default class ResultsPage extends React.Component {
   fetchData(queries) {
     const self = this;
     const parsedHash = queryString.parse(queries);
-    let url = '/list?channel=1';
+    let url = '/api/list?channel=1';
     if (parsedHash.page != null) {
       url += ('&page=' + parsedHash.page);
     }
@@ -65,9 +65,3 @@ export default class ResultsPage extends React.Component {
     );
   }
 }
-
-ResultsPage.propTypes = {
-  location: React.PropTypes.shape({
-    search: React.PropTypes.string.isRequired,
-  }).isRequired,
-};

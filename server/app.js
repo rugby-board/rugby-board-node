@@ -33,7 +33,7 @@ app.use(express.static(path.resolve(__dirname, '..', 'dist')));
 app.use('/public', express.static(path.resolve(__dirname, '.', 'public')));
 
 // Get Index
-app.get('/index', (req, res) => {
+app.get('/api/index', (req, res) => {
   fetch('https://rugby-board.herokuapp.com/api/v1/index').then((response) => {
     return response.json();
   }).then((json) => {
@@ -42,7 +42,7 @@ app.get('/index', (req, res) => {
 });
 
 // Get News Item
-app.get('/news/:id', (req, res) => {
+app.get('/api/news/:id', (req, res) => {
   fetch('https://rugby-board.herokuapp.com/api/v1/news/' + req.params.id).then((response) => {
     return response.json();
   }).then((json) => {
@@ -51,7 +51,7 @@ app.get('/news/:id', (req, res) => {
 });
 
 // Get News List
-app.get('/list', (req, res) => {
+app.get('/api/list', (req, res) => {
   const channel = req.query.channel || -1;
   const event = req.query.event || -1;
   let page = req.query.page || 1;
