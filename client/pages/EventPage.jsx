@@ -58,6 +58,8 @@ export default class EventPage extends Component {
   componentWillReceiveProps(nextProps) {
     if (nextProps.page !== this.props.page || nextProps.name !== this.props.name) {
       this.setState({
+        data: null,
+        page: null,
         eventName: nextProps.name,
         eventHeading: this.getEventHeading(nextProps.name),
       });
