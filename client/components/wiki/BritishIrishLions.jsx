@@ -1,6 +1,6 @@
-import React from 'react';
+import { h, Component } from 'preact';
 
-export default class BritishIrishLions extends React.Component {
+export default class BritishIrishLions extends Component {
   render() {
     return (
       <div className="news">

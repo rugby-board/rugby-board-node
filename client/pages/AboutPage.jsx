@@ -1,8 +1,8 @@
-import React from 'react';
+import { h, Component } from 'preact';
 
-import Heading from './Heading';
+import Heading from '../components/Heading';
 
-export default class AboutPage extends React.Component {
+export default class AboutPage extends Component {
   constructor(props) {
     super(props);
 

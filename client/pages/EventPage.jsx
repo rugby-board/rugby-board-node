@@ -1,10 +1,9 @@
-import React from 'react';
-import * as queryString from 'query-string';
+import { h, Component } from 'preact';
 
-import Heading from './Heading';
-import NewsList from './NewsList';
+import Heading from '../components/Heading';
+import NewsList from '../components/NewsList';
 
-export default class EventPage extends React.Component {
+export default class EventPage extends Component {
   constructor(props) {
     super(props);
 
@@ -46,24 +45,25 @@ export default class EventPage extends React.Component {
     this.state = {
       data: null,
       page: null,
-      eventHeading: this.getEventHeading(props.match.params.name),
-      queryString: props.location.search,
-      name: props.match.params.name,
+      eventHeading: this.getEventHeading(props.name),
+      eventName: props.name,
+      pageNum: props.page || 0,
     };
   }
 
   componentWillMount() {
-    this.fetchData(this.state.queryString, this.state.name);
+    this.fetchData(this.state.pageNum, this.state.eventName);
   }
 
   componentWillReceiveProps(nextProps) {
-    this.setState({
-      queryString: nextProps.location.search,
-      name: nextProps.match.params.name,
-      eventHeading: this.getEventHeading(nextProps.match.params.name),
-    });
+    if (nextProps.page !== this.props.page || nextProps.name !== this.props.name) {
+      this.setState({
+        eventName: nextProps.name,
+        eventHeading: this.getEventHeading(nextProps.name),
+      });
 
-    this.fetchData(nextProps.location.search, nextProps.match.params.name);
+      this.fetchData(nextProps.page, nextProps.name);
+    }
   }
 
   getEventHeading(eventName) {
@@ -83,9 +83,8 @@ export default class EventPage extends React.Component {
   }
 
 
-  fetchData(queries, eventName) {
+  fetchData(pageNum, eventName) {
     const self = this;
-    const parsedHash = queryString.parse(queries);
     let event = -1;
     if (Object.prototype.hasOwnProperty.call(this.eventDict, eventName)) {
       event = this.eventDict[eventName];
@@ -93,9 +92,9 @@ export default class EventPage extends React.Component {
     if (event === -1) {
       return;
     }
-    let url = '/list?event=' + event;
-    if (parsedHash.page != null) {
-      url += ('&page=' + parsedHash.page);
+    let url = '/api/list?event=' + event;
+    if (pageNum !== undefined) {
+      url += ('&page=' + pageNum);
     }
     fetch(url).then((response) => {
       return response.json();
@@ -108,7 +107,7 @@ export default class EventPage extends React.Component {
   }
 
   render() {
-    const prefix = 'event/' + this.state.name;
+    const prefix = 'event/' + this.state.eventName;
     return (
       <div className="columns">
         <div className="column">
@@ -121,14 +120,3 @@ export default class EventPage extends React.Component {
     );
   }
 }
-
-EventPage.propTypes = {
-  match: React.PropTypes.shape({
-    params: React.PropTypes.shape({
-      name: React.PropTypes.string.isRequired,
-    }).isRequired,
-  }).isRequired,
-  location: React.PropTypes.shape({
-    search: React.PropTypes.string.isRequired,
-  }).isRequired,
-};

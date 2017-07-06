@@ -1,9 +1,9 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import { h, Component } from 'preact';
+import { Link } from 'preact-router/match';
 
 import Loading from './Loading';
 
-export default class HighlightNews extends React.Component {
+export default class HighlightNews extends Component {
   static loading() {
     return (
       <Loading text="加载中..." />
@@ -12,11 +12,11 @@ export default class HighlightNews extends React.Component {
 
   render() {
     let newsList = HighlightNews.loading();
-    if (this.props.data !== null) {
+    if (this.props.data !== undefined) {
       newsList = this.props.data.map((news) => (
         <div className="news-item" key={news.id}>
           <div className="news-title" id={news.id}>
-            <Link to={`/news/${news.id}`}>{news.title}</Link>
+            <Link href={`/news/${news.id}`}>{news.title}</Link>
           </div>
         </div>
       ));
@@ -35,16 +35,3 @@ export default class HighlightNews extends React.Component {
     );
   }
 }
-
-HighlightNews.propTypes = {
-  data: React.PropTypes.arrayOf(
-    React.PropTypes.shape({
-      id: React.PropTypes.number.isRequired,
-      title: React.PropTypes.string.isRequired,
-    }),
-  ),
-};
-
-HighlightNews.defaultProps = {
-  data: [],
-};

@@ -1,9 +1,9 @@
-import React from 'react';
+import { h, Component } from 'preact';
 
-import WikiList from './WikiList';
-import Heading from './Heading';
+import WikiList from '../components/WikiList';
+import Heading from '../components/Heading';
 
-export default class WikiPage extends React.Component {
+export default class WikiPage extends Component {
   constructor(props) {
     super(props);
 

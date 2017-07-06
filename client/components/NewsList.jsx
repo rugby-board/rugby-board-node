@@ -1,10 +1,10 @@
-import React from 'react';
+import { h, Component } from 'preact';
 
 import News from './News';
 import Loading from './Loading';
 import Pagination from './Pagination';
 
-export default class NewsList extends React.Component {
+export default class NewsList extends Component {
   static loading() {
     return (
       <Loading text="加载中..." />
@@ -39,23 +39,3 @@ export default class NewsList extends React.Component {
     );
   }
 }
-
-NewsList.propTypes = {
-  prefix: React.PropTypes.string,
-  page: React.PropTypes.shape({
-    cur_page: React.PropTypes.number,
-    total_page: React.PropTypes.number,
-    total: React.PropTypes.number,
-  }),
-  data: React.PropTypes.arrayOf(
-    React.PropTypes.shape({
-      id: React.PropTypes.number.isRequired,
-    }),
-  ),
-};
-
-NewsList.defaultProps = {
-  prefix: '',
-  page: null,
-  data: [],
-};

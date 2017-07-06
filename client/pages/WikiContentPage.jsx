@@ -1,18 +1,18 @@
-import React from 'react';
+import { h, Component } from 'preact';
 
-import Heading from './Heading';
-import WikiList from './WikiList';
+import Heading from '../components/Heading';
+import WikiList from '../components/WikiList';
 
-import RugbyWorldCup from './wiki/RugbyWorldCup';
-import SixNations from './wiki/SixNations';
-import RugbyChampionship from './wiki/RugbyChampionship';
-import SuperRugby from './wiki/SuperRugby';
-import Pro12 from './wiki/Pro12';
-import Top14 from './wiki/Top14';
-import Premiership from './wiki/Premiership';
-import BritishIrishLions from './wiki/BritishIrishLions';
+import RugbyWorldCup from '../components/wiki/RugbyWorldCup';
+import SixNations from '../components/wiki/SixNations';
+import RugbyChampionship from '../components/wiki/RugbyChampionship';
+import SuperRugby from '../components/wiki/SuperRugby';
+import Pro12 from '../components/wiki/Pro12';
+import Top14 from '../components/wiki/Top14';
+import Premiership from '../components/wiki/Premiership';
+import BritishIrishLions from '../components/wiki/BritishIrishLions';
 
-export default class WikiContentPage extends React.Component {
+export default class WikiContentPage extends Component {
   constructor(props) {
     super(props);
 
@@ -29,14 +29,14 @@ export default class WikiContentPage extends React.Component {
 
     const wikiHeading = {
       id: 'wiki',
-      title: '赛事介绍 / ' + this.eventDict[props.match.params.name],
+      title: '赛事介绍 / ' + this.eventDict[props.name],
       more_text: '',
       more_link: '',
     };
 
     this.state = {
       wikiHeading,
-      name: props.match.params.name,
+      eventName: props.name,
     };
   }
 
@@ -46,13 +46,13 @@ export default class WikiContentPage extends React.Component {
 
   componentWillReceiveProps(nextProps) {
     this.setState({
-      name: nextProps.match.params.name,
+      eventName: nextProps.name,
       wikiHeading: {
-        title: '赛事介绍 / ' + this.eventDict[nextProps.match.params.name],
+        title: '赛事介绍 / ' + this.eventDict[nextProps.name],
       },
     });
 
-    this.fetchData(nextProps.match.params.name);
+    this.fetchData(nextProps.name);
   }
 
   fetchData(eventName) {
@@ -127,11 +127,3 @@ export default class WikiContentPage extends React.Component {
     );
   }
 }
-
-WikiContentPage.propTypes = {
-  match: React.PropTypes.shape({
-    params: React.PropTypes.shape({
-      name: React.PropTypes.string.isRequired,
-    }).isRequired,
-  }).isRequired,
-};

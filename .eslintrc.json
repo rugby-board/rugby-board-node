@@ -6,12 +6,18 @@
   "plugins": [
     "react"
   ],
+  "settings": {
+    "react": {
+      "pragma": "h"
+    }
+  },
   "rules": {
-    "react/prefer-stateless-function": ["off", { "ignorePureComponents": true }],
-    "max-len": ["off"],
-    "prefer-template": ["off"],
-    "arrow-body-style": ["off", "as-needed"],
-    "arrow-parens": ["off"],
-    "prefer-const": ["warn"]
+    "react/prefer-stateless-function": [0, { "ignorePureComponents": true }],
+    "react/prop-types": 0,
+    "max-len": 0,
+    "prefer-template": 0,
+    "arrow-body-style": 0,
+    "arrow-parens": [0],
+    "prefer-const": [1]
   }
 }
