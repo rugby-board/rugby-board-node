@@ -19,8 +19,7 @@
     "morgan": "^1.8.2",
     "node-fetch": "^1.7.1",
     "preact": "^8.1.0",
-    "preact-router": "^2.5.2",
-    "query-string": "^4.3.4"
+    "preact-router": "^2.5.2"
   },
   "devDependencies": {
     "babel-core": "^6.24.1",

@@ -1,5 +1,4 @@
 import { h, Component } from 'preact';
-import * as queryString from 'query-string';
 
 import Heading from '../components/Heading';
 import NewsList from '../components/NewsList';
@@ -47,23 +46,22 @@ export default class EventPage extends Component {
       data: null,
       page: null,
       eventHeading: this.getEventHeading(props.name),
-      queryString: '',
-      name: props.name,
+      eventName: props.name,
+      pageNum: props.page || 0,
     };
   }
 
   componentWillMount() {
-    this.fetchData(this.state.queryString, this.state.name);
+    this.fetchData(this.state.pageNum, this.state.eventName);
   }
 
   componentWillReceiveProps(nextProps) {
     this.setState({
-      queryString: '',
-      name: nextProps.name,
+      eventName: nextProps.name,
       eventHeading: this.getEventHeading(nextProps.name),
     });
 
-    this.fetchData('', nextProps.name);
+    this.fetchData(nextProps.page, nextProps.name);
   }
 
   getEventHeading(eventName) {
@@ -83,9 +81,8 @@ export default class EventPage extends Component {
   }
 
 
-  fetchData(queries, eventName) {
+  fetchData(pageNum, eventName) {
     const self = this;
-    const parsedHash = queryString.parse(queries);
     let event = -1;
     if (Object.prototype.hasOwnProperty.call(this.eventDict, eventName)) {
       event = this.eventDict[eventName];
@@ -94,8 +91,8 @@ export default class EventPage extends Component {
       return;
     }
     let url = '/api/list?event=' + event;
-    if (parsedHash.page != null) {
-      url += ('&page=' + parsedHash.page);
+    if (pageNum !== undefined) {
+      url += ('&page=' + pageNum);
     }
     fetch(url).then((response) => {
       return response.json();
@@ -108,7 +105,7 @@ export default class EventPage extends Component {
   }
 
   render() {
-    const prefix = this.state.name;
+    const prefix = 'event/' + this.state.eventName;
     return (
       <div className="columns">
         <div className="column">

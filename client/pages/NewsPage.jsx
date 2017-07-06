@@ -14,9 +14,6 @@ export default class NewsPage extends Component {
       more_link: '',
     };
 
-    console.log(props);
-    console.log(this.page);
-
     this.state = {
       data: null,
       page: null,
@@ -42,7 +39,7 @@ export default class NewsPage extends Component {
     const self = this;
     let url = '/api/list?channel=0';
     if (pageNum !== undefined) {
-      url += ('&page=' + this.state.page);
+      url += ('&page=' + this.state.pageNum);
     }
     fetch(url)
       .then((response) => { return response.json(); })

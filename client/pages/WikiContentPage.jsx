@@ -36,7 +36,7 @@ export default class WikiContentPage extends Component {
 
     this.state = {
       wikiHeading,
-      name: props.name,
+      eventName: props.name,
     };
   }
 
@@ -46,7 +46,7 @@ export default class WikiContentPage extends Component {
 
   componentWillReceiveProps(nextProps) {
     this.setState({
-      name: nextProps.name,
+      eventName: nextProps.name,
       wikiHeading: {
         title: '赛事介绍 / ' + this.eventDict[nextProps.name],
       },

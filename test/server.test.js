@@ -1,6 +1,6 @@
 // test/server.test.js
 const exec = require('mz/child_process').exec;
-const request = require('supertest-as-promised');
+const request = require('supertest');
 const expect = require('chai').expect;
 
 const app = require('../server/app');

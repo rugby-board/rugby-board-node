@@ -1,6 +1,6 @@
 import Router from 'preact-router';
 import { h, render } from 'preact';
-import createHistory from 'history/createBrowserHistory';
+import { createHashHistory } from 'history';
 
 // stylesheets
 import './css/main.scss';
@@ -20,11 +20,8 @@ import WikiPage from './pages/WikiPage';
 import AboutPage from './pages/AboutPage';
 import NotFound from './pages/NotFound';
 
-// const ReactGA = require('react-ga');
-// ReactGA.initialize('UA-92008867-1');
-
 const Main = () => (
-  <Router history={createHistory()}>
+  <Router history={createHashHistory()}>
     <HomePage path="/" />
     <NewsItemPage path="/news/:id" />
     <NewsPage path="/news" />
@@ -37,6 +34,8 @@ const Main = () => (
   </Router>
 );
 
+// const ReactGA = require('react-ga');
+// ReactGA.initialize('UA-92008867-1');
 // history.listen((location) => {
   // ReactGA.set({ page: location.pathname + location.hash });
   // ReactGA.pageview(location.pathname + location.hash);

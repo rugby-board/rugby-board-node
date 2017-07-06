@@ -1,5 +1,4 @@
 import { h, Component } from 'preact';
-import * as queryString from 'query-string';
 
 import Heading from '../components/Heading';
 import NewsList from '../components/NewsList';
@@ -19,28 +18,28 @@ export default class ResultsPage extends Component {
       data: null,
       page: null,
       resultsHeading,
+      pageNum: props.page || 0,
     };
   }
 
   componentWillMount() {
-    this.fetchData(this.state.queryString);
+    this.fetchData(this.state.pageNum);
   }
 
   componentWillReceiveProps(nextProps) {
-    if (nextProps.location.search !== this.props.location.search) {
+    if (nextProps.page !== this.props.page) {
       this.setState({
-        queryString: nextProps.location.search,
+        pageNum: nextProps.page,
       });
-      this.fetchData(nextProps.location.search);
+      this.fetchData(nextProps.page);
     }
   }
 
-  fetchData(queries) {
+  fetchData(pageNum) {
     const self = this;
-    const parsedHash = queryString.parse(queries);
     let url = '/api/list?channel=1';
-    if (parsedHash.page != null) {
-      url += ('&page=' + parsedHash.page);
+    if (pageNum !== undefined) {
+      url += ('&page=' + this.state.pageNum);
     }
     fetch(url)
       .then((response) => { return response.json(); })
