@@ -20,8 +20,20 @@ import WikiPage from './pages/WikiPage';
 import AboutPage from './pages/AboutPage';
 import NotFound from './pages/NotFound';
 
+// setup Google Analytics
+
+/* eslint-disable no-undef */
+ga('create', 'UA-92008867-1', 'auto');
+
+const changeRoute = (e) => {
+  ga('send', 'pageview', {
+    page: e.url,
+  });
+};
+
+// main router
 const Main = () => (
-  <Router history={createHashHistory()}>
+  <Router history={createHashHistory()} onChange={changeRoute}>
     <HomePage path="/" />
     <NewsItemPage path="/news/:id" />
     <NewsPage path="/news" />
@@ -34,13 +46,7 @@ const Main = () => (
   </Router>
 );
 
-// const ReactGA = require('react-ga');
-// ReactGA.initialize('UA-92008867-1');
-// history.listen((location) => {
-  // ReactGA.set({ page: location.pathname + location.hash });
-  // ReactGA.pageview(location.pathname + location.hash);
-// });
-
+// main app
 const App = () => (
   <div className="container">
     <Header />

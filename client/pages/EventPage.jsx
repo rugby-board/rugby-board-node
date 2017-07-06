@@ -56,12 +56,14 @@ export default class EventPage extends Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    this.setState({
-      eventName: nextProps.name,
-      eventHeading: this.getEventHeading(nextProps.name),
-    });
+    if (nextProps.page !== this.props.page || nextProps.name !== this.props.name) {
+      this.setState({
+        eventName: nextProps.name,
+        eventHeading: this.getEventHeading(nextProps.name),
+      });
 
-    this.fetchData(nextProps.page, nextProps.name);
+      this.fetchData(nextProps.page, nextProps.name);
+    }
   }
 
   getEventHeading(eventName) {
