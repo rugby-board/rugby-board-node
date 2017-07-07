@@ -15,21 +15,21 @@ export default class AdminPage extends React.Component {
 
   handleFormat() {
     this.setState({ errorMessage: 'Formatting' });
-    var input = this.state.inputResult;
-    var lines = input.split("\n");
-    var formatted = "| 主队 | 比分 | 客队 |\n|----|----|----|\n";
-    var teams = new Array();
-    for (var i = 0; i < lines.length; i++) {
-      var line = lines[i];
-      var results = line.split("\t");
-      for (var j = 0; j < results.length; j++) {
-        if (j == 0) {
+    const input = this.state.inputResult;
+    const lines = input.split("\n");
+    let formatted = '| 主队 | 比分 | 客队 |\n|----|----|----|\n';
+    const teams = [];
+    for (let i = 0; i < lines.length; i++) {
+      const line = lines[i];
+      const results = line.split("\t");
+      for (let j = 0; j < results.length; j++) {
+        if (j === 0) {
           continue;
         }
-        if (j == 1) {
+        if (j === 1) {
           formatted += '| ';
         }
-        if (j == 1 || j == 3) {
+        if (j === 1 || j === 3) {
           teams.push(results[j]);
         }
         formatted += results[j] + ' | ';
@@ -39,8 +39,8 @@ export default class AdminPage extends React.Component {
     this.setState({ inputResult: formatted });
 
     this.setState({ errorMessage: 'Translating' });
-    var queryTeams = teams.join(' | ');
-    var pos = 0
+    const queryTeams = teams.join(' | ');
+    let pos = 0;
 
     var self = this;
     const url = '/translate/' + queryTeams;
@@ -48,10 +48,10 @@ export default class AdminPage extends React.Component {
     fetch(url).then(function (response) {
       return response.json();
     }).then(function (json) {
-      var translations = json.result;
-      for (var i = 0; i < translations.length; i++) {
-        var chineseWord = translations[i];
-        var englishWord = teams[i];
+      const translations = json.result;
+      for (let i = 0; i < translations.length; i++) {
+        const chineseWord = translations[i];
+        const englishWord = teams[i];
         pos = formatted.indexOf(englishWord, pos);
         formatted = [formatted.slice(0, pos), chineseWord + ' ', formatted.slice(pos)].join('');
         self.setState({ inputResult: formatted });
@@ -77,8 +77,7 @@ export default class AdminPage extends React.Component {
                 id="results-input"
                 value={this.state.inputResult}
                 onChange={this.handleChange}
-              >
-              </textarea>
+              />
               <div className="error-message">{this.state.errorMessage}</div>
               <button onClick={this.handleFormat}>
                 Format
@@ -90,6 +89,6 @@ export default class AdminPage extends React.Component {
           </div>
         </div>
       </div>
-    )
+    );
   }
 }

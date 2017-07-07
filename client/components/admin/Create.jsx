@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Editor from './Editor.jsx';
+import Editor from './Editor';
 
 export default class Edit extends React.Component {
   constructor(props) {
@@ -11,9 +11,9 @@ export default class Edit extends React.Component {
         title: '',
         content: '',
         channel: 0,
-        event: 0
-      }
-    }
+        event: 0,
+      },
+    };
   }
 
   render() {
@@ -24,8 +24,7 @@ export default class Edit extends React.Component {
             <div className="news-title">
               Create News
             </div>
-            <div className="news-content">
-            </div>
+            <div className="news-content" />
           </div>
           <div className="news-item">
             <Editor data={this.state.news} />

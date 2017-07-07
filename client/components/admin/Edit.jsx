@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Editor from './Editor.jsx';
+import Editor from './Editor';
 
 export default class Edit extends React.Component {
   constructor(props) {
@@ -9,7 +9,7 @@ export default class Edit extends React.Component {
     this.state = {
       newsId: '',
       news: '',
-      result: ''
+      result: '',
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -22,19 +22,19 @@ export default class Edit extends React.Component {
   }
 
   handleGet() {
-    var self = this;
+    let self = this;
     const url = '/news/' + this.state.newsId;
     fetch(url).then(function (response) {
       return response.json();
     }).then(function (json) {
       self.setState({
-        news: json.news
+        news: json.news,
       });
     });
   }
 
   handleReset() {
-    this.setState({news: ''});
+    this.setState({ news: '' });
   }
 
   handleSet() {
@@ -50,7 +50,7 @@ export default class Edit extends React.Component {
   }
 
   handleChange(event) {
-    this.setState({newsId: event.target.value});
+    this.setState({ newsId: event.target.value });
   }
 
   render() {

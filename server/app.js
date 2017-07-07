@@ -79,7 +79,7 @@ app.get('/api/list', (req, res) => {
 
 // Translate
 app.get('/translate/:word', (req, res) => {
-  var newsItem = fetch('https://rugby-board.herokuapp.com/api/v1/dict.json?entry=' + req.params.word).then(function (response){
+  fetch('https://rugby-board.herokuapp.com/api/v1/dict.json?entry=' + req.params.word).then(function (response){
     return response.json();
   }).then(function (json){
     res.send(json);

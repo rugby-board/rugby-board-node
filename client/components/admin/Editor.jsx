@@ -5,7 +5,7 @@ export default class Editor extends React.Component {
     super(props);
 
     this.state = {
-      data: props.data
+      data: props.data,
     };
 
     this.handleTitleChange = this.handleTitleChange.bind(this);
@@ -16,24 +16,24 @@ export default class Editor extends React.Component {
 
   componentWillReceiveProps(nextProps) {
     this.setState({
-      data: nextProps.data
+      data: nextProps.data,
     });
   }
 
   handleTitleChange(event) {
-    this.setState({ data: {title: event.target.value} });
+    this.setState({ data: { title: event.target.value } });
   }
 
   handleContentChange(event) {
-    this.setState({ data: {content: event.target.value} });
+    this.setState({ data: { content: event.target.value } });
   }
 
   handleChannelChange(event) {
-    this.setState({ data: {channel: event.target.value} });
+    this.setState({ data: { channel: event.target.value } });
   }
 
   handleEventChange(event) {
-    this.setState({ data: {event: event.target.value} });
+    this.setState({ data: { event: event.target.value } });
   }
 
   render() {

@@ -1,11 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-import Heading from './Heading.jsx';
-import Create from './admin/Create.jsx';
-import Edit from './admin/Edit.jsx';
-import RugbyDictQuery from './admin/RugbyDictQuery.jsx';
-import PlanetRugbyResult from './admin/PlanetRugbyResult.jsx';
+import Heading from './Heading';
+import Create from './admin/Create';
+import Edit from './admin/Edit';
+import RugbyDictQuery from './admin/RugbyDictQuery';
+import PlanetRugbyResult from './admin/PlanetRugbyResult';
 
 export default class AdminPage extends React.Component {
   constructor(props) {
@@ -15,29 +15,29 @@ export default class AdminPage extends React.Component {
       id: 'admin',
       title: 'Admin',
       more_text: '',
-      more_link: ''
+      more_link: '',
     };
 
     this.state = {
-      adminHeading: adminHeading,
-      name: props.match.params.name
+      adminHeading,
+      name: props.match.params.name,
     };
-  }
-
-  componentWillReceiveProps(nextProps) {
-    this.setState({
-      name: nextProps.match.params.name
-    });
-      
-    this.switchOperation(nextProps.match.params.name);
   }
 
   componentWillMount() {
     this.switchOperation(this.state.name);
   }
 
+  componentWillReceiveProps(nextProps) {
+    this.setState({
+      name: nextProps.match.params.name,
+    });
+
+    this.switchOperation(nextProps.match.params.name);
+  }
+
   switchOperation(name) {
-    var operation;
+    let operation;
     switch (name) {
       case 'create':
         operation = (
@@ -55,9 +55,7 @@ export default class AdminPage extends React.Component {
         );
         break;
     }
-    this.setState({
-      operation: operation
-    });
+    this.setState({ operation });
   }
 
   render() {
@@ -90,3 +88,11 @@ export default class AdminPage extends React.Component {
     );
   }
 }
+
+AdminPage.propTypes = {
+  match: React.PropTypes.shape({
+    params: React.PropTypes.shape({
+      name: React.PropTypes.string.isRequired,
+    }).isRequired,
+  }).isRequired,
+};

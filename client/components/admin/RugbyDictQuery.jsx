@@ -6,7 +6,7 @@ export default class AdminPage extends React.Component {
 
     this.state = {
       translationInput: '',
-      translationResult: ''
+      translationResult: '',
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -14,19 +14,19 @@ export default class AdminPage extends React.Component {
   }
 
   handleTranslate() {
-    var self = this;
+    let self = this;
     const url = '/translate/' + this.state.translationInput;
     fetch(url).then(function (response) {
       return response.json();
     }).then(function (json) {
       self.setState({
-        translationResult: json.result.join(' ')
+        translationResult: json.result.join(' '),
       });
     });
   }
 
   handleChange(event) {
-    this.setState({translationInput: event.target.value});
+    this.setState({ translationInput: event.target.value });
   }
 
   render() {
