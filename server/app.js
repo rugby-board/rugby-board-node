@@ -77,6 +77,15 @@ app.get('/api/list', (req, res) => {
   });
 });
 
+// Translate
+app.get('/translate/:word', (req, res) => {
+  var newsItem = fetch('https://rugby-board.herokuapp.com/api/v1/dict.json?entry=' + req.params.word).then(function (response){
+    return response.json();
+  }).then(function (json){
+    res.send(json);
+  });
+});
+
 // Always return the main index.html, so react-router render the route in the client
 app.get('/', (req, res) => {
   res.sendFile(path.resolve(__dirname, '..', 'dist', 'index.html'));

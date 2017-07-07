@@ -42,6 +42,8 @@ const Main = () => (
     <WikiContentPage path="/wiki/:name" />
     <WikiPage path="/wiki" />
     <AboutPage path="/about" />
+    <AdminPage path="/admin/:name" />
+    <AdminPage path="/admin" />
     <NotFound path="*" />
   </Router>
 );
