@@ -1,5 +1,6 @@
 import { h, Component } from 'preact';
 
+import { setDocumentTitle } from '../util';
 import Heading from '../components/Heading';
 
 export default class NotFound extends Component {
@@ -8,10 +9,12 @@ export default class NotFound extends Component {
 
     const notFoundHeading = {
       id: '404',
-      title: '错误404',
+      title: '错误 404',
       more_text: '',
       more_link: '',
     };
+
+    setDocumentTitle('错误 404');
 
     this.state = { notFoundHeading };
   }

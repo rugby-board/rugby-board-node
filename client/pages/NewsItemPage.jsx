@@ -1,5 +1,7 @@
 import { h, Component } from 'preact';
 
+import { getNewsItem } from '../data';
+import { setDocumentTitle } from '../util';
 import Loading from '../components/Loading';
 import Share from '../components/Share';
 import News from '../components/News';
@@ -22,14 +24,11 @@ export default class NewsItemPage extends Component {
 
   componentDidMount() {
     const self = this;
-    const url = '/api/news/' + this.state.id;
-    fetch(url)
-      .then((response) => { return response.json(); })
-      .then((json) => {
-        self.setState({
-          data: json.news,
-        });
+    getNewsItem(this.state.id, (json) => {
+      self.setState({
+        data: json.news,
       });
+    });
   }
 
   render() {
@@ -41,7 +40,10 @@ export default class NewsItemPage extends Component {
           <Share data={this.state.data} />
         </div>
       );
+
+      setDocumentTitle(this.state.data.title);
     }
+
 
     return (
       <div className="columns">

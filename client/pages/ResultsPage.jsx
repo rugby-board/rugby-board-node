@@ -1,5 +1,7 @@
 import { h, Component } from 'preact';
 
+import { getNewsByChannel } from '../data';
+import { setDocumentTitle } from '../util';
 import Heading from '../components/Heading';
 import NewsList from '../components/NewsList';
 
@@ -13,6 +15,8 @@ export default class ResultsPage extends Component {
       more_text: '',
       more_link: '',
     };
+
+    setDocumentTitle('比分');
 
     this.state = {
       data: null,
@@ -37,18 +41,13 @@ export default class ResultsPage extends Component {
 
   fetchData(pageNum) {
     const self = this;
-    let url = '/api/list?channel=1';
-    if (pageNum !== undefined) {
-      url += ('&page=' + this.state.pageNum);
-    }
-    fetch(url)
-      .then((response) => { return response.json(); })
-      .then((json) => {
-        self.setState({
-          data: json.news,
-          page: json.page,
-        });
+
+    getNewsByChannel(1, pageNum, (json) => {
+      self.setState({
+        data: json.news,
+        page: json.page,
       });
+    });
   }
 
   render() {

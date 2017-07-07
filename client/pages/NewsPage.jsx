@@ -1,5 +1,7 @@
 import { h, Component } from 'preact';
 
+import { getNewsByChannel } from '../data';
+import { setDocumentTitle } from '../util';
 import Heading from '../components/Heading';
 import NewsList from '../components/NewsList';
 
@@ -14,11 +16,13 @@ export default class NewsPage extends Component {
       more_link: '',
     };
 
+    setDocumentTitle('新闻');
+
     this.state = {
       data: null,
       page: null,
       newsHeading,
-      pageNum: props.page || 0,
+      pageNum: props.page || 1,
     };
   }
 
@@ -37,18 +41,13 @@ export default class NewsPage extends Component {
 
   fetchData(pageNum) {
     const self = this;
-    let url = '/api/list?channel=0';
-    if (pageNum !== undefined) {
-      url += ('&page=' + this.state.pageNum);
-    }
-    fetch(url)
-      .then((response) => { return response.json(); })
-      .then((json) => {
-        self.setState({
-          data: json.news,
-          page: json.page,
-        });
+
+    getNewsByChannel(0, pageNum, (json) => {
+      self.setState({
+        data: json.news,
+        page: json.page,
       });
+    });
   }
 
   render() {

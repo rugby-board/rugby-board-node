@@ -1,5 +1,7 @@
 import { h, Component } from 'preact';
 
+import { getNewsByEvent } from '../data';
+import { setDocumentTitle } from '../util';
 import Heading from '../components/Heading';
 import NewsList from '../components/NewsList';
 
@@ -21,14 +23,14 @@ export default class EventPage extends Component {
 
     this.eventChineseName = {
       1: '国际测试赛',
-      2: '六国赛',
-      3: '冠军赛',
-      4: '超级橄榄球',
+      2: '六国赛 Six Nations',
+      3: '冠军赛 The Rugby Championship',
+      4: '超级橄榄球 Super Rugby',
       5: '英超 Premiership',
       6: '法国 TOP14',
       7: 'PRO12',
       9: '橄榄球世界杯',
-      10: '不列颠和爱尔兰狮子',
+      10: '不列颠和爱尔兰狮子 British & Irish Lions',
     };
 
     this.eventWithWiki = {
@@ -47,7 +49,7 @@ export default class EventPage extends Component {
       page: null,
       eventHeading: this.getEventHeading(props.name),
       eventName: props.name,
-      pageNum: props.page || 0,
+      pageNum: props.page || 1,
     };
   }
 
@@ -71,7 +73,7 @@ export default class EventPage extends Component {
   getEventHeading(eventName) {
     const eventHeading = {
       id: 'event',
-      title: '赛事 / ' + this.eventChineseName[this.eventDict[eventName]],
+      title: '赛事 - ' + this.eventChineseName[this.eventDict[eventName]],
       more_text: '',
       more_link: '',
     };
@@ -87,20 +89,16 @@ export default class EventPage extends Component {
 
   fetchData(pageNum, eventName) {
     const self = this;
-    let event = -1;
+    let eventId = -1;
+
     if (Object.prototype.hasOwnProperty.call(this.eventDict, eventName)) {
-      event = this.eventDict[eventName];
+      eventId = this.eventDict[eventName];
     }
-    if (event === -1) {
+    if (eventId === -1) {
       return;
     }
-    let url = '/api/list?event=' + event;
-    if (pageNum !== undefined) {
-      url += ('&page=' + pageNum);
-    }
-    fetch(url).then((response) => {
-      return response.json();
-    }).then((json) => {
+
+    getNewsByEvent(eventId, pageNum, (json) => {
       self.setState({
         data: json.news,
         page: json.page,
@@ -110,6 +108,7 @@ export default class EventPage extends Component {
 
   render() {
     const prefix = 'event/' + this.state.eventName;
+    setDocumentTitle(this.eventChineseName[this.eventDict[this.state.eventName]]);
     return (
       <div className="columns">
         <div className="column">

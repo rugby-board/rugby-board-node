@@ -1,5 +1,6 @@
 import { h, Component } from 'preact';
 
+import { setDocumentTitle } from '../util';
 import Heading from '../components/Heading';
 import WikiList from '../components/WikiList';
 
@@ -29,7 +30,7 @@ export default class WikiContentPage extends Component {
 
     const wikiHeading = {
       id: 'wiki',
-      title: '赛事介绍 / ' + this.eventDict[props.name],
+      title: '赛事介绍 - ' + this.eventDict[props.name],
       more_text: '',
       more_link: '',
     };
@@ -41,21 +42,21 @@ export default class WikiContentPage extends Component {
   }
 
   componentWillMount() {
-    this.fetchData(this.state.name);
+    this.getWikiPage(this.state.name);
   }
 
   componentWillReceiveProps(nextProps) {
     this.setState({
       eventName: nextProps.name,
       wikiHeading: {
-        title: '赛事介绍 / ' + this.eventDict[nextProps.name],
+        title: '赛事介绍 - ' + this.eventDict[nextProps.name],
       },
     });
 
-    this.fetchData(nextProps.name);
+    this.getWikiPage(nextProps.name);
   }
 
-  fetchData(eventName) {
+  getWikiPage(eventName) {
     if (!Object.prototype.hasOwnProperty.call(this.eventDict, eventName)) {
       return false;
     }
@@ -112,6 +113,8 @@ export default class WikiContentPage extends Component {
   }
 
   render() {
+    setDocumentTitle('赛事介绍 - ' + this.eventDict[this.props.name]);
+
     return (
       <div>
         <Heading data={this.state.wikiHeading} />

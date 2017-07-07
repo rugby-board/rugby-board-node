@@ -1,5 +1,6 @@
 import { h, Component } from 'preact';
 
+import { setDocumentTitle } from '../util';
 import WikiList from '../components/WikiList';
 import Heading from '../components/Heading';
 
@@ -13,6 +14,8 @@ export default class WikiPage extends Component {
       more_text: '',
       more_link: '',
     };
+
+    setDocumentTitle('赛事介绍');
 
     this.state = { wikiHeading };
   }

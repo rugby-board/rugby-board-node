@@ -1,5 +1,7 @@
 import { h, Component } from 'preact';
 
+import { getHomePage } from '../data';
+import { setDocumentTitle } from '../util';
 import Heading from '../components/Heading';
 import NewsList from '../components/NewsList';
 import HighlightNews from '../components/HighlightNews';
@@ -30,6 +32,8 @@ export default class HomePage extends Component {
       more_link: '/wiki',
     };
 
+    setDocumentTitle('');
+
     this.state = {
       newsHeading,
       resultsHeading,
@@ -43,16 +47,14 @@ export default class HomePage extends Component {
 
   fetchData() {
     const self = this;
-    const url = '/api/index';
-    fetch(url)
-      .then((response) => { return response.json(); })
-      .then((json) => {
-        self.setState({
-          highlight: json.highlight,
-          news: json.news,
-          results: json.results,
-        });
+
+    getHomePage((json) => {
+      self.setState({
+        highlight: json.highlight,
+        news: json.news,
+        results: json.results,
       });
+    });
   }
 
   render() {

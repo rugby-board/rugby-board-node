@@ -1,10 +1,13 @@
 import { h, Component } from 'preact';
 
+import { setDocumentTitle } from '../util';
 import Heading from '../components/Heading';
 
 export default class AboutPage extends Component {
   constructor(props) {
     super(props);
+
+    setDocumentTitle('关于');
 
     const aboutHeading = {
       id: 'about',
