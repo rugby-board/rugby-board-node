@@ -1,4 +1,5 @@
-export default function setDocumentTitle(title) {
+/* eslint-disable import/prefer-default-export */
+export function setDocumentTitle(title) {
   if (title === '') {
     document.title = 'Rugby News Board';
   } else {
