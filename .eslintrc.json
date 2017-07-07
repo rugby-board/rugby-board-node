@@ -16,6 +16,7 @@
     "arrow-parens": 0,
     "max-len": 0,
     "no-continue": 0,
+    "no-restricted-syntax": 0,
     "prefer-const": 1,
     "prefer-template": 0,
     "react/prefer-stateless-function": [0, { "ignorePureComponents": true }],

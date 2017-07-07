@@ -1,5 +1,7 @@
 import { h, Component } from 'preact';
 
+import { translateWord } from '../../data';
+
 export default class AdminPage extends Component {
   constructor(props) {
     super(props);
@@ -19,7 +21,7 @@ export default class AdminPage extends Component {
     const teams = [];
     let formatted = '| 主队 | 比分 | 客队 |\n|----|----|----|\n';
 
-    this.setState({ errorMessage: 'Formatting' });
+    this.setState({ errorMessage: 'Formatting...' });
     for (let i = 0; i < lines.length; i += 1) {
       const line = lines[i];
       const results = line.split('\t');
@@ -37,18 +39,14 @@ export default class AdminPage extends Component {
       }
       formatted += '\n';
     }
-    this.setState({ inputResult: formatted });
 
-    this.setState({ errorMessage: 'Translating' });
+    this.setState({ inputResult: formatted });
+    this.setState({ errorMessage: 'Processing...' });
+
     const queryTeams = teams.join(' | ');
     let pos = 0;
-
     const self = this;
-    const url = '/translate/' + queryTeams;
-    self.setState({ errorMessage: 'Processing' });
-    fetch(url).then((response) => {
-      return response.json();
-    }).then((json) => {
+    translateWord(queryTeams, (json) => {
       const translations = json.result;
       for (let i = 0; i < translations.length; i += 1) {
         const chineseWord = translations[i];

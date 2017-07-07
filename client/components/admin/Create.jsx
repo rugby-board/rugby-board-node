@@ -8,8 +8,8 @@ export default class Edit extends Component {
 
     this.state = {
       news: {
-        title: '',
-        content: '',
+        title: 'Title',
+        content: 'Content',
         channel: 0,
         event: 0,
       },

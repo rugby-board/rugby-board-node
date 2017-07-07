@@ -1,5 +1,8 @@
 import { h, Component } from 'preact';
 
+import moment from 'moment';
+import News from '../News';
+
 export default class Editor extends Component {
   constructor(props) {
     super(props);
@@ -14,29 +17,46 @@ export default class Editor extends Component {
     this.handleEventChange = this.handleEventChange.bind(this);
   }
 
-  componentWillReceiveProps(nextProps) {
-    this.setState({
-      data: nextProps.data,
-    });
-  }
-
   handleTitleChange(event) {
-    this.setState({ data: { title: event.target.value } });
+    this.modifyData({ title: event.target.value });
   }
 
   handleContentChange(event) {
-    this.setState({ data: { content: event.target.value } });
+    this.modifyData({ content: event.target.value });
   }
 
   handleChannelChange(event) {
-    this.setState({ data: { channel: event.target.value } });
+    this.modifyData({
+      channel: parseInt(event.target.value, 10),
+      channel_text: event.target.options[event.target.selectedIndex].text,
+    });
   }
 
   handleEventChange(event) {
-    this.setState({ data: { event: event.target.value } });
+    this.modifyData({
+      event: parseInt(event.target.value, 10),
+      event_text: event.target.options[event.target.selectedIndex].text,
+    });
+  }
+
+  modifyData(assignments) {
+    const modifiedData = this.state.data;
+    for (const key in assignments) {
+      modifiedData[key] = assignments[key];
+    }
+    this.setState({ data: modifiedData });
   }
 
   render() {
+    if (this.state.data.created_at === undefined) {
+      this.modifyData({ created_at: moment().format() });
+    }
+    if (this.state.data.channel_text === undefined) {
+      this.modifyData({ channel_text: '新闻' });
+    }
+    if (this.state.data.event_text === undefined) {
+      this.modifyData({ event_text: '其它' });
+    }
     return (
       <div className="admin">
         <div className="news-title">
@@ -54,16 +74,16 @@ export default class Editor extends Component {
           <select
             value={this.state.data.channel}
             onChange={this.handleChannelChange}
-          >Channel
+          >
             <option value="0">新闻</option>
             <option value="1">比分</option>
           </select>
           <select
             value={this.state.data.event}
             onChange={this.handleEventChange}
-          >Event
+          >
             <option value="0">其它</option>
-            <option value="1">国际测试赛</option>
+            <option value="1">International Tests</option>
             <option value="2">Six Nations</option>
             <option value="3">Rugby Championship</option>
             <option value="4">Super Rugby</option>
@@ -83,6 +103,13 @@ export default class Editor extends Component {
             <option value="18">Mitre 10 Cup</option>
             <option value="19">National Rugby Championship</option>
           </select>
+        </div>
+        <hr />
+        <div className="news-title">
+          Preview
+        </div>
+        <div className="news-content">
+          <News data={this.state.data} />
         </div>
       </div>
     );

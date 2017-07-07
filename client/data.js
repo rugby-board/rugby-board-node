@@ -19,3 +19,7 @@ export function getNewsByEvent(eventId, pageNum, callback) {
 export function getNewsItem(newsId, callback) {
   getData(`/api/news/${newsId}`, callback);
 }
+
+export function translateWord(word, callback) {
+  getData(`/api/translate/${word}`, callback);
+}

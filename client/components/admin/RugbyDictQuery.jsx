@@ -1,5 +1,7 @@
 import { h, Component } from 'preact';
 
+import { translateWord } from '../../data';
+
 export default class AdminPage extends Component {
   constructor(props) {
     super(props);
@@ -15,10 +17,7 @@ export default class AdminPage extends Component {
 
   handleTranslate() {
     const self = this;
-    const url = '/translate/' + this.state.translationInput;
-    fetch(url).then((response) => {
-      return response.json();
-    }).then((json) => {
+    translateWord(this.state.translationInput, (json) => {
       self.setState({
         translationResult: json.result.join(' '),
       });

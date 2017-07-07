@@ -78,7 +78,7 @@ app.get('/api/list', (req, res) => {
 });
 
 // Translate
-app.get('/translate/:word', (req, res) => {
+app.get('/api/translate/:word', (req, res) => {
   fetch('https://rugby-board.herokuapp.com/api/v1/dict.json?entry=' + req.params.word).then(function (response){
     return response.json();
   }).then(function (json){
