@@ -18,7 +18,6 @@ import EventPage from './pages/EventPage';
 import WikiContentPage from './pages/WikiContentPage';
 import WikiPage from './pages/WikiPage';
 import AboutPage from './pages/AboutPage';
-import AdminPage from './pages/AdminPage';
 import NotFound from './pages/NotFound';
 
 // setup Google Analytics
@@ -43,8 +42,6 @@ const Main = () => (
     <WikiContentPage path="/wiki/:name" />
     <WikiPage path="/wiki" />
     <AboutPage path="/about" />
-    <AdminPage path="/admin/:name" />
-    <AdminPage path="/admin" />
     <NotFound path="*" />
   </Router>
 );

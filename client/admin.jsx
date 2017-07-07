@@ -5,10 +5,6 @@ import { createHashHistory } from 'history';
 // stylesheets
 import './css/main.scss';
 
-// components
-import Header from './components/Header';
-import Footer from './components/Footer';
-
 // pages
 import AdminPage from './pages/AdminPage';
 import NotFound from './pages/NotFound';

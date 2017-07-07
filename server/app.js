@@ -86,6 +86,19 @@ app.get('/translate/:word', (req, res) => {
   });
 });
 
+// Admin page
+function getToken() {
+  return process.env.ADMIN_TOKEN === undefined ? '12f5bb6' : process.env.ADMIN_TOKEN;
+}
+
+app.get('/admin', (req, res) => {
+  if (req.query.token === getToken()) {
+    res.sendFile(path.resolve(__dirname, '..', 'dist', 'admin.html'));
+  } else {
+    res.send('Access Denied.');
+  }
+});
+
 // Always return the main index.html, so react-router render the route in the client
 app.get('/', (req, res) => {
   res.sendFile(path.resolve(__dirname, '..', 'dist', 'index.html'));

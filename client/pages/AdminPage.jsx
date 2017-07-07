@@ -69,8 +69,8 @@ export default class AdminPage extends Component {
                 <div className="news-item">
                   <h3>News</h3>
                   <ul>
-                    <li><Link href="/admin/create">Create</Link></li>
-                    <li><Link href="/admin/edit">Edit</Link></li>
+                    <li><Link href="/create">Create</Link></li>
+                    <li><Link href="/edit">Edit</Link></li>
                   </ul>
                 </div>
               </div>

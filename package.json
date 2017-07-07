@@ -9,6 +9,7 @@
     "build": "webpack -p --config ./config/webpack.prod.config.js --progress",
     "server": "node server",
     "test": "eslint client --ext .js --ext .jsx && mocha test",
+    "test-only": "mocha test",
     "lint": "eslint client --ext .js --ext .jsx",
     "heroku-postbuild": "webpack -p --config ./config/webpack.prod.config.js"
   },
