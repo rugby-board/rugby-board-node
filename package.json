@@ -5,6 +5,7 @@
   "license": "MIT",
   "scripts": {
     "dev": "webpack-dev-server --host 127.0.0.1 --devtool eval --progress --colors --hot --content-base dist",
+    "dev-build": "webpack -p --config ./config/webpack.dev.config.js --progress",
     "build": "webpack -p --config ./config/webpack.prod.config.js --progress",
     "server": "node server",
     "test": "eslint client --ext .js --ext .jsx && mocha test",

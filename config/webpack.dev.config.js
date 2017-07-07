@@ -1,19 +1,18 @@
 const path = require('path');
 const webpack = require('webpack');
-
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
-const HtmlWebpackPluginConfig = new HtmlWebpackPlugin({
-  template: './client/index.html',
-  filename: 'index.html',
-  inject: 'body',
-});
-
 module.exports = {
-  entry: [
-    'webpack-hot-middleware/client',
-    './client/index.jsx',
-  ],
+  entry: {
+    'index': [
+      'webpack-hot-middleware/client',
+      './client/index.jsx',
+    ],
+    'admin': [
+      'webpack-hot-middleware/client',
+      './client/admin.jsx',
+    ],
+  },
   module: {
     loaders: [
       {
@@ -70,10 +69,24 @@ module.exports = {
   },
   output: {
     path: path.resolve(__dirname, '..', 'dist'),
-    filename: 'bundle.js',
+    filename: '[name]/bundle.js',
+    publicPath: '/',
   },
   plugins: [
-    HtmlWebpackPluginConfig,
+    new HtmlWebpackPlugin({
+      template: './client/index.html',
+      filename: 'index.html',
+      inject: 'body',
+      chunks: ['index'],
+      hash: true,
+    }),
+    new HtmlWebpackPlugin({
+      template: './client/admin.html',
+      filename: 'admin.html',
+      inject: 'body',
+      chunks: ['admin'],
+      hash: true,
+    }),
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NoEmitOnErrorsPlugin(),
   ],
