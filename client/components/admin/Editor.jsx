@@ -1,6 +1,6 @@
-import React from 'react';
+import { h, Component } from 'preact';
 
-export default class Editor extends React.Component {
+export default class Editor extends Component {
   constructor(props) {
     super(props);
 
@@ -88,15 +88,3 @@ export default class Editor extends React.Component {
     );
   }
 }
-
-Editor.propTypes = {
-  data: React.PropTypes.shape({
-    id: React.PropTypes.number.isRequired,
-    title: React.PropTypes.string.isRequired,
-    content: React.PropTypes.string.isRequired,
-    channel: React.PropTypes.number.isRequired,
-    created_at: React.PropTypes.string.isRequired,
-    channel_text: React.PropTypes.string.isRequired,
-    event_text: React.PropTypes.string.isRequired,
-  }).isRequired,
-};

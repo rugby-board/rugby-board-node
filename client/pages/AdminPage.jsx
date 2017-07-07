@@ -20,7 +20,7 @@ export default class AdminPage extends Component {
 
     this.state = {
       adminHeading,
-      name: props.match.params.name,
+      name: props.name,
     };
   }
 
@@ -30,10 +30,10 @@ export default class AdminPage extends Component {
 
   componentWillReceiveProps(nextProps) {
     this.setState({
-      name: nextProps.match.params.name,
+      name: nextProps.name,
     });
 
-    this.switchOperation(nextProps.match.params.name);
+    this.switchOperation(nextProps.name);
   }
 
   switchOperation(name) {

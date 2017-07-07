@@ -1,6 +1,6 @@
-import React from 'react';
+import { h, Component } from 'preact';
 
-export default class AdminPage extends React.Component {
+export default class AdminPage extends Component {
   constructor(props) {
     super(props);
 

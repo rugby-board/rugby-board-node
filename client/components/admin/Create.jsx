@@ -1,8 +1,8 @@
-import React from 'react';
+import { h, Component } from 'preact';
 
 import Editor from './Editor';
 
-export default class Edit extends React.Component {
+export default class Edit extends Component {
   constructor(props) {
     super(props);
 

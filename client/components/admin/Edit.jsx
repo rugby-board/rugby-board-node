@@ -1,8 +1,9 @@
-import React from 'react';
+import { h, Component } from 'preact';
 
+import { getNewsItem } from '../../data';
 import Editor from './Editor';
 
-export default class Edit extends React.Component {
+export default class Edit extends Component {
   constructor(props) {
     super(props);
 
@@ -23,10 +24,8 @@ export default class Edit extends React.Component {
 
   handleGet() {
     const self = this;
-    const url = '/news/' + this.state.newsId;
-    fetch(url).then((response) => {
-      return response.json();
-    }).then((json) => {
+
+    getNewsItem(this.state.newsId, (json) => {
       self.setState({
         news: json.news,
       });
