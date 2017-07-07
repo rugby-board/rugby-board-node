@@ -18,6 +18,7 @@ import EventPage from './pages/EventPage';
 import WikiContentPage from './pages/WikiContentPage';
 import WikiPage from './pages/WikiPage';
 import AboutPage from './pages/AboutPage';
+import AdminPage from './pages/AdminPage';
 import NotFound from './pages/NotFound';
 
 // setup Google Analytics

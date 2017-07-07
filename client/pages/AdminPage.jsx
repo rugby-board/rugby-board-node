@@ -1,13 +1,13 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import { h, Component } from 'preact';
+import { Link } from 'preact-router/match';
 
-import Heading from './Heading';
-import Create from './admin/Create';
-import Edit from './admin/Edit';
-import RugbyDictQuery from './admin/RugbyDictQuery';
-import PlanetRugbyResult from './admin/PlanetRugbyResult';
+import Heading from '../components/Heading';
+import Create from '../components/admin/Create';
+import Edit from '../components/admin/Edit';
+import RugbyDictQuery from '../components/admin/RugbyDictQuery';
+import PlanetRugbyResult from '../components/admin/PlanetRugbyResult';
 
-export default class AdminPage extends React.Component {
+export default class AdminPage extends Component {
   constructor(props) {
     super(props);
 
@@ -69,8 +69,8 @@ export default class AdminPage extends React.Component {
                 <div className="news-item">
                   <h3>News</h3>
                   <ul>
-                    <li><Link to="/admin/create">Create</Link></li>
-                    <li><Link to="/admin/edit">Edit</Link></li>
+                    <li><Link href="/admin/create">Create</Link></li>
+                    <li><Link href="/admin/edit">Edit</Link></li>
                   </ul>
                 </div>
               </div>
@@ -88,11 +88,3 @@ export default class AdminPage extends React.Component {
     );
   }
 }
-
-AdminPage.propTypes = {
-  match: React.PropTypes.shape({
-    params: React.PropTypes.shape({
-      name: React.PropTypes.string.isRequired,
-    }).isRequired,
-  }).isRequired,
-};
