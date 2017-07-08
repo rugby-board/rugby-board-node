@@ -1,9 +1,11 @@
-function getToken() {
-  return process.env.ADMIN_TOKEN === undefined ? '12ffbb6' : process.env.ADMIN_TOKEN;
-}
-
 function getData(url, callback) {
   fetch(url)
+    .then((response) => { return response.json(); })
+    .then((json) => { callback(json); });
+}
+
+function postData(url, form, callback) {
+  fetch(url, { method: 'POST', body: form })
     .then((response) => { return response.json(); })
     .then((json) => { callback(json); });
 }
@@ -31,14 +33,17 @@ export function translateWord(word, callback) {
 export function createNews(news, callback) {
 }
 
-export function editNews(news, callback) {
+export function updateNews(news, callback) {
 }
 
-export function highlightNews(news, callback) {
+export function highlightNews(newsId, callback) {
+  postData(`/api/highlight/${newsId}`, null, callback);
+}
+
+export function unhighlightNews(newsId, callback) {
+  postData(`/api/unhighlight/${newsId}`, null, callback);
 }
 
 export function deleteNews(newsId, callback) {
-}
-
-export function recoverNews(newsId, callback) {
+  postData(`/api/delete/${newsId}`, null, callback);
 }

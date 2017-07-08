@@ -1,6 +1,13 @@
 import { h, Component } from 'preact';
 
-import { getNewsItem } from '../../data';
+import {
+  createNews,
+  deleteNews,
+  getNewsItem,
+  highlightNews,
+  unhighlightNews,
+  updateNews,
+} from '../../data';
 import Editor from './Editor';
 
 export default class Edit extends Component {
@@ -42,9 +49,19 @@ export default class Edit extends Component {
   }
 
   handleHighlight() {
+    highlightNews(this.state.news.id, (json) => {
+      if (json.status === 0) {
+        alert('Highlight successfully');
+      }
+    });
   }
 
   handleUnhighlight() {
+    unhighlightNews(this.state.news.id, (json) => {
+      if (json.status === 0) {
+        alert('Unhighlight successfully');
+      }
+    });
   }
 
   handleDelete() {
