@@ -89,7 +89,7 @@ app.post('/api/highlight/:id', (req, res) => {
   const url = `${API_URL}/news/highlight/${req.params.id}?token=${API_TOKEN}`;
   fetch(url, { method: 'POST' }).then((response) => {
     return response.json();
-  }).then(function (json){
+  }).then((json) => {
     res.send(json);
   });
 });
