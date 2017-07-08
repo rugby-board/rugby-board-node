@@ -15,15 +15,17 @@ export default class Edit extends Component {
 
     this.handleChange = this.handleChange.bind(this);
     this.handleReset = this.handleReset.bind(this);
+    this.handleUpdate = this.handleUpdate.bind(this);
     this.handleGet = this.handleGet.bind(this);
-    this.handleSet = this.handleSet.bind(this);
-    this.handleUnset = this.handleUnset.bind(this);
+    this.handleHighlight = this.handleHighlight.bind(this);
+    this.handleUnhighlight = this.handleUnhighlight.bind(this);
     this.handleDelete = this.handleDelete.bind(this);
     this.handleRecover = this.handleRecover.bind(this);
   }
 
   handleGet() {
     const self = this;
+    this.setState({ news: '' });
 
     getNewsItem(this.state.newsId, (json) => {
       self.setState({
@@ -36,10 +38,13 @@ export default class Edit extends Component {
     this.setState({ news: '' });
   }
 
-  handleSet() {
+  handleUpdate() {
   }
 
-  handleUnset() {
+  handleHighlight() {
+  }
+
+  handleUnhighlight() {
   }
 
   handleDelete() {
@@ -75,13 +80,13 @@ export default class Edit extends Component {
               </button>
               {this.state.news &&
                 <div className="admin-buttons">
-                  <button onClick={this.handleGet}>
+                  <button onClick={this.handleUpdate}>
                     Update
                   </button>
-                  <button onClick={this.handleSet}>
+                  <button onClick={this.handleHighlight}>
                     Highlight
                   </button>
-                  <button onClick={this.handleUnset}>
+                  <button onClick={this.handleUnhighlight}>
                     Unhighlight
                   </button>
                   <button onClick={this.handleDelete}>

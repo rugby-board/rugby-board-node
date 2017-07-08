@@ -32,9 +32,13 @@ app.use(express.static(path.resolve(__dirname, '..', 'dist')));
 // Serve static assets
 app.use('/public', express.static(path.resolve(__dirname, '.', 'public')));
 
+// Access token
+const ACCESS_TOKEN = process.env.ADMIN_TOKEN === undefined ? '12ffbb6' : process.env.ADMIN_TOKEN;
+const API_URL = 'https://rugby-board.herokuapp.com/api/v1';
+
 // Get Index
 app.get('/api/index', (req, res) => {
-  fetch('https://rugby-board.herokuapp.com/api/v1/index').then((response) => {
+  fetch(`${API_URL}/index?token=${ACCESS_TOKEN}`).then((response) => {
     return response.json();
   }).then((json) => {
     res.send(json);
@@ -43,7 +47,7 @@ app.get('/api/index', (req, res) => {
 
 // Get News Item
 app.get('/api/news/:id', (req, res) => {
-  fetch('https://rugby-board.herokuapp.com/api/v1/news/' + req.params.id).then((response) => {
+  fetch(`${API_URL}/news/${req.params.id}?token=${ACCESS_TOKEN}`).then((response) => {
     return response.json();
   }).then((json) => {
     res.send(json);
@@ -58,7 +62,7 @@ app.get('/api/list', (req, res) => {
   if (page < 1) {
     page = 1;
   }
-  let url = 'https://rugby-board.herokuapp.com/api/v1/list';
+  let url = `${API_URL}/list?token=${ACCESS_TOKEN}`;
   const params = [];
   params.push('p=' + page);
   if (channel !== -1) {
@@ -68,7 +72,7 @@ app.get('/api/list', (req, res) => {
     params.push('event=' + event);
   }
   if (channel !== -1 || event !== -1) {
-    url += ('?' + params.join('&'));
+    url += ('&' + params.join('&'));
   }
   fetch(url).then((response) => {
     return response.json();
@@ -79,20 +83,22 @@ app.get('/api/list', (req, res) => {
 
 // Translate
 app.get('/api/translate/:word', (req, res) => {
-  fetch('https://rugby-board.herokuapp.com/api/v1/dict.json?entry=' + req.params.word).then(function (response){
+  fetch(`${API_URL}/dict?entry=${req.params.word}`).then(function (response){
     return response.json();
   }).then(function (json){
     res.send(json);
   });
 });
 
-// Admin page
-function getToken() {
-  return process.env.ADMIN_TOKEN === undefined ? '12f5bb6' : process.env.ADMIN_TOKEN;
-}
+// Create
+// Update
+// Highlight
+// Unhighlight
+// Delete
 
+// Admin page
 app.get('/admin', (req, res) => {
-  if (req.query.token === getToken()) {
+  if (req.query.token === ACCESS_TOKEN) {
     res.sendFile(path.resolve(__dirname, '..', 'dist', 'admin.html'));
   } else {
     res.send('Access Denied.');

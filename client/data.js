@@ -1,3 +1,7 @@
+function getToken() {
+  return process.env.ADMIN_TOKEN === undefined ? '12ffbb6' : process.env.ADMIN_TOKEN;
+}
+
 function getData(url, callback) {
   fetch(url)
     .then((response) => { return response.json(); })
@@ -22,4 +26,19 @@ export function getNewsItem(newsId, callback) {
 
 export function translateWord(word, callback) {
   getData(`/api/translate/${word}`, callback);
+}
+
+export function createNews(news, callback) {
+}
+
+export function editNews(news, callback) {
+}
+
+export function highlightNews(news, callback) {
+}
+
+export function deleteNews(newsId, callback) {
+}
+
+export function recoverNews(newsId, callback) {
 }

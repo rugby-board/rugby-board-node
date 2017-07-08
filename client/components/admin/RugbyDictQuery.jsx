@@ -16,11 +16,17 @@ export default class AdminPage extends Component {
   }
 
   handleTranslate() {
+    if (this.state.translationInput === '') {
+      return;
+    }
+
     const self = this;
     translateWord(this.state.translationInput, (json) => {
-      self.setState({
-        translationResult: json.result.join(' '),
-      });
+      if (!json.result.length) {
+        self.setState({ translationResult: 'No result' });
+      } else {
+        self.setState({ translationResult: json.result.join(' ') });
+      }
     });
   }
 

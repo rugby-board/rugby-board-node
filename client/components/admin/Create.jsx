@@ -16,6 +16,9 @@ export default class Edit extends Component {
     };
   }
 
+  handleSubmit() {
+  }
+
   render() {
     return (
       <div className="news">
@@ -28,6 +31,15 @@ export default class Edit extends Component {
           </div>
           <div className="news-item">
             <Editor data={this.state.news} />
+            <hr />
+            <div className="news-title">
+              Finish
+            </div>
+            <div className="news-content">
+              <button onClick={this.handleSubmit}>
+                Submit
+              </button>
+            </div>
           </div>
         </div>
       </div>
