@@ -87,7 +87,7 @@ app.get('/api/list', (req, res) => {
 // Highlight
 app.post('/api/highlight/:id', (req, res) => {
   const url = `${API_URL}/news/highlight/${req.params.id}?token=${API_TOKEN}`;
-  fetch(url, { method: 'POST' }).then(function (response){
+  fetch(url, { method: 'POST' }).then((response) => {
     return response.json();
   }).then(function (json){
     res.send(json);
@@ -96,27 +96,27 @@ app.post('/api/highlight/:id', (req, res) => {
 // Unhighlight
 app.post('/api/unhighlight/:id', (req, res) => {
   const url = `${API_URL}/news/unhighlight/${req.params.id}?token=${API_TOKEN}`;
-  fetch(url, { method: 'POST' }).then(function (response){
+  fetch(url, { method: 'POST' }).then((response) => {
     return response.json();
-  }).then(function (json){
+  }).then((json) => {
     res.send(json);
   });
 });
 // Delete
 app.post('/api/delete/:id', (req, res) => {
   const url = `${API_URL}/news/highlight/${req.params.id}?token=${API_TOKEN}`;
-  fetch(url, { method: 'DELETE' }).then(function (response){
+  fetch(url, { method: 'DELETE' }).then((response) => {
     return response.json();
-  }).then(function (json){
+  }).then((json) => {
     res.send(json);
   });
 });
 
 // Translate
 app.get('/api/translate/:word', (req, res) => {
-  fetch(`${API_URL}/dict?entry=${req.params.word}`).then(function (response){
+  fetch(`${API_URL}/dict?entry=${req.params.word}`).then((response) => {
     return response.json();
-  }).then(function (json){
+  }).then((json) => {
     res.send(json);
   });
 });
