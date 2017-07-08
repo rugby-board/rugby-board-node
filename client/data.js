@@ -4,6 +4,12 @@ function getData(url, callback) {
     .then((json) => { callback(json); });
 }
 
+function postData(url, form, callback) {
+  fetch(url, { method: 'POST', body: form })
+    .then((response) => { return response.json(); })
+    .then((json) => { callback(json); });
+}
+
 export function getHomePage(callback) {
   getData('/api/index', callback);
 }
@@ -18,4 +24,26 @@ export function getNewsByEvent(eventId, pageNum, callback) {
 
 export function getNewsItem(newsId, callback) {
   getData(`/api/news/${newsId}`, callback);
+}
+
+export function translateWord(word, callback) {
+  getData(`/api/translate/${word}`, callback);
+}
+
+export function createNews(news, callback) {
+}
+
+export function updateNews(news, callback) {
+}
+
+export function highlightNews(newsId, callback) {
+  postData(`/api/highlight/${newsId}`, null, callback);
+}
+
+export function unhighlightNews(newsId, callback) {
+  postData(`/api/unhighlight/${newsId}`, null, callback);
+}
+
+export function deleteNews(newsId, callback) {
+  postData(`/api/delete/${newsId}`, null, callback);
 }

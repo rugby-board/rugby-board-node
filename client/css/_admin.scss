@@ -1,0 +1,19 @@
+.admin {
+  input[type=text] {
+    width: 100%;
+  }
+
+  textarea {
+    height: 6rem;
+    width: 100%;
+  }
+
+  select {
+    margin-right: 1rem;
+    width: 5rem;
+  }
+
+  label {
+    margin-right: 1rem;
+  }
+}

@@ -3,14 +3,11 @@ const webpack = require('webpack');
 
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
-const HtmlWebpackPluginConfig = new HtmlWebpackPlugin({
-  template: './client/index.html',
-  filename: 'index.html',
-  inject: 'body',
-});
-
 module.exports = {
-  entry: ['./client/index.jsx'],
+  entry: {
+    index: ['./client/index.jsx'],
+    admin: ['./client/admin.jsx'],
+  },
   module: {
     loaders: [
       {
@@ -62,10 +59,24 @@ module.exports = {
   },
   output: {
     path: path.resolve(__dirname, '..', 'dist'),
-    filename: 'bundle.js',
+    filename: '[name]/bundle.js',
+    publicPath: '/',
   },
   plugins: [
-    HtmlWebpackPluginConfig,
+    new HtmlWebpackPlugin({
+      template: './client/index.html',
+      filename: 'index.html',
+      inject: 'body',
+      chunks: ['index'],
+      hash: true,
+    }),
+    new HtmlWebpackPlugin({
+      template: './client/admin.html',
+      filename: 'admin.html',
+      inject: 'body',
+      chunks: ['admin'],
+      hash: true,
+    }),
     new webpack.NoEmitOnErrorsPlugin(),
     new webpack.DefinePlugin({ 'process.env.NODE_ENV': '"production"' }),
     new webpack.optimize.OccurrenceOrderPlugin(),
