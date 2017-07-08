@@ -4,11 +4,11 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   entry: {
-    'index': [
+    index: [
       'webpack-hot-middleware/client',
       './client/index.jsx',
     ],
-    'admin': [
+    admin: [
       'webpack-hot-middleware/client',
       './client/admin.jsx',
     ],

@@ -5,8 +5,8 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   entry: {
-    'index': ['./client/index.jsx'],
-    'admin': ['./client/admin.jsx'],
+    index: ['./client/index.jsx'],
+    admin: ['./client/admin.jsx'],
   },
   module: {
     loaders: [
