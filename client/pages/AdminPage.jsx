@@ -14,8 +14,8 @@ export default class AdminPage extends Component {
     const adminHeading = {
       id: 'admin',
       title: 'Admin',
-      more_text: '',
-      more_link: '',
+      more_text: 'Back',
+      more_link: 'http://rugbynews.space/',
     };
 
     this.state = {
@@ -63,12 +63,13 @@ export default class AdminPage extends Component {
       <div>
         <Heading data={this.state.adminHeading} />
         <div className="columns">
-          <div className="column column-1-4">
+          <div className="column column-1-5">
             <div className="news">
               <div className="news-wrap">
                 <div className="news-item">
                   <h3>News</h3>
                   <ul>
+                    <li><Link href="/">Home</Link></li>
                     <li><Link href="/create">Create</Link></li>
                     <li><Link href="/edit">Edit</Link></li>
                   </ul>
@@ -76,10 +77,10 @@ export default class AdminPage extends Component {
               </div>
             </div>
           </div>
-          <div className="column column-1-2">
+          <div className="column column-2-5">
             {this.state.operation}
           </div>
-          <div className="column column-1-4">
+          <div className="column column-2-5">
             <RugbyDictQuery />
             <PlanetRugbyResult />
           </div>
