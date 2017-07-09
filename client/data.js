@@ -30,10 +30,12 @@ export function translateWord(word, callback) {
   getData(`/api/translate/${word}`, callback);
 }
 
-export function createNews(news, callback) {
+export function createNews(newsId, form, callback) {
+  postData(`/api/create/${newsId}`, form, callback);
 }
 
-export function updateNews(news, callback) {
+export function updateNews(newsId, form, callback) {
+  postData(`/api/update/${newsId}`, form, callback);
 }
 
 export function highlightNews(newsId, callback) {

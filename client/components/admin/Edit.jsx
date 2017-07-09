@@ -1,7 +1,6 @@
 import { h, Component } from 'preact';
 
 import {
-  createNews,
   deleteNews,
   getNewsItem,
   highlightNews,
@@ -10,6 +9,7 @@ import {
 } from '../../data';
 import Editor from './Editor';
 
+/* eslint-disable no-alert */
 export default class Edit extends Component {
   constructor(props) {
     super(props);
@@ -46,6 +46,13 @@ export default class Edit extends Component {
   }
 
   handleUpdate() {
+    updateNews(this.state.news.id, this.state.news, (json) => {
+      if (json.status === 0) {
+        alert('Update successfully');
+        // reload data
+        this.handleGet();
+      }
+    });
   }
 
   handleHighlight() {
@@ -65,9 +72,18 @@ export default class Edit extends Component {
   }
 
   handleDelete() {
+    deleteNews(this.state.news.id, (json) => {
+      if (json.status === 0) {
+        alert('Delete successfully');
+      }
+    });
   }
 
+  // Unhighlight operation set news status to 0,
+  // which denotes the OK status,
+  // and recover just need this status.
   handleRecover() {
+    this.handleUnhighlight();
   }
 
   handleChange(event) {

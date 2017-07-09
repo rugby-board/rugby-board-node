@@ -104,7 +104,7 @@ app.post('/api/unhighlight/:id', (req, res) => {
 });
 // Delete
 app.post('/api/delete/:id', (req, res) => {
-  const url = `${API_URL}/news/highlight/${req.params.id}?token=${API_TOKEN}`;
+  const url = `${API_URL}/news/${req.params.id}?token=${API_TOKEN}`;
   fetch(url, { method: 'DELETE' }).then((response) => {
     return response.json();
   }).then((json) => {
