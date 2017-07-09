@@ -51,6 +51,8 @@ export default class Edit extends Component {
         alert('Update successfully');
         // reload data
         this.handleGet();
+      } else {
+        alert('Update failed');
       }
     });
   }

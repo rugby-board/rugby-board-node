@@ -103,6 +103,20 @@ app.post('/api/create', (req, res) => {
   });
 });
 // Update
+app.post('/api/update/:id', (req, res) => {
+  const url = `${API_URL}/news/${req.params.id}?token=${API_TOKEN}`;
+  const form = new FormData();
+  form.append('title', req.body.title);
+  form.append('content', req.body.content);
+  form.append('channel', req.body.channel);
+  form.append('event', req.body.event);
+
+  fetch(url, { method: 'PUT', body: form }).then((response) => {
+    return response.json();
+  }).then((json) => {
+    res.send(json);
+  });
+});
 // Highlight
 app.post('/api/highlight/:id', (req, res) => {
   const url = `${API_URL}/news/highlight/${req.params.id}?token=${API_TOKEN}`;
