@@ -1,6 +1,7 @@
 // server/app.js
 
 /* eslint-disable import/no-extraneous-dependencies */
+/* eslint-disable global-require */
 /* eslint-disable no-console */
 const express = require('express');
 const morgan = require('morgan');
