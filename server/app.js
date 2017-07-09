@@ -5,6 +5,8 @@ const path = require('path');
 const fetch = require('node-fetch');
 
 const app = express();
+const bodyParser = require('body-parser');
+const FormData = require('form-data');
 
 // webpack-dev-middleware
 if (process.env.NODE_ENV !== 'production') {
@@ -26,6 +28,9 @@ if (process.env.NODE_ENV !== 'production') {
 
 // Setup logger
 app.use(morgan(':remote-addr - :remote-user [:date[clf]] ":method :url HTTP/:http-version" :status :res[content-length] :response-time ms'));
+
+// Parse body
+app.use(bodyParser.json());
 
 // Serve index
 app.use(express.static(path.resolve(__dirname, '..', 'dist')));
@@ -83,13 +88,41 @@ app.get('/api/list', (req, res) => {
 });
 
 // Create
+app.post('/api/create', (req, res) => {
+  const url = `${API_URL}/news?token=${API_TOKEN}`;
+  const form = new FormData();
+  form.append('title', req.body.title);
+  form.append('content', req.body.content);
+  form.append('channel', req.body.channel);
+  form.append('event', req.body.event);
+
+  fetch(url, { method: 'POST', body: form }).then((response) => {
+    return response.json();
+  }).then((json) => {
+    res.send(json);
+  });
+});
 // Update
+app.post('/api/update/:id', (req, res) => {
+  const url = `${API_URL}/news/${req.params.id}?token=${API_TOKEN}`;
+  const form = new FormData();
+  form.append('title', req.body.title);
+  form.append('content', req.body.content);
+  form.append('channel', req.body.channel);
+  form.append('event', req.body.event);
+
+  fetch(url, { method: 'PUT', body: form }).then((response) => {
+    return response.json();
+  }).then((json) => {
+    res.send(json);
+  });
+});
 // Highlight
 app.post('/api/highlight/:id', (req, res) => {
   const url = `${API_URL}/news/highlight/${req.params.id}?token=${API_TOKEN}`;
   fetch(url, { method: 'POST' }).then((response) => {
     return response.json();
-  }).then(function (json){
+  }).then((json) => {
     res.send(json);
   });
 });
@@ -104,7 +137,7 @@ app.post('/api/unhighlight/:id', (req, res) => {
 });
 // Delete
 app.post('/api/delete/:id', (req, res) => {
-  const url = `${API_URL}/news/highlight/${req.params.id}?token=${API_TOKEN}`;
+  const url = `${API_URL}/news/${req.params.id}?token=${API_TOKEN}`;
   fetch(url, { method: 'DELETE' }).then((response) => {
     return response.json();
   }).then((json) => {

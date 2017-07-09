@@ -39,6 +39,7 @@ export default class Editor extends Component {
     });
   }
 
+  /* eslint-disable guard-for-in */
   modifyData(assignments) {
     const modifiedData = this.state.data;
     for (const key in assignments) {
