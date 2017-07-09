@@ -14,7 +14,9 @@
     "heroku-postbuild": "webpack -p --config ./config/webpack.prod.config.js"
   },
   "dependencies": {
+    "body-parser": "^1.17.2",
     "express": "^4.15.3",
+    "form-data": "^2.2.0",
     "history": "^4.6.3",
     "marked": "^0.3.6",
     "moment": "^2.18.1",
