@@ -5,7 +5,11 @@ function getData(url, callback) {
 }
 
 function postData(url, form, callback) {
-  fetch(url, { method: 'POST', body: form })
+  fetch(url, {
+  	method: 'POST',
+  	body: JSON.stringify(form),
+  	headers: { 'Content-Type': 'application/json' },
+  })
     .then((response) => { return response.json(); })
     .then((json) => { callback(json); });
 }
@@ -30,12 +34,12 @@ export function translateWord(word, callback) {
   getData(`/api/translate/${word}`, callback);
 }
 
-export function createNews(newsId, form, callback) {
-  postData(`/api/create/${newsId}`, form, callback);
+export function createNews(news, callback) {
+  postData(`/api/create`, news, callback);
 }
 
-export function updateNews(newsId, form, callback) {
-  postData(`/api/update/${newsId}`, form, callback);
+export function updateNews(newsId, news, callback) {
+  postData(`/api/update/${newsId}`, news, callback);
 }
 
 export function highlightNews(newsId, callback) {
