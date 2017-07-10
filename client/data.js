@@ -3,19 +3,14 @@ import timeoutify from 'timeoutify-promise';
 const GET_TIMEOUT = 1000;
 
 function getData(url, callback, timeout) {
-  timeoutify(
-    fetch(url)
-      .then((response) => { return response.json(); })
-      .then((json) => { callback(json); }),
-    GET_TIMEOUT,
-  ).catch(() => {
-    timeout();
-  });
+  timeoutify(fetch(url), GET_TIMEOUT)
+    .then((response) => { return response.json(); })
+    .then((json) => { callback(json); })
+    .catch(() => { timeout(); });
 }
 
 function postData(url, form, callback) {
-  fetch(
-    url,
+  fetch(url,
     {
       method: 'POST',
       body: JSON.stringify(form),
