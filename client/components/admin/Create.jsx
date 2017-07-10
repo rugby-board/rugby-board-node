@@ -32,7 +32,7 @@ export default class Edit extends Component {
         const submitResult = (
           <span>
             Create successfully:
-            <a href={`/news/${json.news.id}`} target="_blank">
+            <a href={`/#/news/${json.news.id}`} target="_blank">
               #{json.news.id}
             </a>
           </span>
