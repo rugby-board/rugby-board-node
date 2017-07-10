@@ -3,6 +3,7 @@ import { h, Component } from 'preact';
 import { getHomePage } from '../data';
 import { setDocumentTitle } from '../util';
 import Heading from '../components/Heading';
+import Error from '../components/Error';
 import NewsList from '../components/NewsList';
 import HighlightNews from '../components/HighlightNews';
 import WikiList from '../components/WikiList';
@@ -38,6 +39,7 @@ export default class HomePage extends Component {
       newsHeading,
       resultsHeading,
       eventHeading,
+      error: ''
     };
   }
 
@@ -48,13 +50,21 @@ export default class HomePage extends Component {
   fetchData() {
     const self = this;
 
-    getHomePage((json) => {
-      self.setState({
-        highlight: json.highlight,
-        news: json.news,
-        results: json.results,
-      });
-    });
+    getHomePage(
+      (json) => {
+        self.setState({
+          highlight: json.highlight,
+          news: json.news,
+          results: json.results,
+        });
+      },
+      () => {
+        const error = (
+          <Error text="加载失败，请刷新重试" />
+        );
+        this.setState({ error });
+      },
+    );
   }
 
   render() {
@@ -77,6 +87,7 @@ export default class HomePage extends Component {
             <WikiList />
           </div>
         </div>
+        <div className="error-container">{ this.state.error }</div>
       </div>
     );
   }

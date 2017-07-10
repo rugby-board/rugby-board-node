@@ -3,6 +3,7 @@ import { h, Component } from 'preact';
 import { getNewsItem } from '../data';
 import { setDocumentTitle } from '../util';
 import Loading from '../components/Loading';
+import Error from '../components/Error';
 import Share from '../components/Share';
 import News from '../components/News';
 
@@ -24,11 +25,20 @@ export default class NewsItemPage extends Component {
 
   componentDidMount() {
     const self = this;
-    getNewsItem(this.state.id, (json) => {
-      self.setState({
-        data: json.news,
-      });
-    });
+    getNewsItem(
+      this.state.id,
+      (json) => {
+        self.setState({
+          data: json.news,
+        });
+      },
+      () => {
+        const error = (
+          <Error text="加载失败，请刷新重试" />
+        );
+        this.setState({ error });
+      },
+    );
   }
 
   render() {
@@ -50,6 +60,7 @@ export default class NewsItemPage extends Component {
         <div className="column">
           {newsItem}
         </div>
+        <div className="error-container">{ this.state.error }</div>
       </div>
     );
   }

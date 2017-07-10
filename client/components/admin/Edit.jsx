@@ -7,6 +7,7 @@ import {
   unhighlightNews,
   updateNews,
 } from '../../data';
+import Error from '../Error';
 import Editor from './Editor';
 
 /* eslint-disable no-alert */
@@ -34,11 +35,20 @@ export default class Edit extends Component {
     const self = this;
     this.setState({ news: '' });
 
-    getNewsItem(this.state.newsId, (json) => {
-      self.setState({
-        news: json.news,
-      });
-    });
+    getNewsItem(
+      this.state.newsId,
+      (json) => {
+        self.setState({
+          news: json.news,
+        });
+      },
+      () => {
+        const error = (
+          <Error text="加载失败，请刷新重试" />
+        );
+        this.setState({ error });
+      },
+    );
   }
 
   handleReset() {
@@ -140,6 +150,7 @@ export default class Edit extends Component {
             }
           </div>
         </div>
+        <div className="error-container">{ this.state.error }</div>
       </div>
     );
   }

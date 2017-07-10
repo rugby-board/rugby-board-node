@@ -1,0 +1,21 @@
+.error {
+  background-color: $news-highlight-font-color;
+  display: block;
+  left: 50%;
+  margin-left: -10rem;
+  position: fixed;
+  top: 0;
+  width: 20rem;
+  z-index: 999;
+
+  .error-message {
+    font-weight: bold;
+    color: $news-highlight-bg-color;
+    padding: 1rem 1.6rem;
+    text-align: center;
+  }
+}
+
+.error-container {
+  display: block;
+}

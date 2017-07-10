@@ -3,6 +3,7 @@ import { h, Component } from 'preact';
 import { getNewsByChannel } from '../data';
 import { setDocumentTitle } from '../util';
 import Heading from '../components/Heading';
+import Error from '../components/Error';
 import NewsList from '../components/NewsList';
 
 export default class NewsPage extends Component {
@@ -42,12 +43,22 @@ export default class NewsPage extends Component {
   fetchData(pageNum) {
     const self = this;
 
-    getNewsByChannel(0, pageNum, (json) => {
-      self.setState({
-        data: json.news,
-        page: json.page,
-      });
-    });
+    getNewsByChannel(
+      0,
+      pageNum,
+      (json) => {
+        self.setState({
+          data: json.news,
+          page: json.page,
+        });
+      },
+      () => {
+        const error = (
+          <Error text="加载失败，请刷新重试" />
+        );
+        this.setState({ error });
+      },
+    );
   }
 
   render() {
@@ -59,6 +70,7 @@ export default class NewsPage extends Component {
             <NewsList data={this.state.data} prefix="news" page={this.state.page} />
           </div>
         </div>
+        <div className="error-container">{ this.state.error }</div>
       </div>
     );
   }
