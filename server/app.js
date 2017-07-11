@@ -31,13 +31,10 @@ if (process.env.NODE_ENV !== 'production') {
     heartbeat: 10 * 1000,
   }));
   // Serve for dev
-  app.use('/admin', function (req, res, next) {
+  app.get('/admin', (req, res) => {
     const filename = path.join(compiler.outputPath, 'admin.html');
     compiler.outputFileSystem.readFile(filename, (err, result) => {
-      if (err) {
-        return next(err);
-      }
-      res.set('content-type','text/html');
+      res.set('content-type', 'text/html');
       res.send(result);
       res.end();
     });
