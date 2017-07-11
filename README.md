@@ -13,13 +13,19 @@ Node.js UI Server for Rugby Board
 	$ yarn install
 	```
 
-2. Serve with Node
+2. Build `node-sass`
+
+	```
+	$ node node_modules/node-sass/scripts/install.js
+	```
+
+3. Serve with Node
 
 	```
 	$ yarn server
 	```
 
-3. Test the codes
+4. Test the codes
 
 	```
 	$ yarn test
