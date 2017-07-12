@@ -11,11 +11,13 @@ export default class Heading extends Component {
     }
     return (
       <div className="heading">
-        <div className="heading-more">
-          {link}
-        </div>
-        <div className="heading-title" id={this.props.data.id}>
-          {this.props.data.title}
+        <div className="heading-wrap">
+          <div className="heading-more">
+            {link}
+          </div>
+          <div className="heading-title" id={this.props.data.id}>
+            {this.props.data.title}
+          </div>
         </div>
       </div>
     );

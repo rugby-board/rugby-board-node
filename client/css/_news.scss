@@ -1,5 +1,4 @@
 .news {
-  background-color: $news-bg-color;
   text-align: left;
   width: 100%;
 
@@ -14,7 +13,6 @@
 }
 
 .news-wrap {
-  border-bottom: 1px solid $border-color;
   overflow: hidden;
   width: 100%;
 
@@ -26,10 +24,12 @@
 .news-item {
   display: block;
   line-height: 1.25;
-  padding: .8rem .8rem .4rem .8rem;
+  padding: .8rem .4rem .4rem .4rem;
+  margin: .8rem 0;
 
   .news-title {
-    font-size: 1rem;
+    font-family: 'Crimson Text', Georgia, serif;
+    font-size: 1.4rem;
     font-weight: bold;
 
     a {
@@ -62,7 +62,6 @@
 }
 
 .news-headline {
-  background-color: $news-highlight-bg-color;
   font-size: 1rem;
   padding-bottom: .4rem;
 
@@ -115,9 +114,9 @@
 }
 
 .share {
-  border-bottom: 1px solid $border-color;
   font-weight: bold;
-  padding: 1rem;
+  padding: .4rem;
+  text-align: center;
 }
 
 a {

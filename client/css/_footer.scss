@@ -1,27 +1,24 @@
 footer {
-  background-color: $main-font-color;
-  border-top: solid 1px $border-color;
   font-size: 1rem;
+  margin-top: 1rem;
   overflow: hidden;
-  padding-bottom: 1.2rem;
-  padding-top: 1.2rem;
+  padding: .8rem 0;
   text-align: center;
 
+  .copyright {
+    border-bottom: 1px solid $border-color;
+    border-top: 1px solid $border-color;
+    padding: 2rem 0;
+  }
+
   .footer-column {
-    background-color: $main-font-color;
-    border-right: 1px solid $light-font-color;
-    color: $menu-link-color;
     line-height: 1.4;
-    padding: 0 1.6rem .4rem 1.6rem;
+    padding: .8rem;
     width: 100%;
 
     h3 {
       line-height: 1.2;
       margin-top: .4rem;
-    }
-
-    a {
-      color: $menu-link-color;
     }
 
     &:last-child {
@@ -32,12 +29,14 @@ footer {
 
 @media (max-width: $page-breakpoint) {
   footer {
-    display: none;
-    padding-bottom: 0;
-    padding-top: 0;
+    .copyright {
+      border-bottom: 0;
+    }
 
     .footer-column {
-      padding: .2rem .8rem .8rem .8rem;
+      display: none;
+      padding-bottom: 0;
+      padding-top: 0;
     }
   }
 }

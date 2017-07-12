@@ -1,12 +1,11 @@
 .menu {
-  background-color: $main-font-color;
   font-size: 1.4rem;
   line-height: 1;
   margin: 0;
   width: 100%;
 
   a {
-    color: $menu-link-color;
+    color: $main-font-color;
     text-decoration: none;
 
     &:hover {
@@ -17,21 +16,24 @@
 
 .menu-name {
   font-family: 'Crimson Text', Georgia, serif;
-  font-size: 2rem;
-  margin: 0 0 1.4rem 1rem;
-  padding-top: 1rem;
+  font-size: 3rem;
+  margin: 0 0 1.4rem .4rem;
+  padding-top: 1.5rem;
 }
 
 .menu-list {
+  background-color: $main-font-color;
   border-top: $bg-color solid 1px;
+  border-radius: 4px;
   display: flex;
   font-size: 1rem;
-  margin: 0 .8rem;
-  padding: .8rem .2rem;
+  margin-bottom: 1rem;
+  padding: .8rem .8rem;
 }
 
 .menu-item {
   a {
+    color: $menu-link-color;
     padding-right: .4rem;
 
     &:hover {
@@ -80,6 +82,7 @@
   }
 
   .menu-name {
+    font-size: 2rem;
     margin-bottom: 0;
     padding-bottom: 1rem;
   }
@@ -92,7 +95,7 @@
     background-color: $main-font-color;
     justify-content: space-between;
     position: absolute;
-    top: 3.6rem;
+    top: 4.2rem;
     width: 100%;
     z-index: 20;
   }

@@ -35,7 +35,7 @@ export default class NewsItemPage extends Component {
     let newsItem = NewsItemPage.loading();
     if (this.state.data != null) {
       newsItem = (
-        <div className="news">
+        <div className="news news-only">
           <News key={this.state.id} data={this.state.data} />
           <Share data={this.state.data} />
         </div>

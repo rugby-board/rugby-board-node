@@ -1,5 +1,4 @@
 .columns {
-  background-color: $news-bg-color;
   display: flex;
   margin: 0;
   padding: 0;
@@ -7,11 +6,11 @@
   width: 100%;
 
   .column {
-    border-right: 1px solid $border-color;
+    padding-right: 1.6rem;
     width: 100%;
 
     &:last-child {
-      border-right: 0;
+      padding-right: 0;
     }
   }
 
@@ -50,7 +49,7 @@
     width: 100%;
 
     .column {
-      border-right: 0;
+      padding-right: 0;
       width: 100%;
 
       .column-1-2 {

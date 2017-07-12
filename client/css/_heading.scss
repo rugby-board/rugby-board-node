@@ -1,18 +1,21 @@
 .heading {
-  background-color: $heading-bg-color;
-  position: relative;
+  border-bottom: 1px solid $border-color;
+  font-weight: bold;
   width: 100%;
   z-index: 10;
 
-  .heading-title {
-    font-size: 1rem;
-    padding: .4rem 1rem;
-  }
+  .heading-wrap {
+    padding: .4rem .4rem 0 .4rem;
+    position: relative;
 
-  .heading-more {
-    font-size: 1rem;
-    padding: .4rem 1rem;
-    position: absolute;
-    right: 0;
+    .heading-title {
+      font-size: 1rem;
+    }
+
+    .heading-more {
+      font-size: 1rem;
+      position: absolute;
+      right: .8rem;
+    }
   }
 }
