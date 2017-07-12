@@ -17,17 +17,28 @@ if (process.env.NODE_ENV !== 'production') {
   const webpack = require('webpack');
   const webpackConfig = require('../config/webpack.dev.config.js');
   const compiler = webpack(webpackConfig);
-  const middleware = require('webpack-dev-middleware');
+  const webpackDevMiddleware = require('webpack-dev-middleware');
   const webpackHotMiddleware = require('webpack-hot-middleware');
-  app.use(middleware(compiler, {
+  // Dev
+  app.use(webpackDevMiddleware(compiler, {
     noInfo: true,
     publicPath: webpackConfig.output.publicPath,
   }));
+  // HMR
   app.use(webpackHotMiddleware(compiler, {
     log: console.log,
     path: '/__webpack_hmr',
     heartbeat: 10 * 1000,
   }));
+  // Serve for dev
+  app.get('/admin', (req, res) => {
+    const filename = path.join(compiler.outputPath, 'admin.html');
+    compiler.outputFileSystem.readFile(filename, (err, result) => {
+      res.set('content-type', 'text/html');
+      res.send(result);
+      res.end();
+    });
+  });
 }
 
 // Setup logger
