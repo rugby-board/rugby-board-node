@@ -6,9 +6,6 @@ $bg-color: #fbfbfb;
 $news-bg-color: #fff;
 $news-highlight-bg-color: #eee;
 $news-highlight-font-color: #e95260;
-$heading-bg-color: #6ec3b4;
-
-$table-border-color: #facb5b;
 $border-color: #aaa;
 
 $menu-link-color: #efefef;
@@ -77,13 +74,15 @@ table {
   border-spacing: 0;
 
   th {
-    background-color: $table-border-color;
-    padding: .2rem .4rem;
+    border-bottom: 1px solid $border-color;
+    margin-bottom: .4rem;
+    padding: .2rem 0;
   }
 
   tr {
     &:hover {
-      background-color: $table-border-color;
+      background-color: $main-font-color;
+      color: $bg-color;
     }
   }
 }
