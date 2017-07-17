@@ -53,9 +53,6 @@ export default class Header extends Component {
             <Link activeClassName="menu-active" href="/results">比分</Link>
           </div>
           <div className="menu-item">
-            <Link activeClassName="menu-active" href="/event/british-and-irish-lions">狮子队</Link>
-          </div>
-          <div className="menu-item">
             <Link activeClassName="menu-active" href="/event/super-rugby">SuperRugby</Link>
           </div>
           <div className="menu-item">
@@ -71,11 +68,17 @@ export default class Header extends Component {
             <Link activeClassName="menu-active" href="/event/international-tests">国家测试赛</Link>
           </div>
           <div className="menu-item">
-            <Link activeClassName="menu-active" href="/event/rugby-championship">冠军赛</Link></div>
+            <Link activeClassName="menu-active" href="/event/rugby-championship">冠军赛</Link>
+          </div>
           <div className="menu-item">
-            <Link activeClassName="menu-active" href="/event/six-nations">六国赛</Link></div>
+            <Link activeClassName="menu-active" href="/event/six-nations">六国赛</Link>
+          </div>
           <div className="menu-item">
-            <Link activeClassName="menu-active" href="/event/rugby-world-cup">世界杯</Link></div>
+            <Link activeClassName="menu-active" href="/event/rugby-world-cup">世界杯</Link>
+          </div>
+          <div className="menu-item">
+            <Link activeClassName="menu-active" href="/event/british-and-irish-lions">狮子队</Link>
+          </div>
           <div className="menu-item">
             <Link activeClassName="menu-active" href="/wiki">赛事介绍</Link>
           </div>
@@ -115,9 +118,6 @@ export default class Header extends Component {
           </div>
           <div className="menu-dropdown-list">
             <div className="menu-item">
-              <Link onClick={this.handleDropdown} href="/event/british-and-irish-lions">狮子队</Link>
-            </div>
-            <div className="menu-item">
               <Link onClick={this.handleDropdown} href="/event/super-rugby">SuperRugby</Link>
             </div>
             <div className="menu-item">
@@ -139,6 +139,9 @@ export default class Header extends Component {
             </div>
             <div className="menu-item">
               <Link onClick={this.handleDropdown} href="/event/rugby-world-cup">世界杯</Link>
+            </div>
+            <div className="menu-item">
+              <Link onClick={this.handleDropdown} href="/event/british-and-irish-lions">狮子队</Link>
             </div>
           </div>
         </div>
