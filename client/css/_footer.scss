@@ -28,12 +28,16 @@ footer {
 
 @media (max-width: $page-breakpoint) {
   footer {
-    display: none;
-    padding-bottom: 0;
-    padding-top: 0;
-
     .footer-column {
-      padding: .2rem .8rem .8rem .8rem;
+      display: none;
+
+      .footer-title {
+        border: 0;
+      }
+
+      &:first-of-type {
+        display: block;
+      }
     }
   }
 }
