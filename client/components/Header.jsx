@@ -83,6 +83,9 @@ export default class Header extends Component {
             <Link activeClassName="menu-active" href="/wiki">赛事介绍</Link>
           </div>
           <div className="menu-item">
+            <Link activeClassName="menu-active" href="/info">橄榄球资料</Link>
+          </div>
+          <div className="menu-item">
             <a href="http://eepurl.com/cU4oZH" target="_blank" rel="noopener noreferrer">
               邮件订阅
             </a>
@@ -101,6 +104,9 @@ export default class Header extends Component {
             </div>
             <div className="menu-item">
               <Link onClick={this.handleDropdown} href="/wiki">赛事介绍</Link>
+            </div>
+            <div className="menu-item">
+              <Link onClick={this.handleDropdown} href="/info">橄榄球资料</Link>
             </div>
             <div className="menu-item">
               <a

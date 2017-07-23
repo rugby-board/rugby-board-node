@@ -1,31 +1,27 @@
 footer {
   background-color: $main-font-color;
-  border-top: solid 1px $border-color;
   font-size: 1rem;
   overflow: hidden;
-  padding-bottom: 1.2rem;
-  padding-top: 1.2rem;
+  padding: .8rem 0;
   text-align: center;
 
   .footer-column {
     background-color: $main-font-color;
-    border-right: 1px solid $light-font-color;
     color: $menu-link-color;
     line-height: 1.4;
-    padding: 0 1.6rem .4rem 1.6rem;
+    padding: 0 .8rem;
     width: 100%;
 
-    h3 {
+    .footer-title {
+      border-bottom: 1px solid $light-font-color;
+      font-weight: bold;
       line-height: 1.2;
-      margin-top: .4rem;
+      margin-bottom: .4rem;
+      padding-bottom: .4rem;
     }
 
     a {
       color: $menu-link-color;
-    }
-
-    &:last-child {
-      border-right: 0;
     }
   }
 }

@@ -17,11 +17,11 @@ import ResultsPage from './pages/ResultsPage';
 import EventPage from './pages/EventPage';
 import WikiContentPage from './pages/WikiContentPage';
 import WikiPage from './pages/WikiPage';
+import InfoPage from './pages/InfoPage';
 import AboutPage from './pages/AboutPage';
 import NotFound from './pages/NotFound';
 
 // setup Google Analytics
-
 /* eslint-disable no-undef */
 ga('create', 'UA-92008867-1', 'auto');
 
@@ -41,6 +41,7 @@ const Main = () => (
     <EventPage path="/event/:name" />
     <WikiContentPage path="/wiki/:name" />
     <WikiPage path="/wiki" />
+    <InfoPage path="/info" />
     <AboutPage path="/about" />
     <NotFound path="*" />
   </Router>
