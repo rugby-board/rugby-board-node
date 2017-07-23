@@ -60,14 +60,14 @@ export default class HomePage extends Component {
   render() {
     return (
       <div className="columns">
-        <div className="column column-2-3">
+        <div className="column column-3-5">
           <div>
             <Heading data={this.state.newsHeading} />
             <HighlightNews data={this.state.highlight} />
             <NewsList data={this.state.news} />
           </div>
         </div>
-        <div className="column column-1-3">
+        <div className="column column-2-5">
           <div>
             <Heading data={this.state.resultsHeading} />
             <NewsList data={this.state.results} />

@@ -57,7 +57,7 @@ const ADMIN_TOKEN = process.env.ADMIN_TOKEN === undefined ? '12ffbb6' : process.
 const API_TOKEN = process.env.API_TOKEN === undefined ? '12ffbb6' : process.env.API_TOKEN;
 const API_PROD_URL = 'https://rugby-board.herokuapp.com/api/v1';
 const API_DEV_URL = 'http://localhost:3000/api/v1';
-const API_URL = process.env.NODE_ENV === 'production' ? API_PROD_URL : API_DEV_URL;
+const API_URL = process.env.NODE_ENV === 'production' || process.env.NODE_ENV === 'sandbox' ? API_PROD_URL : API_DEV_URL;
 
 // Get Index
 app.get('/api/index', (req, res) => {

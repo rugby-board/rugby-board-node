@@ -2,18 +2,17 @@ $min-breakpoint: 26rem;
 $page-breakpoint: 70rem;
 $font-breakpoint: 48rem;
 
-$bg-color: #fbfbfb;
-$news-bg-color: #fff;
-$news-highlight-bg-color: #eee;
-$news-highlight-font-color: #e95260;
-$heading-bg-color: #6ec3b4;
+$main-font-color: #343a40;            // grey 8
+$light-font-color: #868e96;           // grey 6
+$border-color: #dee2e6;               // grey 3
+$news-highlight-bg-color: #e9ecef;    // grey 2
+$bg-color: #f1f3f5;                   // grey 1
+$menu-link-color: #f8f9fa;            // grey 0
+$news-bg-color: #f8f9fa;              // grey 0
+$table-border-color: #ffe066;         // yellow 3
+$news-highlight-font-color: #e03131;  // red 8
+$heading-bg-color: #15aabf;           // cyan 6
 
-$table-border-color: #facb5b;
-$border-color: #aaa;
-
-$menu-link-color: #efefef;
-$main-font-color: #333;
-$light-font-color: #bbb;
 
 @import 'header';
 @import 'footer';
