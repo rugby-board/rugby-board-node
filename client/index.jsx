@@ -43,7 +43,7 @@ const Main = () => (
     <WikiPage path="/wiki" />
     <InfoPage path="/info" />
     <AboutPage path="/about" />
-    <NotFound path="*" />
+    <NotFound path="*" default />
   </Router>
 );
 
