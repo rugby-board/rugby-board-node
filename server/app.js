@@ -181,10 +181,9 @@ app.get('/admin', (req, res) => {
 });
 
 // Handle 404
-app.use(function(req, res, next) {
-  // res.status(404);
-  // res.sendFile(path.resolve(__dirname, '..', 'dist', 'not_found.html'));
+app.use((req, res, next) => {
   res.redirect(404, '/#/404');
+  next();
 });
 
 // Always return the main index.html, so react-router render the route in the client

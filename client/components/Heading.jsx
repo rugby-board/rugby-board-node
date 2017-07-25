@@ -18,7 +18,7 @@ export default class Heading extends Component {
         </div>
         <div className="heading-title" id={this.props.data.id}>
           {this.props.data.icon &&
-            <i class={`fa fa-${this.props.data.icon}`}>&nbsp;</i>
+            <i className={`fa fa-${this.props.data.icon}`}>&nbsp;</i>
           }
           {this.props.data.title}
         </div>

@@ -29,7 +29,7 @@ export default class NotFound extends Component {
             <div className="article-content">
               <div className="not-found">
                 <p>404 Not Found</p>
-                <img src="https://source.unsplash.com/random" alt="Unsplash Random Photo" />
+                <img src="https://source.unsplash.com/random" alt="Unsplash Random" />
               </div>
             </div>
           </div>
