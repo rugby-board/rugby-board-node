@@ -87,6 +87,16 @@ table {
   }
 }
 
+ul {
+  margin: 0 0 1rem;
+  padding: 0;
+
+  li {
+    list-style-type: dotted;
+    margin: 0 0 0 2rem;
+  }
+}
+
 .not-found {
   text-align: center;
 

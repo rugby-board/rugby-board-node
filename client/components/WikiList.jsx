@@ -7,8 +7,7 @@ export default class WikiContentPage extends Component {
       <div className="news">
         <div className="news-wrap">
           <div className="news-item">
-            <h3>国家队赛事</h3>
-            <ul>
+            <ul><b>国家队赛事</b>
               <li>
                 <Link href="/wiki/rugby-championship" activeClassName="active-link">
                   橄榄球冠军赛 The Rugby Championship
@@ -30,8 +29,7 @@ export default class WikiContentPage extends Component {
                 </Link>
               </li>
             </ul>
-            <h3>俱乐部赛事</h3>
-            <ul>
+            <ul><b>俱乐部赛事</b>
               <li>
                 <Link href="/wiki/super-rugby" activeClassName="active-link">
                   超级橄榄球 Super Rugby

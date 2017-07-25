@@ -52,8 +52,8 @@ export default class InfoPage extends Component {
       <div>
         <div className="columns">
           <div className="column column-1-2">
-            <div>
-              <Heading data={this.state.storyHeading} />
+            <Heading data={this.state.storyHeading} />
+            <div className="news-item">
               <ul>
                 <li>
                   <a
@@ -86,8 +86,8 @@ export default class InfoPage extends Component {
             </div>
           </div>
           <div className="column column-1-2">
-            <div>
-              <Heading data={this.state.ruleHeading} />
+            <Heading data={this.state.ruleHeading} />
+            <div className="news-item">
               <ul>
                 <li>
                   <a
@@ -140,8 +140,8 @@ export default class InfoPage extends Component {
         </div>
         <div className="columns">
           <div className="column column-1-2">
-            <div>
-              <Heading data={this.state.matchHeading} />
+            <Heading data={this.state.matchHeading} />
+            <div className="news-item">
               <ul>
                 <li>
                   <a
@@ -174,8 +174,8 @@ export default class InfoPage extends Component {
             </div>
           </div>
           <div className="column column-1-2">
-            <div>
-              <Heading data={this.state.equipmentHeading} />
+            <Heading data={this.state.equipmentHeading} />
+            <div className="news-item">
               <ul>
                 <li>
                   <a
