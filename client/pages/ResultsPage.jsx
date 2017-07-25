@@ -12,6 +12,7 @@ export default class ResultsPage extends Component {
     const resultsHeading = {
       id: 'news',
       title: '比分',
+      icon: 'table',
       more_text: '',
       more_link: '',
     };

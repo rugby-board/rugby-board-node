@@ -14,8 +14,9 @@ export default class AdminPage extends Component {
     const adminHeading = {
       id: 'admin',
       title: 'Admin',
+      icon: 'dashboard',
       more_text: 'Back',
-      more_link: 'http://rugbynews.space/',
+      more_link: '/',
     };
 
     this.state = {

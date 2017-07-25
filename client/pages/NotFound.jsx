@@ -10,6 +10,7 @@ export default class NotFound extends Component {
     const notFoundHeading = {
       id: '404',
       title: '错误 404',
+      icon: 'chain-broken',
       more_text: '',
       more_link: '',
     };
@@ -26,8 +27,10 @@ export default class NotFound extends Component {
           <Heading data={this.state.notFoundHeading} />
           <div className="article">
             <div className="article-content">
-              <p>404 - 页面未找到</p>
-              <p><img src="https://source.unsplash.com/random" alt="Unsplash Random Photo" /></p>
+              <div className="not-found">
+                <p>404 Not Found</p>
+                <img src="https://source.unsplash.com/random" alt="Unsplash Random Photo" />
+              </div>
             </div>
           </div>
         </div>

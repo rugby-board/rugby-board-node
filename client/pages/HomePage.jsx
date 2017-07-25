@@ -14,6 +14,7 @@ export default class HomePage extends Component {
     const newsHeading = {
       id: 'latest-news',
       title: '新闻',
+      icon: 'newspaper-o',
       more_text: '更多',
       more_link: '/news',
     };
@@ -21,6 +22,7 @@ export default class HomePage extends Component {
     const resultsHeading = {
       id: 'latest-results',
       title: '比分',
+      icon: 'table',
       more_text: '更多',
       more_link: '/results',
     };
@@ -28,6 +30,7 @@ export default class HomePage extends Component {
     const eventHeading = {
       id: 'event-intro',
       title: '赛事介绍',
+      icon: 'info-circle',
       more_text: '更多',
       more_link: '/wiki',
     };

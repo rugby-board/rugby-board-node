@@ -1,14 +1,28 @@
 .admin {
   [type="text"] {
-    width: 100%;
+    font-size: 1.0rem;
+    width: 90%;
+    padding: .4rem;
+  }
+
+  button {
+    background-color: $border-color;
+    border: 1px $border-color solid;
+    border-radius: 4px;
+    font-size: 1.0rem;
+    margin: .4rem;
+    padding: .4rem;
   }
 
   textarea {
+    font-size: 1.0rem;
     height: 8rem;
-    width: 100%;
+    width: 90%;
+    padding: .4rem;
   }
 
   select {
+    font-size: 1.0rem;
     margin-right: 1rem;
     width: 5rem;
   }

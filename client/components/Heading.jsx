@@ -6,7 +6,9 @@ export default class Heading extends Component {
     let link = this.props.data.more_text;
     if (this.props.data.more_text && this.props.data.more_link) {
       link = (
-        <Link href={this.props.data.more_link}>{this.props.data.more_text}</Link>
+        <Link href={this.props.data.more_link}>
+          {this.props.data.more_text}
+        </Link>
       );
     }
     return (
@@ -15,6 +17,9 @@ export default class Heading extends Component {
           {link}
         </div>
         <div className="heading-title" id={this.props.data.id}>
+          {this.props.data.icon &&
+            <i class={`fa fa-${this.props.data.icon}`}>&nbsp;</i>
+          }
           {this.props.data.title}
         </div>
       </div>

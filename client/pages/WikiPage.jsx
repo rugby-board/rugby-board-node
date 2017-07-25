@@ -11,6 +11,7 @@ export default class WikiPage extends Component {
     const wikiHeading = {
       id: 'wiki',
       title: '赛事介绍',
+      icon: 'info-circle',
       more_text: '',
       more_link: '',
     };

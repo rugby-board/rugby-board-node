@@ -12,6 +12,7 @@ export default class AboutPage extends Component {
     const aboutHeading = {
       id: 'about',
       title: '关于',
+      icon: 'home',
       more_text: '',
       more_link: '',
     };

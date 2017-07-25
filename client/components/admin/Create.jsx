@@ -58,7 +58,6 @@ export default class Edit extends Component {
             <div className="news-title">
               Create News
             </div>
-            <div className="news-content" />
           </div>
           <div className="news-item">
             <Editor data={this.state.news} />

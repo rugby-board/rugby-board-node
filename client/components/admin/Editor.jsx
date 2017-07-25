@@ -72,38 +72,40 @@ export default class Editor extends Component {
             value={this.state.data.content}
             onChange={this.handleContentChange}
           />
-          <select
-            value={this.state.data.channel}
-            onChange={this.handleChannelChange}
-          >
-            <option value="0">新闻</option>
-            <option value="1">比分</option>
-          </select>
-          <select
-            value={this.state.data.event}
-            onChange={this.handleEventChange}
-          >
-            <option value="0">其它</option>
-            <option value="1">International Tests</option>
-            <option value="2">Six Nations</option>
-            <option value="3">Rugby Championship</option>
-            <option value="4">Super Rugby</option>
-            <option value="5">Premiership</option>
-            <option value="6">TOP 14</option>
-            <option value="7">PRO 12</option>
-            <option value="8">European Champions Cup</option>
-            <option value="9">Rugby World Cup</option>
-            <option value="10">British and Irish Lions</option>
-            <option value="11">European Challenge Cup</option>
-            <option value="12">Currie Cup</option>
-            <option value="13">Top League</option>
-            <option value="14">Rugby Sevens</option>
-            <option value="15">Women&#39;s Rugby</option>
-            <option value="16">Barbarians</option>
-            <option value="17">Anglo Welsh Cup</option>
-            <option value="18">Mitre 10 Cup</option>
-            <option value="19">National Rugby Championship</option>
-          </select>
+          <div>
+            <select
+              value={this.state.data.channel}
+              onChange={this.handleChannelChange}
+            >
+              <option value="0">新闻</option>
+              <option value="1">比分</option>
+            </select>
+            <select
+              value={this.state.data.event}
+              onChange={this.handleEventChange}
+            >
+              <option value="0">其它</option>
+              <option value="1">International Tests</option>
+              <option value="2">Six Nations</option>
+              <option value="3">Rugby Championship</option>
+              <option value="4">Super Rugby</option>
+              <option value="5">Premiership</option>
+              <option value="6">TOP 14</option>
+              <option value="7">PRO 12</option>
+              <option value="8">European Champions Cup</option>
+              <option value="9">Rugby World Cup</option>
+              <option value="10">British and Irish Lions</option>
+              <option value="11">European Challenge Cup</option>
+              <option value="12">Currie Cup</option>
+              <option value="13">Top League</option>
+              <option value="14">Rugby Sevens</option>
+              <option value="15">Women&#39;s Rugby</option>
+              <option value="16">Barbarians</option>
+              <option value="17">Anglo Welsh Cup</option>
+              <option value="18">Mitre 10 Cup</option>
+              <option value="19">National Rugby Championship</option>
+            </select>
+          </div>
         </div>
         <hr />
         <div className="news-title">

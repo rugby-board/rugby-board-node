@@ -30,7 +30,8 @@ export default class WikiContentPage extends Component {
 
     const wikiHeading = {
       id: 'wiki',
-      title: '赛事介绍 - ' + this.eventDict[props.name],
+      title: this.eventDict[props.name],
+      icon: 'info-circle',
       more_text: '',
       more_link: '',
     };
@@ -49,7 +50,7 @@ export default class WikiContentPage extends Component {
     this.setState({
       eventName: nextProps.name,
       wikiHeading: {
-        title: '赛事介绍 - ' + this.eventDict[nextProps.name],
+        title: this.eventDict[nextProps.name],
       },
     });
 

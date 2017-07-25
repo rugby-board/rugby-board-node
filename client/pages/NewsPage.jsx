@@ -12,6 +12,7 @@ export default class NewsPage extends Component {
     const newsHeading = {
       id: 'news',
       title: '新闻',
+      icon: 'newspaper-o',
       more_text: '',
       more_link: '',
     };

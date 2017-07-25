@@ -73,7 +73,8 @@ export default class EventPage extends Component {
   getEventHeading(eventName) {
     const eventHeading = {
       id: 'event',
-      title: '赛事 - ' + this.eventChineseName[this.eventDict[eventName]],
+      title: this.eventChineseName[this.eventDict[eventName]],
+      icon: 'flag-checkered',
       more_text: '',
       more_link: '',
     };

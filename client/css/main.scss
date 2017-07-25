@@ -86,3 +86,14 @@ table {
     }
   }
 }
+
+.not-found {
+  text-align: center;
+
+  p {
+    font-size: 5rem;
+    color: $main-font-color;
+    margin: 1rem 0;
+    padding: 0;
+  }
+}
