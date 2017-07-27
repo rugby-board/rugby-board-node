@@ -44,9 +44,6 @@ if (process.env.NODE_ENV !== 'production') {
 // Setup logger
 app.use(morgan(':remote-addr - :remote-user [:date[clf]] ":method :url HTTP/:http-version" :status :res[content-length] :response-time ms'));
 
-// Parse body
-app.use(bodyParser.json());
-
 // Serve index
 app.use(express.static(path.resolve(__dirname, '..', 'dist')));
 // Serve static assets
@@ -104,8 +101,10 @@ app.get('/api/list', (req, res) => {
   });
 });
 
+// Parse body
+const jsonParser = bodyParser.json();
 // Create
-app.post('/api/create', (req, res) => {
+app.post('/api/create', jsonParser, (req, res) => {
   const url = `${API_URL}/news?token=${API_TOKEN}`;
   const form = new FormData();
   form.append('title', req.body.title);
@@ -120,7 +119,7 @@ app.post('/api/create', (req, res) => {
   });
 });
 // Update
-app.post('/api/update/:id', (req, res) => {
+app.post('/api/update/:id', jsonParser, (req, res) => {
   const url = `${API_URL}/news/${req.params.id}?token=${API_TOKEN}`;
   const form = new FormData();
   form.append('title', req.body.title);
