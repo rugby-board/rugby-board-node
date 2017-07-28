@@ -67,22 +67,16 @@
 .news-headline {
   background-color: $news-highlight-bg-color;
   font-size: 1rem;
-  padding-bottom: .4rem;
 
-  &:last-of-type {
-    padding-bottom: 0;
+  .news-item {
+    &:last-of-type {
+      padding-top: 0;
+    }
   }
 
-  .news-title {
-    line-height: 1.8rem;
-
-    &::before {
-      background-color: $news-highlight-font-color;
-      content: 'top';
-      font-size: 1.2rem;
-      margin-right: .4rem;
-      padding: .2rem .4rem .2rem .4rem;
-    }
+  .fa {
+    color: $news-highlight-font-color;
+    margin-right: .4rem;
   }
 }
 
