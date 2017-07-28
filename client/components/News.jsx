@@ -21,19 +21,25 @@ export default class News extends Component {
 
   render() {
     const dateString = moment(this.props.data.created_at).format('HH:mm YYYY-MM-DD');
-
     const newsLink = '/news/' + this.props.data.id;
     let contentClass = 'news-content';
     if (this.props.data.channel === 1) {
       contentClass += ' news-result';
     }
+
+    const title = this.props.nolink === true ?
+                  this.props.data.title :
+                  (
+                    <Link href={newsLink}>
+                      {this.props.data.title}
+                    </Link>
+                  );
+
     return (
       <div className="news-wrap">
         <div className="news-item">
           <div className="news-title" id={this.props.data.id}>
-            <Link href={newsLink}>
-              {this.props.data.title}
-            </Link>
+            {title}
           </div>
           <div
             className={contentClass}
