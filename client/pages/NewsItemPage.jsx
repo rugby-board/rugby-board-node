@@ -46,7 +46,7 @@ export default class NewsItemPage extends Component {
     if (this.state.data != null) {
       newsItem = (
         <div className="news">
-          <News key={this.state.id} data={this.state.data} nolink={true} />
+          <News key={this.state.id} data={this.state.data} nolink />
           <Share data={this.state.data} />
         </div>
       );

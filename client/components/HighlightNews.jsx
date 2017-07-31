@@ -16,7 +16,7 @@ export default class HighlightNews extends Component {
       newsList = this.props.data.map((news) => (
         <div className="news-item" key={news.id}>
           <div className="news-title" id={news.id}>
-            <i className="fa fa-hashtag"></i>
+            <i className="fa fa-hashtag" />
             <Link href={`/news/${news.id}`}>{news.title}</Link>
           </div>
         </div>

@@ -36,17 +36,17 @@ export default class WikiContentPage extends Component {
                 </Link>
               </li>
               <li>
-                <Link href="/wiki/pro12-rugby" activeClassName="active-link">
+                <Link href="/wiki/pro12" activeClassName="active-link">
                   PRO12（前凯尔特联赛）
                 </Link>
               </li>
               <li>
-                <Link href="/wiki/premiership-rugby" activeClassName="active-link">
+                <Link href="/wiki/premiership" activeClassName="active-link">
                   英格兰超级联赛 Premiership
                 </Link>
               </li>
               <li>
-                <Link href="/wiki/top14-rugby" activeClassName="active-link">
+                <Link href="/wiki/top14" activeClassName="active-link">
                   法国 TOP14 联赛
                 </Link>
               </li>

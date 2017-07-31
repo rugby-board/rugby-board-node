@@ -1,6 +1,8 @@
 import { h, Component } from 'preact';
 
 import { setDocumentTitle } from '../util';
+import { getEventChineseName, haveEventWiki } from '../constants/events';
+
 import Heading from '../components/Heading';
 import WikiList from '../components/WikiList';
 
@@ -17,20 +19,9 @@ export default class WikiContentPage extends Component {
   constructor(props) {
     super(props);
 
-    this.eventDict = {
-      'six-nations': '六国赛',
-      'rugby-championship': '冠军赛',
-      'super-rugby': '超级橄榄球',
-      'premiership-rugby': '英超 Premiership',
-      'top14-rugby': '法国 TOP14',
-      'pro12-rugby': 'PRO12',
-      'rugby-world-cup': '橄榄球世界杯',
-      'british-and-irish-lions': '不列颠和爱尔兰狮子',
-    };
-
     const wikiHeading = {
       id: 'wiki',
-      title: this.eventDict[props.name],
+      title: getEventChineseName(props.name),
       icon: 'info-circle',
       more_text: '',
       more_link: '',
@@ -50,7 +41,7 @@ export default class WikiContentPage extends Component {
     this.setState({
       eventName: nextProps.name,
       wikiHeading: {
-        title: this.eventDict[nextProps.name],
+        title: getEventChineseName(nextProps.name),
       },
     });
 
@@ -58,7 +49,7 @@ export default class WikiContentPage extends Component {
   }
 
   getWikiPage(eventName) {
-    if (!Object.prototype.hasOwnProperty.call(this.eventDict, eventName)) {
+    if (!haveEventWiki(eventName)) {
       return false;
     }
 
@@ -84,17 +75,17 @@ export default class WikiContentPage extends Component {
           <SuperRugby />
         );
         break;
-      case 'pro12-rugby':
+      case 'pro12':
         data = (
           <Pro12 />
         );
         break;
-      case 'top14-rugby':
+      case 'top14':
         data = (
           <Top14 />
         );
         break;
-      case 'premiership-rugby':
+      case 'premiership':
         data = (
           <Premiership />
         );
@@ -114,7 +105,7 @@ export default class WikiContentPage extends Component {
   }
 
   render() {
-    setDocumentTitle('赛事介绍 - ' + this.eventDict[this.props.name]);
+    setDocumentTitle('赛事介绍 - ' + getEventChineseName(this.props.name));
 
     return (
       <div>
