@@ -112,7 +112,7 @@ export default class Editor extends Component {
           Preview
         </div>
         <div className="news-content">
-          <News data={this.state.data} />
+          <News data={this.state.data} nolink />
         </div>
       </div>
     );
