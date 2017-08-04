@@ -24,7 +24,7 @@ export default class ListMenu extends Component {
           <Link activeClassName="menu-active" href="/event/top14">Top14</Link>
         </div>
         <div className="menu-item">
-          <Link activeClassName="menu-active" href="/event/pro12">PRO12</Link>
+          <Link activeClassName="menu-active" href="/event/pro14">PRO14</Link>
         </div>
         <div className="menu-item">
           <Link activeClassName="menu-active" href="/event/international-tests">国家测试赛</Link>

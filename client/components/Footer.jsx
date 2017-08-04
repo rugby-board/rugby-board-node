@@ -23,7 +23,7 @@ export default class Footer extends Component {
             <div className="menu-item"><Link href="/event/super-rugby">SuperRugby</Link></div>
             <div className="menu-item"><Link href="/event/premiership">Premiership</Link></div>
             <div className="menu-item"><Link href="/event/top14">Top 14</Link></div>
-            <div className="menu-item"><Link href="/event/pro12">PRO 12</Link></div>
+            <div className="menu-item"><Link href="/event/pro14">PRO 14</Link></div>
             <div className="menu-item"><Link href="/event/international-tests">国家测试赛</Link></div>
             <div className="menu-item"><Link href="/event/rugby-championship">冠军赛</Link></div>
             <div className="menu-item"><Link href="/event/six-nations">六国赛</Link></div>

@@ -53,7 +53,7 @@ export default class DropdownMenu extends Component {
           <div className="menu-item">
             <Link onClick={this.handleDropdown} href="/event/top14">Top14</Link></div>
           <div className="menu-item">
-            <Link onClick={this.handleDropdown} href="/event/pro12">PRO12</Link>
+            <Link onClick={this.handleDropdown} href="/event/pro14">PRO14</Link>
           </div>
           <div className="menu-item">
             <Link onClick={this.handleDropdown} href="/event/international-tests">国家测试赛</Link>

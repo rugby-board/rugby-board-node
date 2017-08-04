@@ -10,7 +10,7 @@ import RugbyWorldCup from '../components/wiki/RugbyWorldCup';
 import SixNations from '../components/wiki/SixNations';
 import RugbyChampionship from '../components/wiki/RugbyChampionship';
 import SuperRugby from '../components/wiki/SuperRugby';
-import Pro12 from '../components/wiki/Pro12';
+import Pro14 from '../components/wiki/Pro14';
 import Top14 from '../components/wiki/Top14';
 import Premiership from '../components/wiki/Premiership';
 import BritishIrishLions from '../components/wiki/BritishIrishLions';
@@ -75,9 +75,9 @@ export default class WikiContentPage extends Component {
           <SuperRugby />
         );
         break;
-      case 'pro12':
+      case 'pro14':
         data = (
-          <Pro12 />
+          <Pro14 />
         );
         break;
       case 'top14':

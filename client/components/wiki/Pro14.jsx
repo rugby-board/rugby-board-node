@@ -1,20 +1,20 @@
 import { h, Component } from 'preact';
 
-export default class Pro12 extends Component {
+export default class Pro14 extends Component {
   render() {
     return (
       <div className="news">
         <div className="news-wrap" id="six-nations">
           <div className="news-item">
             <div className="news-title">
-              PRO12（前凯尔特联赛）
+              PRO14
             </div>
             <div className="news-content">
               <p>
-                凯尔特联赛于2001年成立，由三个凯尔特人国家苏格兰、威尔士和爱尔兰的球队参赛。2011-2012赛季，两支意大利球队加入，联赛更名为 PRO12。
+                PRO14 的前身凯尔特联赛于2001年成立，由三个凯尔特人国家苏格兰、威尔士和爱尔兰的球队参赛。2011-2012赛季，两支意大利球队加入，联赛更名为 PRO12。2017年，原超级橄榄球球队猎豹 Cheetahs 和南部国王 Southern Kings 因为被超级橄榄球赛事裁剪而转投凯尔特联赛，原 PRO12 现在扩充为 PRO14。
               </p>
               <p>
-                PRO12 目前参赛队伍分别是：
+                PRO14 目前参赛队伍分别是：
               </p>
               <table className="wiki">
                 <tr>
@@ -92,7 +92,7 @@ export default class Pro12 extends Component {
                   <td>Scarlets</td>
                   <td>2003</td>
                   <td>威尔士拉内利</td>
-                  <td>1 (2004)</td>
+                  <td>2 (2017)</td>
                 </tr>
                 <tr>
                   <td>阿斯特</td>
@@ -108,9 +108,23 @@ export default class Pro12 extends Component {
                   <td>意大利帕尔马</td>
                   <td>0</td>
                 </tr>
+                <tr>
+                  <td>猎豹</td>
+                  <td>Cheetahs</td>
+                  <td>2005</td>
+                  <td>南非布隆方丹</td>
+                  <td>0</td>
+                </tr>
+                <tr>
+                  <td>南部国王</td>
+                  <td>Southern Kings</td>
+                  <td>2009</td>
+                  <td>南非伊莉莎白港</td>
+                  <td>0</td>
+                </tr>
               </table>
               <p>
-                PRO12 联赛球队实力相差比较明显，其中爱尔兰最强。爱尔兰传统三强（伦斯特、芒斯特、阿斯特）一直成绩不俗，2016年原先较弱的康诺特也一举夺冠，爱尔兰球队总共获得了总共15届联赛中9次冠军。并且，伦斯特还多次获得原来的欧冠前身喜力杯的冠军。
+                PRO14 联赛球队实力相差比较明显，其中爱尔兰最强。爱尔兰传统三强（伦斯特、芒斯特、阿斯特）一直成绩不俗，2016年原先较弱的康诺特也一举夺冠，爱尔兰球队总共获得了总共15届联赛中9次冠军。并且，伦斯特还多次获得原来的欧冠前身喜力杯的冠军。
               </p>
               <p>
                 威尔士方面则鱼鹰和深红实力较强。苏格兰方面，近年来格拉斯哥勇士也成为了一支不可忽视的力量，夺取了2015年的冠军。剩余的四支球队，尤其是意大利的球队则实力较弱。
@@ -118,10 +132,10 @@ export default class Pro12 extends Component {
             </div>
             <div className="news-footer">
               <span className="news-channel">
-                <a href="http://www.pro12rugby.com/">官网</a>
+                <a href="http://www.pro14rugby.com/">官网</a>
               </span>
               <span className="news-time">
-                <a href="https://www.wikiwand.com/en/Pro12">Wikipedia</a>
+                <a href="https://www.wikiwand.com/en/Pro14">Wikipedia</a>
               </span>
             </div>
           </div>
