@@ -36,8 +36,8 @@ export default class WikiContentPage extends Component {
                 </Link>
               </li>
               <li>
-                <Link href="/wiki/pro12" activeClassName="active-link">
-                  PRO12（前凯尔特联赛）
+                <Link href="/wiki/pro14" activeClassName="active-link">
+                  PRO14
                 </Link>
               </li>
               <li>

@@ -5,7 +5,7 @@ const EVENT_ID_MAP = {
   'super-rugby': 4,
   premiership: 5,
   top14: 6,
-  pro12: 7,
+  pro14: 7,
   'rugby-world-cup': 9,
   'british-and-irish-lions': 10,
 };
@@ -17,7 +17,7 @@ const EVENTS_CHINESE_NAMES = {
   'super-rugby': '超级橄榄球 Super Rugby',
   premiership: '英超 Premiership',
   top14: '法国 TOP14',
-  pro12: 'PRO12',
+  pro14: 'PRO14',
   'rugby-world-cup': '橄榄球世界杯',
   'british-and-irish-lions': '不列颠和爱尔兰狮子 British & Irish Lions',
 };
@@ -28,7 +28,7 @@ const EVENTS_WITH_WIKI = {
   'super-rugby': true,
   premiership: true,
   top14: true,
-  pro12: true,
+  pro14: true,
   'rugby-world-cup': true,
   'british-and-irish-lions': true,
 };
