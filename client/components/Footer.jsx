@@ -39,6 +39,16 @@ export default class Footer extends Component {
                 邮件订阅
               </a>
             </div>
+            <div className="menu-item">
+              <a
+                onClick={this.handleDropdown}
+                href="https://rugby-board.herokuapp.com/news/feed"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                RSS 订阅
+              </a>
+            </div>
             <div>
               <a href="https://twitter.com/RugbyNewsBoard" target="_blank" rel="noopener noreferrer">
                 Twitter @RugbyNewsBoard
