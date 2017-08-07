@@ -5,6 +5,7 @@ import { setDocumentTitle } from '../util';
 import { getEventChineseName, haveEventWiki, getEventId } from '../constants/events';
 import Heading from '../components/Heading';
 import NewsList from '../components/NewsList';
+import ErrorMessage from '../components/ErrorMessage';
 
 export default class EventPage extends Component {
   static getEventHeading(eventName) {
@@ -55,21 +56,28 @@ export default class EventPage extends Component {
 
   fetchData(pageNum, eventName) {
     const self = this;
-    let eventId = -1;
-
-    if (haveEventWiki(eventName)) {
-      eventId = getEventId(eventName);
-    }
+    const eventId = getEventId(eventName);
     if (eventId === -1) {
       return;
     }
 
-    getNewsByEvent(eventId, pageNum, (json) => {
-      self.setState({
-        data: json.news,
-        page: json.page,
-      });
-    });
+    getNewsByEvent(
+      eventId,
+      pageNum,
+      (json) => {
+        self.setState({
+          data: json.news,
+          page: json.page,
+        });
+      },
+      () => {
+        self.setState({
+          error: {
+            message: '加载数据缓慢，请刷新再试',
+          },
+        });
+      },
+    );
   }
 
   render() {
@@ -83,6 +91,9 @@ export default class EventPage extends Component {
             <NewsList data={this.state.data} prefix={prefix} page={this.state.page} />
           </div>
         </div>
+        {this.state.error &&
+          <ErrorMessage error={this.state.error} />
+        }
       </div>
     );
   }

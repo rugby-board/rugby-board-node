@@ -34,11 +34,14 @@ export default class Edit extends Component {
     const self = this;
     this.setState({ news: '' });
 
-    getNewsItem(this.state.newsId, (json) => {
-      self.setState({
-        news: json.news,
-      });
-    });
+    getNewsItem(this.state.newsId,
+      (json) => {
+        self.setState({
+          news: json.news,
+        });
+      },
+      () => {},
+    );
   }
 
   handleReset() {
