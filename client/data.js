@@ -1,7 +1,10 @@
-function getData(url, callback) {
-  fetch(url)
+import timeoutify from 'timeoutify-promise';
+
+function getData(url, callback, timeout) {
+  timeoutify(fetch(url), 3000)
     .then((response) => { return response.json(); })
-    .then((json) => { callback(json); });
+    .then((json) => { callback(json); })
+    .catch(() => { timeout(); });
 }
 
 function postData(url, form, callback) {
@@ -14,20 +17,20 @@ function postData(url, form, callback) {
     .then((json) => { callback(json); });
 }
 
-export function getHomePage(callback) {
-  getData('/api/index', callback);
+export function getHomePage(callback, timeout) {
+  getData('/api/index', callback, timeout);
 }
 
-export function getNewsByChannel(channelId, pageNum, callback) {
-  getData(`/api/list?channel=${channelId}&page=${pageNum}`, callback);
+export function getNewsByChannel(channelId, pageNum, callback, timeout) {
+  getData(`/api/list?channel=${channelId}&page=${pageNum}`, callback, timeout);
 }
 
-export function getNewsByEvent(eventId, pageNum, callback) {
-  getData(`/api/list?event=${eventId}&page=${pageNum}`, callback);
+export function getNewsByEvent(eventId, pageNum, callback, timeout) {
+  getData(`/api/list?event=${eventId}&page=${pageNum}`, callback, timeout);
 }
 
-export function getNewsItem(newsId, callback) {
-  getData(`/api/news/${newsId}`, callback);
+export function getNewsItem(newsId, callback, timeout) {
+  getData(`/api/news/${newsId}`, callback, timeout);
 }
 
 export function translateWord(word, callback) {

@@ -6,6 +6,7 @@ import Heading from '../components/Heading';
 import NewsList from '../components/NewsList';
 import HighlightNews from '../components/HighlightNews';
 import WikiList from '../components/WikiList';
+import ErrorMessage from '../components/ErrorMessage';
 
 export default class HomePage extends Component {
   constructor(props) {
@@ -51,13 +52,22 @@ export default class HomePage extends Component {
   fetchData() {
     const self = this;
 
-    getHomePage((json) => {
-      self.setState({
-        highlight: json.highlight,
-        news: json.news,
-        results: json.results,
-      });
-    });
+    getHomePage(
+      (json) => {
+        self.setState({
+          highlight: json.highlight,
+          news: json.news,
+          results: json.results,
+        });
+      },
+      () => {
+        self.setState({
+          error: {
+            message: '加载数据缓慢，请刷新再试',
+          },
+        });
+      },
+    );
   }
 
   render() {
@@ -80,6 +90,9 @@ export default class HomePage extends Component {
             <WikiList />
           </div>
         </div>
+        {this.state.error &&
+          <ErrorMessage error={this.state.error} />
+        }
       </div>
     );
   }

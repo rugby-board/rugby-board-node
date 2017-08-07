@@ -6,6 +6,7 @@ import Heading from '../components/Heading';
 import Loading from '../components/Loading';
 import Share from '../components/Share';
 import News from '../components/News';
+import ErrorMessage from '../components/ErrorMessage';
 
 export default class NewsItemPage extends Component {
   static loading() {
@@ -34,11 +35,20 @@ export default class NewsItemPage extends Component {
 
   componentDidMount() {
     const self = this;
-    getNewsItem(this.state.id, (json) => {
-      self.setState({
-        data: json.news,
-      });
-    });
+    getNewsItem(this.state.id,
+      (json) => {
+        self.setState({
+          data: json.news,
+        });
+      },
+      () => {
+        self.setState({
+          error: {
+            message: '加载数据缓慢，请刷新再试',
+          },
+        });
+      },
+    );
   }
 
   render() {
@@ -61,6 +71,9 @@ export default class NewsItemPage extends Component {
           <Heading data={this.state.newsHeading} />
           {newsItem}
         </div>
+        {this.state.error &&
+          <ErrorMessage error={this.state.error} />
+        }
       </div>
     );
   }

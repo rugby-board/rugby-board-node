@@ -108,3 +108,18 @@ ul {
     padding: 0;
   }
 }
+
+.error {
+  background-color: $news-highlight-font-color;
+  border-radius: 0 0 4px 4px;
+  box-shadow: 0 1px 1px 0 $news-highlight-font-color;
+  font-weight: bold;
+  left: 50%;
+  padding: .8rem 0;
+  position: fixed;
+  text-align: center;
+  transform: translate(-50%);
+  top: 0;
+  width: 20rem;
+  z-index: 999;
+}

@@ -4,6 +4,7 @@ import { getNewsByChannel } from '../data';
 import { setDocumentTitle } from '../util';
 import Heading from '../components/Heading';
 import NewsList from '../components/NewsList';
+import ErrorMessage from '../components/ErrorMessage';
 
 export default class ResultsPage extends Component {
   constructor(props) {
@@ -43,12 +44,21 @@ export default class ResultsPage extends Component {
   fetchData(pageNum) {
     const self = this;
 
-    getNewsByChannel(1, pageNum, (json) => {
-      self.setState({
-        data: json.news,
-        page: json.page,
-      });
-    });
+    getNewsByChannel(1, pageNum,
+      (json) => {
+        self.setState({
+          data: json.news,
+          page: json.page,
+        });
+      },
+      () => {
+        self.setState({
+          error: {
+            message: '加载数据缓慢，请刷新再试',
+          },
+        });
+      },
+    );
   }
 
   render() {
@@ -60,6 +70,9 @@ export default class ResultsPage extends Component {
             <NewsList data={this.state.data} prefix="results" page={this.state.page} />
           </div>
         </div>
+        {this.state.error &&
+          <ErrorMessage error={this.state.error} />
+        }
       </div>
     );
   }

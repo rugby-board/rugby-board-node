@@ -4863,6 +4863,10 @@ thunky@^0.1.0:
   version "0.1.0"
   resolved "https://registry.yarnpkg.com/thunky/-/thunky-0.1.0.tgz#bf30146824e2b6e67b0f2d7a4ac8beb26908684e"
 
+timeoutify-promise@^0.2.0:
+  version "0.2.0"
+  resolved "https://registry.yarnpkg.com/timeoutify-promise/-/timeoutify-promise-0.2.0.tgz#0bb1ccd713034b81aa442ba06078fa6b8f5d7d98"
+
 timers-browserify@^2.0.2:
   version "2.0.2"
   resolved "https://registry.yarnpkg.com/timers-browserify/-/timers-browserify-2.0.2.tgz#ab4883cf597dcd50af211349a00fbca56ac86b86"
