@@ -69,8 +69,12 @@
   font-size: 1rem;
 
   .news-item {
-    &:last-of-type {
-      padding-top: 0;
+    &:first-of-type {
+      padding-bottom: 0;
+    }
+
+    &:only-of-type {
+      padding-bottom: .8rem;
     }
   }
 
