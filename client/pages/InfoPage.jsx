@@ -12,6 +12,7 @@ export default class InfoPage extends Component {
       {
         id: 'story',
         title: '橄榄球故事',
+        icon: 'coffee',
         entries: [
           {
             title: '英式橄榄球（Rugby Football）的前世今生',
@@ -30,6 +31,7 @@ export default class InfoPage extends Component {
       {
         id: 'rule',
         title: '规则介绍',
+        icon: 'exclamation',
         entries: [
           {
             title: '想要看懂英式橄榄球真的就那么难吗（一）',
@@ -56,6 +58,7 @@ export default class InfoPage extends Component {
       {
         id: 'match',
         title: '赛事相关',
+        icon: 'flag-checkered',
         entries: [
           {
             title: '你需要知道的那些橄榄球奖杯（一）',
@@ -74,6 +77,7 @@ export default class InfoPage extends Component {
       {
         id: 'equipment',
         title: '队服装备',
+        icon: 'male',
         entries: [
           {
             title: '苏格兰橄榄球代表队发布新赛季球衣',
@@ -92,6 +96,7 @@ export default class InfoPage extends Component {
       {
         id: 'website',
         title: '英文资讯网站',
+        icon: 'language',
         entries: [
           {
             title: 'PlanetRugby',
@@ -116,6 +121,7 @@ export default class InfoPage extends Component {
           const sectionHeading = {
             id: section.id,
             title: section.title,
+            icon: section.icon,
             more_text: '',
             more_link: '',
           };

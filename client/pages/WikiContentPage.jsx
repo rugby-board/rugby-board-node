@@ -42,6 +42,7 @@ export default class WikiContentPage extends Component {
       eventName: nextProps.name,
       wikiHeading: {
         title: getEventChineseName(nextProps.name),
+        icon: 'info-circle',
       },
     });
 

@@ -23,14 +23,15 @@ export default class Share extends Component {
   render() {
     return (
       <div className="share">
-        <Link href="/">返回</Link>
-        &nbsp;
+        <Link href="/">
+          <i className="fa fa-fw fa-reply" />
+        </Link>
         <a
           href="#share"
           onClick={this.handleClick}
           className="tb"
         >
-          分享到 Twitter
+          <i className="fa fa-fw fa-twitter" />
         </a>
       </div>
     );
