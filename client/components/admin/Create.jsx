@@ -7,13 +7,15 @@ export default class Edit extends Component {
   constructor(props) {
     super(props);
 
+    this.defaultNews = {
+      title: 'Awesome News Title',
+      content: 'Markdown is *available* here',
+      channel: 0,
+      event: 0,
+    };
+
     this.state = {
-      news: {
-        title: 'Title',
-        content: 'Content',
-        channel: 0,
-        event: 0,
-      },
+      news: Object.assign({}, this.defaultNews),
       submitResult: '',
     };
 
@@ -37,7 +39,10 @@ export default class Edit extends Component {
             </a>
           </span>
         );
-        this.setState({ submitResult });
+        this.setState({
+          news: Object.assign({}, this.defaultNews),
+          submitResult,
+        });
       } else {
         let message = '';
         for (const [k, v] of Object.entries(json.message)) {

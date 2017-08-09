@@ -67,7 +67,7 @@ export default class AboutPage extends Component {
             <div className="article">
               <div className="article-content">
                 <p>
-                  <UnsplashImage 
+                  <UnsplashImage
                     src="public/quino-al-155743.jpg"
                     alt="Rugby Moment 1"
                     author="Quino Al"
@@ -75,7 +75,7 @@ export default class AboutPage extends Component {
                   />
                 </p>
                 <p>
-                  <UnsplashImage 
+                  <UnsplashImage
                     src="public/quino-al-197082.jpg"
                     alt="Rugby Moment 2"
                     author="Quino Al"
@@ -83,7 +83,7 @@ export default class AboutPage extends Component {
                   />
                 </p>
                 <p>
-                  <UnsplashImage 
+                  <UnsplashImage
                     src="public/quino-al-195526.jpg"
                     alt="Rugby Moment 3"
                     author="Quino Al"

@@ -17,6 +17,12 @@ export default class Editor extends Component {
     this.handleEventChange = this.handleEventChange.bind(this);
   }
 
+  componentWillReceiveProps(nextProps) {
+    this.setState({
+      data: nextProps.data,
+    });
+  }
+
   handleTitleChange(event) {
     this.modifyData({ title: event.target.value });
   }
@@ -91,7 +97,7 @@ export default class Editor extends Component {
               <option value="4">Super Rugby</option>
               <option value="5">Premiership</option>
               <option value="6">TOP 14</option>
-              <option value="7">PRO 12</option>
+              <option value="7">PRO 14</option>
               <option value="8">European Champions Cup</option>
               <option value="9">Rugby World Cup</option>
               <option value="10">British and Irish Lions</option>
