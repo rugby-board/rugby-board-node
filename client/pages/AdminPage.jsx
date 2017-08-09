@@ -17,6 +17,7 @@ export default class AdminPage extends Component {
       icon: 'dashboard',
       more_text: 'Back',
       more_link: '/',
+      use_router: 0,
     };
 
     this.state = {
