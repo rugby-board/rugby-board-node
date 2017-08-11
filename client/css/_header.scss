@@ -28,6 +28,11 @@
   font-size: 1rem;
   margin: 0 .8rem;
   padding: .8rem .2rem;
+
+  &:last-of-type {
+    border-top: none;
+    padding-top: 0;
+  }
 }
 
 .menu-item {
@@ -91,39 +96,22 @@
   .menu-dropdown {
     background-color: $main-font-color;
     justify-content: space-between;
+    padding: .8rem;
     position: absolute;
     top: 3.6rem;
-    width: 100%;
+    width: 6rem;
+    right: 0;
     z-index: 20;
   }
 
-  .menu-dropdown-index {
-    border-right: 1px solid $border-color;
-    margin: .4rem 0 1rem 1rem;
-    width: 30%;
+  .menu-dropdown-wrapper {
+    margin: .4rem 0;
 
     .menu-item {
-      margin-bottom: .8rem;
-
-      a {
-        font-size: 1.2rem;
-      }
-
-      &:last-of-type {
-        margin-bottom: 0;
-      }
-    }
-  }
-
-  .menu-dropdown-list {
-    align-content: flex-start;
-    display: flex;
-    flex-wrap: wrap;
-    margin: .4rem 0 1rem 1rem;
-    width: 70%;
-
-    .menu-item {
-      margin-bottom: .8rem;
+      margin-bottom: .6rem;
+      height: 1.4rem;
+      overflow: hidden;
+      text-overflow: ellipsis;
       width: 8rem;
 
       a {
@@ -134,5 +122,21 @@
         margin-bottom: 0;
       }
     }
+  }
+
+  .menu-dropdown-sublist {
+    background-color: $main-font-color;
+    position: absolute;
+    right: 8rem;
+    top: 4.2rem;
+    width: 18rem;
+    z-index: 20;
+  }
+
+  .menu-dropdown-flex {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: .8rem;
   }
 }
