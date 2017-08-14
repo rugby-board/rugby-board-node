@@ -6,9 +6,11 @@ import 'nprogress/nprogress.css';
 
 export default class HighlightNews extends Component {
   render() {
+    let newsList = (<div />);
+
+    NProgress.configure({ showSpinner: false });
     NProgress.start();
 
-    let newsList = (<div />);
     if (this.props.data !== undefined) {
       NProgress.done();
       newsList = this.props.data.map((news) => (

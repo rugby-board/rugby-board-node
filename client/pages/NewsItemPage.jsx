@@ -49,7 +49,10 @@ export default class NewsItemPage extends Component {
 
   render() {
     let newsItem = (<div />);
+
+    NProgress.configure({ showSpinner: false });
     NProgress.start();
+
     if (this.state.data != null) {
       NProgress.done();
       newsItem = (

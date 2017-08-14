@@ -11,6 +11,7 @@ export default class NewsList extends Component {
     let newsList = (<div />);
     let pagination = '';
 
+    NProgress.configure({ showSpinner: false });
     NProgress.start();
 
     if (this.props.data != null) {
