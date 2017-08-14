@@ -11,6 +11,12 @@ export default class DropdownMenu extends Component {
     this.state = { sublist: false };
   }
 
+  componentWillReceiveProps(nextProps) {
+    if (!nextProps.isDropdown) {
+      this.setState({ sublist: false });
+    }
+  }
+
   handleDropdown() {
     const { handleDropdown } = this.props;
     handleDropdown(this.props.isDropdown);
