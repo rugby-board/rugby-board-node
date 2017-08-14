@@ -1,20 +1,16 @@
 import { h, Component } from 'preact';
 
+import NProgress from 'nprogress';
+import 'nprogress/nprogress.css';
+
 import { getNewsItem } from '../data';
 import { setDocumentTitle } from '../util';
 import Heading from '../components/Heading';
-import Loading from '../components/Loading';
 import Share from '../components/Share';
 import News from '../components/News';
 import ErrorMessage from '../components/ErrorMessage';
 
 export default class NewsItemPage extends Component {
-  static loading() {
-    return (
-      <Loading text="加载中..." />
-    );
-  }
-
   constructor(props) {
     super(props);
 
@@ -52,8 +48,10 @@ export default class NewsItemPage extends Component {
   }
 
   render() {
-    let newsItem = NewsItemPage.loading();
+    let newsItem = (<div />);
+    NProgress.start();
     if (this.state.data != null) {
+      NProgress.done();
       newsItem = (
         <div className="news">
           <News key={this.state.id} data={this.state.data} nolink />

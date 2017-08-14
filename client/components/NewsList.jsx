@@ -1,24 +1,24 @@
 import { h, Component } from 'preact';
 
+import NProgress from 'nprogress';
+import 'nprogress/nprogress.css';
+
 import News from './News';
-import Loading from './Loading';
 import Pagination from './Pagination';
 
 export default class NewsList extends Component {
-  static loading() {
-    return (
-      <Loading text="加载中..." />
-    );
-  }
-
   render() {
-    let newsList = NewsList.loading();
+    let newsList = (<div />);
     let pagination = '';
+
+    NProgress.start();
 
     if (this.props.data != null) {
       newsList = this.props.data.map((news) =>
         <News key={news.id} data={news} />,
       );
+
+      NProgress.done();
     }
 
     if (this.props.page != null) {

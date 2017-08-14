@@ -1,18 +1,16 @@
 import { h, Component } from 'preact';
 import { Link } from 'preact-router/match';
 
-import Loading from './Loading';
+import NProgress from 'nprogress';
+import 'nprogress/nprogress.css';
 
 export default class HighlightNews extends Component {
-  static loading() {
-    return (
-      <Loading text="加载中..." />
-    );
-  }
-
   render() {
-    let newsList = HighlightNews.loading();
+    NProgress.start();
+
+    let newsList = (<div />);
     if (this.props.data !== undefined) {
+      NProgress.done();
       newsList = this.props.data.map((news) => (
         <div className="news-item" key={news.id}>
           <div className="news-title" id={news.id}>
