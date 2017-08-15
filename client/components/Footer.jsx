@@ -41,7 +41,6 @@ export default class Footer extends Component {
             </div>
             <div className="menu-item">
               <a
-                onClick={this.handleDropdown}
                 href="https://rugby-board.herokuapp.com/news/feed"
                 target="_blank"
                 rel="noopener noreferrer"
