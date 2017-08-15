@@ -1,10 +1,28 @@
 import timeoutify from 'timeoutify-promise';
+import NProgress from 'nprogress';
+import 'nprogress/nprogress.css';
+
+function startProgress() {
+  NProgress.configure({ showSpinner: false });
+  NProgress.start();
+}
+
+function endProgress() {
+  NProgress.done();
+}
 
 function getData(url, callback, timeout) {
+  startProgress();
   timeoutify(fetch(url), 3000)
-    .then((response) => { return response.json(); })
+    .then((response) => {
+      endProgress();
+      return response.json();
+    })
     .then((json) => { callback(json); })
-    .catch(() => { timeout(); });
+    .catch(() => {
+      endProgress();
+      timeout();
+    });
 }
 
 function postData(url, form, callback) {
@@ -13,7 +31,10 @@ function postData(url, form, callback) {
     body: JSON.stringify(form),
     headers: { 'Content-Type': 'application/json' },
   })
-    .then((response) => { return response.json(); })
+    .then((response) => {
+      endProgress();
+      return response.json();
+    })
     .then((json) => { callback(json); });
 }
 

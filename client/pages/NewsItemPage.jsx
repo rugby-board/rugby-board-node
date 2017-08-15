@@ -1,8 +1,5 @@
 import { h, Component } from 'preact';
 
-import NProgress from 'nprogress';
-import 'nprogress/nprogress.css';
-
 import { getNewsItem } from '../data';
 import { setDocumentTitle } from '../util';
 import Heading from '../components/Heading';
@@ -50,11 +47,7 @@ export default class NewsItemPage extends Component {
   render() {
     let newsItem = (<div />);
 
-    NProgress.configure({ showSpinner: false });
-    NProgress.start();
-
     if (this.state.data != null) {
-      NProgress.done();
       newsItem = (
         <div className="news">
           <News key={this.state.id} data={this.state.data} nolink />
