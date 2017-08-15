@@ -26,6 +26,7 @@ function getData(url, callback, timeout) {
 }
 
 function postData(url, form, callback) {
+  startProgress();
   fetch(url, {
     method: 'POST',
     body: JSON.stringify(form),
