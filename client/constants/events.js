@@ -38,7 +38,7 @@ const EVENTS_CHINESE_NAMES = {
   'womens-rugby': '女子橄榄球',
   barbarians: '野蛮人',
   'anglo-welsh-cup': '盎格鲁威尔士杯',
-  'mitre-10-Cup': 'Mitre 10 杯',
+  'mitre-10-cup': 'Mitre 10 杯',
   'national-rugby-championship': '国家橄榄球冠军赛',
 };
 
