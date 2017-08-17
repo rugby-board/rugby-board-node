@@ -7,7 +7,7 @@ export default class Pro14 extends Component {
         <div className="news-wrap" id="six-nations">
           <div className="news-item">
             <div className="news-title">
-              PRO14
+              凯尔特 PRO14 联赛
             </div>
             <div className="news-content">
               <p>

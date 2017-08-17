@@ -37,7 +37,7 @@ export default class WikiContentPage extends Component {
               </li>
               <li>
                 <Link href="/wiki/pro14" activeClassName="active-link">
-                  PRO14
+                  凯尔特 PRO14 联赛
                 </Link>
               </li>
               <li>
@@ -48,6 +48,28 @@ export default class WikiContentPage extends Component {
               <li>
                 <Link href="/wiki/top14" activeClassName="active-link">
                   法国 TOP14 联赛
+                </Link>
+              </li>
+            </ul>
+            <ul><b>国内赛事</b>
+              <li>
+                <Link href="/wiki/currie-cup" activeClassName="active-link">
+                  南非库里杯 Currie Cup
+                </Link>
+              </li>
+              <li>
+                <Link href="/wiki/mitre-10-cup" activeClassName="active-link">
+                  新西兰 Mitre 10 Cup
+                </Link>
+              </li>
+              <li>
+                <Link href="/wiki/national-rugby-championship" activeClassName="active-link">
+                  澳大利亚国家橄榄球冠军赛 NRC
+                </Link>
+              </li>
+              <li>
+                <Link href="/wiki/top-league" activeClassName="active-link">
+                  日本 Top League 联赛
                 </Link>
               </li>
             </ul>

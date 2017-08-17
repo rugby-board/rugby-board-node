@@ -14,6 +14,10 @@ import Pro14 from '../components/wiki/Pro14';
 import Top14 from '../components/wiki/Top14';
 import Premiership from '../components/wiki/Premiership';
 import BritishIrishLions from '../components/wiki/BritishIrishLions';
+import CurrieCup from '../components/wiki/CurrieCup';
+import NRC from '../components/wiki/NRC';
+import Mitre10Cup from '../components/wiki/Mitre10Cup';
+import TopLeague from '../components/wiki/TopLeague';
 
 export default class WikiContentPage extends Component {
   constructor(props) {
@@ -94,6 +98,26 @@ export default class WikiContentPage extends Component {
       case 'british-and-irish-lions':
         data = (
           <BritishIrishLions />
+        );
+        break;
+      case 'currie-cup':
+        data = (
+          <CurrieCup />
+        );
+        break;
+      case 'mitre-10-cup':
+        data = (
+          <Mitre10Cup />
+        );
+        break;
+      case 'national-rugby-championship':
+        data = (
+          <NRC />
+        );
+        break;
+      case 'top-league':
+        data = (
+          <TopLeague />
         );
         break;
       default:

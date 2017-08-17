@@ -51,6 +51,10 @@ const EVENTS_WITH_WIKI = {
   pro14: true,
   'rugby-world-cup': true,
   'british-and-irish-lions': true,
+  'currie-cup': true,
+  'mitre-10-cup': true,
+  'national-rugby-championship': true,
+  'top-league': true,
 };
 
 export function getEventId(eventName) {
