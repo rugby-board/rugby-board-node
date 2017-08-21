@@ -6,6 +6,7 @@ import Create from '../components/admin/Create';
 import Edit from '../components/admin/Edit';
 import RugbyDictQuery from '../components/admin/RugbyDictQuery';
 import PlanetRugbyResult from '../components/admin/PlanetRugbyResult';
+import ToolBox from '../components/admin/ToolBox';
 
 export default class AdminPage extends Component {
   constructor(props) {
@@ -85,6 +86,7 @@ export default class AdminPage extends Component {
           <div className="column column-2-5">
             <RugbyDictQuery />
             <PlanetRugbyResult />
+            <ToolBox />
           </div>
         </div>
       </div>

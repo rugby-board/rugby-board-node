@@ -2,7 +2,7 @@ import { h, Component } from 'preact';
 
 import { translateWord } from '../../data';
 
-export default class AdminPage extends Component {
+export default class RugbyDictQuery extends Component {
   constructor(props) {
     super(props);
 
