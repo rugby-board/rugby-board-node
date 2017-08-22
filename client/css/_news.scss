@@ -145,3 +145,17 @@ a {
 
 news-recommend-channel-list {
 }
+
+@media (max-width: $page-breakpoint) {
+  .news-recommend {
+    display: block;
+  }
+
+  .news-recommend-channel {
+    width: 100%;
+
+    &:last-of-type {
+      margin-top: .4rem;
+    }
+  }
+}
