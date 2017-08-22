@@ -128,3 +128,20 @@ a {
     text-decoration: underline;
   }
 }
+
+.news-recommend {
+  display: flex;
+}
+
+.news-recommend-channel {
+  width: 50%;
+}
+
+.news-recommend-channel-name {
+  font-weight: bold;
+  line-height: 1.6rem;
+  margin-bottom: .4rem;
+}
+
+news-recommend-channel-list {
+}
