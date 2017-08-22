@@ -4,13 +4,14 @@
 /* eslint-disable global-require */
 /* eslint-disable no-console */
 const express = require('express');
+const compression = require('compression')
 const morgan = require('morgan');
 const path = require('path');
 const fetch = require('node-fetch');
-
-const app = express();
 const bodyParser = require('body-parser');
 const FormData = require('form-data');
+
+const app = express();
 
 // webpack-dev-middleware
 if (process.env.NODE_ENV !== 'production') {
@@ -43,7 +44,8 @@ if (process.env.NODE_ENV !== 'production') {
 
 // Setup logger
 app.use(morgan(':remote-addr - :remote-user [:date[clf]] ":method :url HTTP/:http-version" :status :res[content-length] :response-time ms'));
-
+// Setup gzip
+app.use(compression());
 // Serve index
 app.use(express.static(path.resolve(__dirname, '..', 'dist')));
 // Serve static assets
