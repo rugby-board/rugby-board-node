@@ -24,6 +24,7 @@
     "node-fetch": "^1.7.1",
     "nprogress": "^0.2.0",
     "preact": "^8.1.0",
+    "preact-portal": "^1.1.2",
     "preact-router": "^2.5.2",
     "timeoutify-promise": "^0.2.0"
   },
