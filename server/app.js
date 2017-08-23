@@ -165,7 +165,7 @@ app.post('/api/delete/:id', (req, res) => {
 
 // Translate
 app.get('/api/translate/:word', (req, res) => {
-  fetch(`${API_URL}/dict?entry=${req.params.word}`).then((response) => {
+  fetch(`${API_URL}/dict?token=${API_TOKEN}&entry=${req.params.word}`).then((response) => {
     return response.json();
   }).then((json) => {
     res.send(json);
