@@ -55,6 +55,10 @@ export function getNewsItem(newsId, callback, timeout) {
   getData(`/api/news/${newsId}`, callback, timeout);
 }
 
+export function searchNews(title, content, channel, event, page, callback, timeout) {
+  getData(`/api/search?title=${title}&content=${content}&page=${page}&channel=${channel}&event=${event}`, callback, timeout);
+}
+
 export function translateWord(word, callback) {
   getData(`/api/translate/${word}`, callback);
 }

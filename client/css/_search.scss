@@ -1,0 +1,67 @@
+.search {
+  display: flex;
+}
+
+.search-panel {
+  display: flex;
+  flex-wrap: wrap;
+  width: 50%;
+}
+
+.search-item {
+  margin-bottom: .4rem;
+  width: 50%;
+
+  [type="text"] {
+    padding: .2rem;
+    width: 12rem;
+  }
+
+  select {
+    min-width: 5rem;
+  }
+
+  label {
+    margin-right: 1.2rem;
+    width: 6rem;
+  }
+
+  button {
+    width: 3rem;
+  }
+}
+
+@media (max-width: $page-breakpoint) {
+  .search {
+    display: block;
+  }
+
+  .search-panel {
+    display: block;
+    width: 100%;
+  }
+
+  .search-item {
+    // overflow: hidden;
+    width: 100%;
+
+    label {
+      margin-right: 0;
+      width: 100%;
+    }
+
+    [type="text"] {
+      margin: .4rem 0;
+      width: 98%;
+    }
+
+    select {
+      margin: .4rem 0;
+      width: 100%;
+    }
+
+    button {
+      width: 100%;
+    }
+  }
+}
