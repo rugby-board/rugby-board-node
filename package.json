@@ -9,7 +9,7 @@
     "build": "webpack -p --config ./config/webpack.prod.config.js --progress",
     "server": "node server",
     "test": "mocha test",
-    "lint": "eslint client --ext .js --ext .jsx && eslint server --ext .js",
+    "lint": "eslint client --ext .js --ext .jsx && eslint server --ext .js && scss-lint client/css",
     "heroku-postbuild": "webpack -p --config ./config/webpack.prod.config.js"
   },
   "dependencies": {
@@ -47,6 +47,7 @@
     "mz": "^2.6.0",
     "node-sass": "^4.5.3",
     "sass-loader": "^6.0.5",
+    "scss-lint": "^0.0.0",
     "source-map-loader": "^0.2.1",
     "style-loader": "^0.18.1",
     "supertest": "^3.0.0",

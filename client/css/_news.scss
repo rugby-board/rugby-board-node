@@ -118,8 +118,8 @@
 .share {
   border-bottom: 1px solid $border-color;
   display: flex;
-  justify-content: space-between;
   font-weight: bold;
+  justify-content: space-between;
   padding: .8rem;
 }
 
@@ -143,8 +143,8 @@ a {
   margin-bottom: .4rem;
 }
 
-news-recommend-channel-list {
-}
+// .news-recommend-channel-list {
+// }
 
 @media (max-width: $page-breakpoint) {
   .news-recommend {

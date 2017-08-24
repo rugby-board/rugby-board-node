@@ -30,7 +30,7 @@
   padding: .8rem .2rem;
 
   &:last-of-type {
-    border-top: none;
+    border-top: 0;
     padding-top: 0;
   }
 }
@@ -93,14 +93,20 @@
     display: none;
   }
 
+  %menu-drop-style {
+    border-radius: 4px;
+    box-shadow: 1px 1px 4px 1px $border-color;
+  }
+
   .menu-dropdown {
+    @extend %menu-drop-style;
     background-color: $bg-color;
     justify-content: space-between;
     padding: .4rem .8rem;
     position: absolute;
+    right: .4rem;
     top: 4rem;
     width: 6rem;
-    right: 0;
     z-index: 20;
   }
 
@@ -109,8 +115,8 @@
     overflow: hidden;
 
     .menu-item {
-      margin-bottom: .6rem;
       height: 1.4rem;
+      margin-bottom: .6rem;
       overflow: hidden;
       text-overflow: ellipsis;
       width: 8rem;
@@ -127,6 +133,7 @@
   }
 
   .menu-dropdown-sublist {
+    @extend %menu-drop-style;
     background-color: $bg-color;
     position: absolute;
     right: 8rem;
