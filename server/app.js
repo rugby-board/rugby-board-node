@@ -162,7 +162,15 @@ app.post('/api/delete/:id', (req, res) => {
     res.send(json);
   });
 });
-
+// Search
+app.get('/api/search', (req, res) => {
+  fetch(`${API_URL}/search?token=${API_TOKEN}&title=${req.query.title}&content=${req.query.content}&channel=${req.query.channel}&event=${req.query.event}&p=${req.query.page}`)
+  .then((response) => {
+    return response.json();
+  }).then((json) => {
+    res.send(json);
+  });
+});
 // Translate
 app.get('/api/translate/:word', (req, res) => {
   fetch(`${API_URL}/dict?token=${API_TOKEN}&entry=${req.params.word}`).then((response) => {

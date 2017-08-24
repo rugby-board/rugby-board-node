@@ -15,6 +15,7 @@ import NewsPage from './pages/NewsPage';
 import NewsItemPage from './pages/NewsItemPage';
 import ResultsPage from './pages/ResultsPage';
 import EventPage from './pages/EventPage';
+import SearchPage from './pages/SearchPage';
 import WikiContentPage from './pages/WikiContentPage';
 import WikiPage from './pages/WikiPage';
 import InfoPage from './pages/InfoPage';
@@ -39,6 +40,7 @@ const Main = () => (
     <NewsPage path="/news" />
     <ResultsPage path="/results" />
     <EventPage path="/event/:name" />
+    <SearchPage path="/search" />
     <WikiContentPage path="/wiki/:name" />
     <WikiPage path="/wiki" />
     <InfoPage path="/info" />
