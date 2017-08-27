@@ -32,6 +32,7 @@ export default class ToolBox extends Component {
         '国际测试赛',
         '库里杯 Currie Cup 超级组',
         '新西兰 Mitre 10 Cup',
+        '',
       ].join(' ' + moment().format('MM.DD') + '\n'),
     });
   }
