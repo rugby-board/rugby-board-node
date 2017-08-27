@@ -1,6 +1,7 @@
 import { h, Component } from 'preact';
 import { Link } from 'preact-router/match';
 
+import { getHomePage } from '../data';
 import Heading from '../components/Heading';
 import Create from '../components/admin/Create';
 import Edit from '../components/admin/Edit';
@@ -24,7 +25,11 @@ export default class AdminPage extends Component {
     this.state = {
       adminHeading,
       name: props.name,
+      recent: null,
+      newsId: 0,
     };
+
+    this.getRecentNews();
   }
 
   componentWillMount() {
@@ -39,6 +44,22 @@ export default class AdminPage extends Component {
     this.switchOperation(nextProps.name);
   }
 
+  getRecentNews() {
+    const self = this;
+    getHomePage(
+      (json) => {
+        self.setState({
+          recent: [
+            ...json.highlight,
+            ...json.news.slice(10),
+            ...json.results,
+          ],
+        });
+      },
+      () => {},
+    );
+  }
+
   switchOperation(name) {
     let operation;
     switch (name) {
@@ -46,22 +67,33 @@ export default class AdminPage extends Component {
         operation = (
           <Create />
         );
+        this.setState({ recent: null });
         break;
       case 'edit':
         operation = (
           <Edit />
         );
+        this.setState({ recent: null });
         break;
       default:
         operation = (
           <div />
         );
+        if (this.state.recent === null) {
+          this.getRecentNews();
+        }
         break;
     }
     this.setState({ operation });
   }
 
   render() {
+    let recentNews = '';
+    if (this.state.recent !== null) {
+      recentNews = this.state.recent.map((news) => (
+        <div>{ news.id }#{ news.title }</div>
+      ));
+    }
     return (
       <div>
         <Heading data={this.state.adminHeading} />
@@ -82,6 +114,20 @@ export default class AdminPage extends Component {
           </div>
           <div className="column column-2-5">
             {this.state.operation}
+            {this.state.recent &&
+              <div className="news">
+                <div className="news-wrap">
+                  <div className="news-item">
+                    <div className="news-title">
+                      最近新闻
+                    </div>
+                    <div className="news-content">
+                      { recentNews }
+                    </div>
+                  </div>
+                </div>
+              </div>
+            }
           </div>
           <div className="column column-2-5">
             <RugbyDictQuery />

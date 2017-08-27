@@ -30,11 +30,9 @@ export default class Edit extends Component {
     this.handleRecover = this.handleRecover.bind(this);
   }
 
-  handleGet() {
+  getNewsItem(id) {
     const self = this;
-    this.setState({ news: '' });
-
-    getNewsItem(this.state.newsId,
+    getNewsItem(id,
       (json) => {
         self.setState({
           news: json.news,
@@ -42,6 +40,11 @@ export default class Edit extends Component {
       },
       () => {},
     );
+  }
+
+  handleGet() {
+    this.setState({ news: '' });
+    this.getNewsItem(this.state.newsId);
   }
 
   handleReset() {
