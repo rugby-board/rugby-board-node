@@ -130,6 +130,7 @@ export default class SearchPage extends Component {
   }
 
   render() {
+    console.log(this.state.data);
     return (
       <div className="columns">
         <div className="column">
@@ -189,7 +190,9 @@ export default class SearchPage extends Component {
                 </div>
               </div>
             </div>
-            <NewsList data={this.state.data} prefix="search" page={this.state.page} />
+            {this.state.data && this.state.data.length > 0 &&
+              <NewsList data={this.state.data} prefix="search" page={this.state.page} />
+            }
           </div>
         </div>
         {this.state.error &&
