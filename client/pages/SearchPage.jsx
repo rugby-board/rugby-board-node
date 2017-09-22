@@ -12,7 +12,7 @@ export default class SearchPage extends Component {
 
     const searchHeading = {
       id: 'news',
-      title: '搜索',
+      title: '搜索 (预览版)',
       icon: 'search',
       more_text: '',
       more_link: '',
