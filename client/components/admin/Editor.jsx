@@ -76,7 +76,7 @@ export default class Editor extends Component {
         <div className="news-content">
           <textarea
             value={this.state.data.content}
-            onChange={this.handleContentChange}
+            onInput={this.handleContentChange}
           />
           <div>
             <select
