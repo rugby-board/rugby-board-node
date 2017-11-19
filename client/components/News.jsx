@@ -35,6 +35,7 @@ export default class News extends Component {
                     </Link>
                   );
 
+    /* eslint-disable react/no-danger */
     return (
       <div className="news-wrap">
         <div className="news-item">
