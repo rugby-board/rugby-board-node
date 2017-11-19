@@ -130,7 +130,6 @@ export default class SearchPage extends Component {
   }
 
   render() {
-    console.log(this.state.data);
     return (
       <div className="columns">
         <div className="column">
