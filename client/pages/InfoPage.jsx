@@ -19,6 +19,10 @@ export default class InfoPage extends Component {
             href: 'https://mp.weixin.qq.com/s?__biz=MzI5MjUwNTUxNQ==&mid=100000064&idx=1&sn=3e9ce4898c4771920a181a3f1078a571',
           },
           {
+            title: '[体育人间] 天津橄榄球队',
+            href: 'http://tv.cctv.com/2017/11/27/VIDESF0z7GNnWRV6mxO3ULza171127.shtml',
+          },
+          {
             title: '伦敦恐袭中的第一英雄是怎样炼成的？',
             href: 'https://mp.weixin.qq.com/s?__biz=MzI5MjUwNTUxNQ==&mid=2247485002&idx=1&sn=aa7a2b220f578a3e47851a46dbe07760',
           },
