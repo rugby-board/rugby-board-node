@@ -69,7 +69,7 @@ export default class AboutPage extends Component {
             </div>
           </div>
           <div className="column column-1-3">
-            <div className="article">
+            <div className="article" style="border-radius: 0;background-color: inherit;">
               <div className="article-content">
                 <p>
                   <UnsplashImage

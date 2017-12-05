@@ -16,6 +16,10 @@ export default class HighlightNews extends Component {
       ));
     }
 
+    if (!this.props.data || this.props.data.length == 0) {
+      return (<div />);
+    }
+
     return (
       <div className="columns">
         <div className="column">

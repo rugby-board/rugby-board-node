@@ -1,11 +1,11 @@
 .heading {
   background-color: $heading-bg-color;
+  border-radius: 6px;
   position: relative;
   width: 100%;
   z-index: 10;
 
   .heading-title {
-    border-left: .4rem $light-font-color solid;
     font-size: 1rem;
     line-height: 1.8;
     padding: .4rem .8rem;

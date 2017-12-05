@@ -1,9 +1,10 @@
 .menu {
   background-color: $main-font-color;
+  border-radius: 6px;
   color: $menu-link-color;
   font-size: 1.4rem;
   line-height: 1;
-  margin: 0;
+  margin: 0 0 1rem;
   width: 100%;
 
   a {

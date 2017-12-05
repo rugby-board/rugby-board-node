@@ -20,6 +20,7 @@ export default class News extends Component {
   }
 
   render() {
+    console.log(this.props.data);
     const dateString = moment(this.props.data.created_at).format('HH:mm YYYY-MM-DD');
     const newsLink = '/news/' + this.props.data.id;
     let contentClass = 'news-content';

@@ -1,8 +1,11 @@
 .article {
+  background-color: $news-bg-color;
+  border-radius: 6px;
   width: 100%;
 
   .article-content {
     line-height: 2;
-    margin: 1rem;
+    margin-top: 1rem;
+    padding: 0 1rem 1rem;
   }
 }
