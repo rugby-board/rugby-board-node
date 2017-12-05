@@ -38,6 +38,7 @@ export default class NewsPage extends Component {
         pageNum: nextProps.page,
       });
       this.fetchData(nextProps.page);
+      window.scrollTo(0, 0);
     }
   }
 

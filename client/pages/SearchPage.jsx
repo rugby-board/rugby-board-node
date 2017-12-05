@@ -53,6 +53,7 @@ export default class SearchPage extends Component {
         pageNum: nextProps.page,
       });
       this.fetchData(this.state.title, this.state.content, this.state.channel, this.state.event, nextProps.page);
+      window.scrollTo(0, 0);
     }
   }
 
