@@ -33,6 +33,17 @@ export default class InfoPage extends Component {
         ],
       },
       {
+        id: 'culture',
+        title: '橄榄球文化',
+        icon: 'book',
+        entries: [
+          {
+            title: '“心有猛虎 细嗅蔷薇”——各国橄榄球协会Logo文化简介（一）欧洲篇',
+            href: 'https://mp.weixin.qq.com/s/JBt1b6wg4oxZ7nskLP5tow',
+          },
+        ],
+      },
+      {
         id: 'rule',
         title: '规则介绍',
         icon: 'exclamation',
