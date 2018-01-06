@@ -52,9 +52,11 @@ const Main = () => (
 // main app
 const App = () => (
   <div className="container">
-    <Header />
-    <Main />
-    <Footer />
+    <div className="container-linen">
+      <Header />
+      <Main />
+      <Footer />
+    </div>
   </div>
 );
 

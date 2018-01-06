@@ -41,6 +41,7 @@ body {
   font-size: 1rem;
   -webkit-font-smoothing: antialiased;
   margin: 0;
+  padding: 0;
   text-align: center;
   word-wrap: break-word;
 }
@@ -51,11 +52,13 @@ body {
   width: $page-breakpoint;
 }
 
+.container-linen {
+  margin: .4rem;
+}
+
 @media (max-width: $page-breakpoint) {
   .container {
-    margin: 0;
     min-width: $min-breakpoint;
-    padding: .4rem;
     width: 100%;
   }
 }
