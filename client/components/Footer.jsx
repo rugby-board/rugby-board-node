@@ -8,7 +8,7 @@ export default class Footer extends Component {
         <div className="columns">
           <div className="footer-column">
             <div className="footer-title">关于</div>
-            <div>Rugby News Board, 2017.</div>
+            <div>Rugby News Board, 2018.</div>
             <div>Copyright &copy; <a href="https://crispgm.com/">David Zhang</a>.</div>
           </div>
           <div className="footer-column">
