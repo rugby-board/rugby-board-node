@@ -44,7 +44,11 @@ export default class InfoPage extends Component {
           {
             title: '“心有猛虎 细嗅蔷薇”——各国橄榄球协会Logo文化简介（二）亚洲篇',
             href: 'https://mp.weixin.qq.com/s/ci0WpkoWSzZF9jF-PD9TEw',
-          }
+          },
+          {
+            title: ' Rugby & Respect That’s why we love',
+            href: 'https://mp.weixin.qq.com/s/EXclrXpCVMHHkc-JeE5mAA',
+          },
         ],
       },
       {
