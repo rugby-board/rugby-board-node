@@ -22,6 +22,7 @@ export default class AboutPage extends Component {
   }
 
   render() {
+    /* eslint-disable react/style-prop-object */
     return (
       <div>
         <Heading data={this.state.aboutHeading} />

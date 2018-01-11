@@ -17,7 +17,6 @@ export default class NewsList extends Component {
     if (this.props.page != null) {
       pagination = <Pagination prefix={this.props.prefix} data={this.props.page} />;
     }
-    console.log(newsList);
 
     return (
       <div className="columns">

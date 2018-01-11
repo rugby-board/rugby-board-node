@@ -16,7 +16,7 @@ export default class HighlightNews extends Component {
       ));
     }
 
-    if (!this.props.data || this.props.data.length == 0) {
+    if (!this.props.data || this.props.data.length === 0) {
       return (<div />);
     }
 
