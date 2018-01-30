@@ -84,6 +84,10 @@ export default class InfoPage extends Component {
         icon: 'flag-checkered',
         entries: [
           {
+            title: '说说六国杯都有哪些奖项',
+            href: 'https://mp.weixin.qq.com/s/A90tL11HK-lksD8UmLz4Bg',
+          },
+          {
             title: '你需要知道的那些橄榄球奖杯（一）',
             href: 'https://mp.weixin.qq.com/s?__biz=MzI5ODA1NTc0OA==&mid=2473532677&idx=1&sn=58a2b18724f9a956d3f4518c0d2505f9',
           },
