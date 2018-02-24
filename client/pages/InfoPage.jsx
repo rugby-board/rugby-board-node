@@ -38,6 +38,10 @@ export default class InfoPage extends Component {
         icon: 'book',
         entries: [
           {
+            title: '橄榄球国歌巡礼 Rugby National Anthems',
+            href: 'http://music.163.com/#/m/playlist?id=2114939141',
+          },
+          {
             title: '“心有猛虎 细嗅蔷薇”——各国橄榄球协会Logo文化简介（一）欧洲篇',
             href: 'https://mp.weixin.qq.com/s/JBt1b6wg4oxZ7nskLP5tow',
           },
@@ -126,7 +130,7 @@ export default class InfoPage extends Component {
         icon: 'language',
         entries: [
           {
-            title: 'PlanetRugby',
+            title: 'Planet Rugby',
             href: 'http://www.planetrugby.com/',
           },
           {
