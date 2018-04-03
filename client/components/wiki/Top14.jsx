@@ -7,11 +7,11 @@ export default class Top14 extends Component {
         <div className="news-wrap" id="six-nations">
           <div className="news-item">
             <div className="news-title">
-              法国 TOP14 联赛
+              法国 Top 14 联赛
             </div>
             <div className="news-content">
               <p>
-                Coming soon.
+                Top 14 联赛成立于1892年，是法国橄榄球协会举办的最高级别橄榄球联赛。最初的对决发生在法兰西竞技场 Stade Français 和法国竞技 Racing Club de France （现在的竞技92）之间。
               </p>
             </div>
             <div className="news-footer">

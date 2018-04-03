@@ -47,7 +47,7 @@ export default class WikiContentPage extends Component {
               </li>
               <li>
                 <Link href="/wiki/top14" activeClassName="active-link">
-                  法国 TOP14 联赛
+                  法国 Top 14 联赛
                 </Link>
               </li>
             </ul>
