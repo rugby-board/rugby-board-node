@@ -38,9 +38,6 @@ export default class DropdownMenu extends Component {
             <Link onClick={this.handleDropdown} href="/results">比分</Link>
           </div>
           <div className="menu-item">
-            <Link onClick={this.handleDropdown} href="/search">搜索</Link>
-          </div>
-          <div className="menu-item">
             <Link onClick={this.handleEventsList} href="#">全部列表</Link>
           </div>
           <div className="menu-item">

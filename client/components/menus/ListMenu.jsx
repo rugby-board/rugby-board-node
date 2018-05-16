@@ -16,9 +16,6 @@ export default class ListMenu extends Component {
             <Link activeClassName="menu-active" href="/results">比分</Link>
           </div>
           <div className="menu-item">
-            <Link activeClassName="menu-active" href="/search">搜索</Link>
-          </div>
-          <div className="menu-item">
             <Link activeClassName="menu-active" href="/wiki">赛事介绍</Link>
           </div>
           <div className="menu-item">
