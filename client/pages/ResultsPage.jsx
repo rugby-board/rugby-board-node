@@ -68,7 +68,7 @@ export default class ResultsPage extends Component {
         <div className="column">
           <Heading data={this.state.resultsHeading} />
           <div>
-            <NewsList data={this.state.data} prefix="results" page={this.state.page} />
+            <NewsList data={this.state.data} prefix="results" page={this.state.page} showResultStyle />
           </div>
         </div>
         {this.state.error &&
