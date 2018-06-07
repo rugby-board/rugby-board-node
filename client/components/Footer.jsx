@@ -28,9 +28,6 @@ export default class Footer extends Component {
             <div className="menu-item"><Link href="/event/rugby-championship">冠军赛</Link></div>
             <div className="menu-item"><Link href="/event/six-nations">六国赛</Link></div>
             <div className="menu-item"><Link href="/event/rugby-world-cup">世界杯</Link></div>
-            <div className="menu-item">
-              <Link href="/event/british-and-irish-lions">不列颠和爱尔兰狮子</Link>
-            </div>
           </div>
           <div className="footer-column">
             <div className="footer-title">关注我们</div>
