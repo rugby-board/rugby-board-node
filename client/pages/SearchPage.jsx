@@ -178,6 +178,7 @@ export default class SearchPage extends Component {
                       <option value="17">Anglo Welsh Cup</option>
                       <option value="18">Mitre 10 Cup</option>
                       <option value="19">National Rugby Championship</option>
+                      <option value="20">Major League Rugby</option>
                       <option value="0">其它</option>
                     </select>
                   </div>

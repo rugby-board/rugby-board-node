@@ -89,6 +89,9 @@ export default class ListMenu extends Component {
             <Link activeClassName="menu-active" href="/event/top-league">TopLeague</Link>
           </div>
           <div className="menu-item">
+            <Link activeClassName="menu-active" href="/event/major-league-rugby">MLR</Link>
+          </div>
+          <div className="menu-item">
             <Link activeClassName="menu-active" href="/event/anglo-welsh-cup">盎格鲁威尔士杯</Link>
           </div>
         </div>

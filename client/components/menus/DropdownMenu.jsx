@@ -106,6 +106,9 @@ export default class DropdownMenu extends Component {
               <Link onClick={this.handleDropdown} href="/event/top-league">TopLeague</Link>
             </div>
             <div className="menu-item">
+              <Link onClick={this.handleDropdown} href="/event/major-league-rugby">MLR</Link>
+            </div>
+            <div className="menu-item">
               <Link onClick={this.handleDropdown} href="/event/anglo-welsh-cup">盎格鲁威尔士杯</Link>
             </div>
             <div className="menu-item">

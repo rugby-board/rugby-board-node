@@ -18,6 +18,7 @@ const EVENT_ID_MAP = {
   'anglo-welsh-cup': 17,
   'mitre-10-cup': 18,
   'national-rugby-championship': 19,
+  'major-league-rugby': 20,
 };
 
 const EVENTS_CHINESE_NAMES = {
@@ -40,6 +41,7 @@ const EVENTS_CHINESE_NAMES = {
   'anglo-welsh-cup': '盎格鲁威尔士杯',
   'mitre-10-cup': 'Mitre 10 杯',
   'national-rugby-championship': '国家橄榄球冠军赛',
+  'major-league-rugby': '职业橄榄球大联盟',
 };
 
 const EVENTS_WITH_WIKI = {

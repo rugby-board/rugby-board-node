@@ -110,6 +110,7 @@ export default class Editor extends Component {
               <option value="17">Anglo Welsh Cup</option>
               <option value="18">Mitre 10 Cup</option>
               <option value="19">National Rugby Championship</option>
+              <option value="20">Major League Rugby</option>
             </select>
           </div>
         </div>
