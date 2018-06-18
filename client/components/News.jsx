@@ -54,7 +54,7 @@ export default class News extends Component {
             {titleWithLink}
           </div>
           <div
-            className="news-content news-result"
+            className="news-content"
             dangerouslySetInnerHTML={markdownContent}
           />
           <div className="news-footer">
