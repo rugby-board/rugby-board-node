@@ -83,7 +83,7 @@ export default class HomePage extends Component {
         <div className="column column-2-5">
           <div>
             <Heading data={this.state.resultsHeading} />
-            <NewsList data={this.state.results} />
+            <NewsList data={this.state.results} showResultStyle />
           </div>
           <div>
             <Heading data={this.state.eventHeading} />
