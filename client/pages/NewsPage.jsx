@@ -67,7 +67,7 @@ export default class NewsPage extends Component {
       <div className="columns">
         <div className="column">
           <Heading data={this.state.newsHeading} />
-          <NewsList data={this.state.data} prefix="news" page={this.state.page} />
+          <NewsList data={this.state.data} prefix="news" page={this.state.page} showResultStyle />
         </div>
         {this.state.error &&
           <ErrorMessage error={this.state.error} />
