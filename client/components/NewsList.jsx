@@ -10,7 +10,7 @@ export default class NewsList extends Component {
 
     if (this.props.data != null) {
       newsList = this.props.data.map((news) =>
-        <News key={news.id} data={news} showResultStyle={this.props.showResultStyle} />,
+        <News key={news.id} data={news} />,
       );
     }
 

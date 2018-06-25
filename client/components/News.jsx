@@ -85,7 +85,7 @@ export default class News extends Component {
     news.channelText = news.channel_text;
     news.eventText = news.event_text;
 
-    if (this.props.showResultStyle) {
+    if (news.channel === 1) {
       return News.getResultDom(news);
     }
 
