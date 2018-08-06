@@ -57,6 +57,7 @@ const EVENTS_WITH_WIKI = {
   'mitre-10-cup': true,
   'national-rugby-championship': true,
   'top-league': true,
+  'major-league-rugby': true,
 };
 
 export function getEventId(eventName) {

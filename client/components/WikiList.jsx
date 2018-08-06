@@ -53,6 +53,11 @@ export default class WikiContentPage extends Component {
             </ul>
             <ul><b>国内赛事</b>
               <li>
+                <Link href="/wiki/top-league" activeClassName="active-link">
+                  日本 Top League 联赛
+                </Link>
+              </li>
+              <li>
                 <Link href="/wiki/currie-cup" activeClassName="active-link">
                   南非库里杯 Currie Cup
                 </Link>
@@ -68,8 +73,8 @@ export default class WikiContentPage extends Component {
                 </Link>
               </li>
               <li>
-                <Link href="/wiki/top-league" activeClassName="active-link">
-                  日本 Top League 联赛
+                <Link href="/wiki/major-league-rugby" activeClassName="active-link">
+                  美国橄榄球大联盟 MLR
                 </Link>
               </li>
             </ul>

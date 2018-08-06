@@ -18,6 +18,7 @@ import CurrieCup from '../components/wiki/CurrieCup';
 import NRC from '../components/wiki/NRC';
 import Mitre10Cup from '../components/wiki/Mitre10Cup';
 import TopLeague from '../components/wiki/TopLeague';
+import MajorLeagueRugby from '../components/wiki/MajorLeagueRugby';
 
 export default class WikiContentPage extends Component {
   constructor(props) {
@@ -118,6 +119,11 @@ export default class WikiContentPage extends Component {
       case 'top-league':
         data = (
           <TopLeague />
+        );
+        break;
+      case 'major-league-rugby':
+        data = (
+          <MajorLeagueRugby />
         );
         break;
       default:
