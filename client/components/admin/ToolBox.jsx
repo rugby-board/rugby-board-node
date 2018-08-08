@@ -27,11 +27,15 @@ export default class ToolBox extends Component {
       output: [
         '英超 Premiership 橄榄球联赛',
         '法国 TOP14 联赛',
-        'PRO14 联赛比分汇总',
+        'PRO14 联赛',
         '超级橄榄球 Super Rugby',
         '国际测试赛',
+        '欧洲冠军杯 European Champions Cup',
+        '欧洲挑战杯 European Challenge Cup',
         '库里杯 Currie Cup 超级组',
         '新西兰 Mitre 10 Cup',
+        '澳大利亚国家橄榄球冠军赛 NRC',
+        '美国职业橄榄球大联盟 MLR',
         '',
       ].join(' ' + moment().format('M.D') + '\n'),
     });
