@@ -130,9 +130,9 @@ export default class AdminPage extends Component {
             }
           </div>
           <div className="column column-2-5">
-            <RugbyDictQuery />
-            <PlanetRugbyResult />
             <ToolBox />
+            <PlanetRugbyResult />
+            <RugbyDictQuery />
           </div>
         </div>
       </div>
