@@ -7,7 +7,7 @@ export default class CurrieCup extends Component {
         <div className="news-wrap" id="six-nations">
           <div className="news-item">
             <div className="news-title">
-              南非库里杯
+              南非库里杯 Currie Cup
             </div>
             <div className="news-content">
               <p>
@@ -15,6 +15,9 @@ export default class CurrieCup extends Component {
               </p>
             </div>
             <div className="news-footer">
+              <span className="news-channel">
+                <a href="https://twitter.com/thecurriecup">官方 Twitter</a>
+              </span>
               <span className="news-time">
                 <a href="https://www.wikiwand.com/en/Currie_Cup">Wikipedia</a>
               </span>
