@@ -2,7 +2,7 @@ import { h, Component } from 'preact';
 import { Link } from 'preact-router/match';
 
 import marked from 'marked';
-import moment from 'moment';
+import { format } from 'date-fns';
 
 export default class News extends Component {
   static markdown(content) {
@@ -81,7 +81,7 @@ export default class News extends Component {
                     </Link>
                   );
     news.markdownContent = News.markdown(news.content);
-    news.dateString = moment(news.created_at).format('HH:mm YYYY-MM-DD');
+    news.dateString = format(new Date(news.created_at), 'HH:mm YYYY-MM-DD');
     news.channelText = news.channel_text;
     news.eventText = news.event_text;
 

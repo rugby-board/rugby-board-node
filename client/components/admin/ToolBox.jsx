@@ -1,6 +1,7 @@
 import { h, Component } from 'preact';
 
-import moment from 'moment';
+import { format } from 'date-fns';
+
 
 export default class ToolBox extends Component {
   constructor(props) {
@@ -23,6 +24,8 @@ export default class ToolBox extends Component {
   }
 
   handleTitle() {
+    const curDate = new Date();
+    const dateStr = curDate.getMonth() + '.' + curDate.getDay();
     this.setState({
       output: [
         '英超 Premiership 橄榄球联赛',
@@ -37,16 +40,16 @@ export default class ToolBox extends Component {
         '澳大利亚国家橄榄球冠军赛 NRC',
         '美国职业橄榄球大联盟 MLR',
         '',
-      ].join(' ' + moment().format('M.D') + '\n'),
+      ].join(' ' + dateStr + '\n'),
     });
   }
 
   handleToday() {
     this.setState({
       output: [
-        moment().format('MM.DD'),
-        moment().format('YYYY-MM-DD'),
-        moment().format('YYYYMMDD'),
+        format(new Date(), 'MM.DD'),
+        format(new Date(), 'YYYY-MM-DD'),
+        format(new Date(), 'YYYYMMDD'),
       ].join('\n'),
     });
   }

@@ -1,6 +1,6 @@
 import { h, Component } from 'preact';
 
-import moment from 'moment';
+import { format } from 'date-fns';
 import News from '../News';
 
 export default class Editor extends Component {
@@ -56,7 +56,7 @@ export default class Editor extends Component {
 
   render() {
     if (this.state.data.created_at === undefined) {
-      this.modifyData({ created_at: moment().format() });
+      this.modifyData({ created_at: format(new Date(), 'HH:mm YYYY-MM-DD') });
     }
     if (this.state.data.channel_text === undefined) {
       this.modifyData({ channel_text: '新闻' });
