@@ -10,7 +10,8 @@
     "server": "node server",
     "test": "mocha test",
     "lint": "eslint client --ext .js --ext .jsx && eslint server --ext .js && scss-lint client/css",
-    "heroku-postbuild": "webpack -p --config ./config/webpack.prod.config.js"
+    "heroku-postbuild": "webpack -p --config ./config/webpack.prod.config.js",
+    "profile": "webpack --config ./config/webpack.prod.config.js --profile --json > webpack-stats.json"
   },
   "dependencies": {
     "body-parser": "^1.17.2",

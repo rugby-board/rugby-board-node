@@ -2,7 +2,6 @@ import { h, Component } from 'preact';
 
 import { format } from 'date-fns';
 
-
 export default class ToolBox extends Component {
   constructor(props) {
     super(props);
