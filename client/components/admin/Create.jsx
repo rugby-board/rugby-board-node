@@ -8,8 +8,8 @@ export default class Edit extends Component {
     super(props);
 
     this.defaultNews = {
-      title: 'Awesome News Title',
-      content: 'Markdown is *available* here',
+      title: '',
+      content: '',
       channel: 0,
       event: 0,
     };

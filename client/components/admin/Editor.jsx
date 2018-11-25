@@ -71,12 +71,14 @@ export default class Editor extends Component {
             type="text"
             value={this.state.data.title}
             onChange={this.handleTitleChange}
+            placeholder="Awesome News Title"
           />
         </div>
         <div className="news-content">
           <textarea
             value={this.state.data.content}
             onInput={this.handleContentChange}
+            placeholder="Markdown is *available* here"
           />
           <div>
             <select
