@@ -32,11 +32,6 @@ export default class Footer extends Component {
           <div className="footer-column">
             <div className="footer-title">关注我们</div>
             <div className="menu-item">
-              <a href="http://eepurl.com/cU4oZH" target="_blank" rel="noopener noreferrer">
-                邮件订阅
-              </a>
-            </div>
-            <div className="menu-item">
               <a
                 href="https://rugby-board.herokuapp.com/news/feed"
                 target="_blank"

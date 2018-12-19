@@ -22,11 +22,6 @@ export default class ListMenu extends Component {
             <Link activeClassName="menu-active" href="/info">相关资料</Link>
           </div>
           <div className="menu-item">
-            <a href="http://eepurl.com/cU4oZH" target="_blank" rel="noopener noreferrer">
-              邮件订阅
-            </a>
-          </div>
-          <div className="menu-item">
             <Link activeClassName="menu-active" href="/about">关于</Link>
           </div>
           <div className="menu-item">

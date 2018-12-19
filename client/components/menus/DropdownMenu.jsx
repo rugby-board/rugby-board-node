@@ -47,16 +47,6 @@ export default class DropdownMenu extends Component {
             <Link onClick={this.handleDropdown} href="/info">相关资料</Link>
           </div>
           <div className="menu-item">
-            <a
-              onClick={this.handleDropdown}
-              href="http://eepurl.com/cU4oZH"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              邮件订阅
-            </a>
-          </div>
-          <div className="menu-item">
             <Link onClick={this.handleDropdown} href="/about">关于</Link>
           </div>
         </div>
