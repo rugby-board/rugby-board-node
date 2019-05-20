@@ -132,7 +132,7 @@ export default class Pro14 extends Component {
             </div>
             <div className="news-footer">
               <span className="news-channel">
-                <a href="http://www.pro14rugby.com/">官网</a>
+                <a href="https://www.pro14rugby.org/">官网</a>
               </span>
               <span className="news-time">
                 <a href="https://www.wikiwand.com/en/Pro14">Wikipedia</a>
